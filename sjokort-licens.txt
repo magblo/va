@@ -12,7 +12,9 @@ Farleder, ledlinjer, sjömärken, fyrar och fartbegränsningar
   Väylävirasto (Trafikledsverket), öppet WFS-gränssnitt, hämtat 10/2026.
   Licens: Creative Commons Erkännande 4.0 (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
 
-Land, vägar, sjöar och hus i sjökortsläget: © OpenStreetMap-bidragsgivare (ODbL).
+Stenar och grynnor (+ och ✱) samt land, vägar, sjöar och hus i sjökortsläget: © OpenStreetMap-bidragsgivare (ODbL), https://www.openstreetmap.org/copyright
+  Stenarna är inritade av frivilliga, oftast från flygfoton, och är inte kontrollerade mot sjömätning.
+  Grund grundare än 3 m (prickad kant) är beräknade ur Traficoms djupområden.
 
 
 The Finnish Transport and Communications Agency's hydrographic data license

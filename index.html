@@ -774,21 +774,21 @@ h1{font:700 34px/1.02 var(--f-head);letter-spacing:-.01em;margin:0 0 10px;text-w
 
 /* ---------- sjökort ---------- */
 :root{
-  --s-0:#a3cdea; --s-3:#bfddf1; --s-6:#d6eaf6; --s-10:#e8f3fa; --s-20:#f8fbfd;
+  --s-0:#90c2e7; --s-3:#bfddf1; --s-6:#d6eaf6; --s-10:#e8f3fa; --s-20:#f8fbfd;
   --s-land:#f2e8c8; --s-coast:#7a6a46; --s-contour:#5b87a5; --s-contour2:#93b4c8; --s-sound:#2c4352; --s-halo:rgba(255,255,255,.78);
   --s-fw:#1d2b34; --s-mag:#c0168a; --s-lake:#cfe5f2; --s-road:#ffffff; --s-road-case:#c8bb93; --s-track:#9a8a66; --s-bld:#cdbf9a;
-  --s-ferry:#56707f; --s-ua:#cfd2d3; --s-ol:#1b1b1b; --s-lab-bg:#ffffff;
+  --s-ferry:#56707f; --s-ua:#cfd2d3; --s-ol:#1b1b1b; --s-lab-bg:#ffffff; --s-danger:#14232c; --s-rock:#141414;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --s-0:#2d6083; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
+  --s-0:#3a6f95; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
   --s-land:#3a3629; --s-coast:#a8976f; --s-contour:#77a3c0; --s-contour2:#4b7189; --s-sound:#cfdde6; --s-halo:rgba(17,40,54,.82);
   --s-fw:#e3eaee; --s-mag:#ff6cc8; --s-lake:#26495f; --s-road:#6c6757; --s-road-case:#29271f; --s-track:#a59673; --s-bld:#575240;
-  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836}}
+  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7}}
 :root[data-theme="dark"]{
-  --s-0:#2d6083; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
+  --s-0:#3a6f95; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
   --s-land:#3a3629; --s-coast:#a8976f; --s-contour:#77a3c0; --s-contour2:#4b7189; --s-sound:#cfdde6; --s-halo:rgba(17,40,54,.82);
   --s-fw:#e3eaee; --s-mag:#ff6cc8; --s-lake:#26495f; --s-road:#6c6757; --s-road-case:#29271f; --s-track:#a59673; --s-bld:#575240;
-  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836}
+  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7}
 .mapbox.smode .leg-n,.mapbox:not(.smode) .leg-s{display:none}
 .smode .leaflet-hs-pane{opacity:calc(var(--hs-op) * .3)}
 .smode .leaflet-control-scale{margin-bottom:34px!important}
@@ -1090,6 +1090,10 @@ footer p{margin:0 0 8px}
         <li><span class="sw"><span class="fill" style="background:var(--s-20)"></span></span>Över 20 m</li>
         <li><span class="sw"><span class="fill" style="background:var(--s-land)"></span></span>Land</li>
         <li><span class="sw"><span class="ln s-dc"></span></span>Djupkurva</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><ellipse cx="11" cy="10" rx="8" ry="6" fill="var(--s-0)" stroke="var(--s-danger)" stroke-width="1.4" stroke-dasharray=".5 3" stroke-linecap="round"/></svg></span>Grund under 3 m</li>
+        <li><span class="sw"><span class="s-snd" style="font-weight:700;color:var(--s-danger)">1<sub>4</sub></span></span>Minsta djup</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M7 10h8M11 6v8" stroke="var(--s-rock)" stroke-width="1.4" stroke-linecap="round"/></svg></span>Sten under vatten</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M7.4 10h7.2M11 6.4v7.2M8.4 7.4l5.2 5.2M13.6 7.4l-5.2 5.2" stroke="var(--s-rock)" stroke-width="1.3" stroke-linecap="round"/></svg></span>Sten i ytan</li>
         <li><span class="sw"><span class="s-snd">4<sub>3</sub></span></span>Djup 4,3 m</li>
         <li><span class="sw"><span class="ln s-fw"></span></span>Farled</li>
         <li><span class="sw"><span class="ln s-bfw"></span></span>Båtfarled</li>
@@ -1104,7 +1108,7 @@ footer p{margin:0 0 8px}
         <li><span class="sw"><span class="fill" style="background:var(--s-ua)"></span></span>Ej sjömätt</li>
         <li><span class="sw"><span class="me-sw"></span></span>Din position</li>
       </ul>
-      <p class="leg-s"><b>Ej för navigering.</b> Uppfyller inte kraven för officiella sjökort. Djup i meter (N2000). Grund syns som mörkare blått och djupsiffror, enskilda stenar finns inte med. Tryck på ett sjömärke eller en farled för mer info.<br>Innehåller data från Traficoms sjökortsdatabas 10/2026 (<a href="sjokort-licens.txt" target="_blank" rel="noopener">licens</a>). Farleder och sjömärken: Väylävirasto 10/2026, CC BY 4.0.</p>
+      <p class="leg-s"><b>Ej för navigering.</b> Uppfyller inte kraven för officiella sjökort. Djup i meter (N2000). Grund grundare än 3 m har prickad kant. Stenarna kommer från OpenStreetMap och är inte kontrollerade mot sjömätning. Tryck på ett sjömärke eller en farled för mer info.<br>Innehåller data från Traficoms sjökortsdatabas 10/2026 (<a href="sjokort-licens.txt" target="_blank" rel="noopener">licens</a>). Farleder och sjömärken: Väylävirasto 10/2026, CC BY 4.0. Stenar: © OpenStreetMap-bidragsgivare.</p>
       <ul class="leg-n">
         <li><span class="sw"><span class="ln"></span></span>Led</li>
         <li><span class="sw"><span class="ln long"></span></span>Långled</li>
@@ -1500,7 +1504,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     sR=L.canvas({pane:'sea',padding:.5,tolerance:0}),sNR=L.canvas({pane:'snav',padding:.5,tolerance:7});
   let SOV=null,SNAV=null,sLoad=false,SP={};const SC={},SM={},SALL=[];
   function sPal(){const c=n=>css('--s-'+n);
-    SP={w:ST.map(t=>c(t)),land:c('land'),coast:c('coast'),dc:c('contour'),dc2:c('contour2'),snd:c('sound'),halo:c('halo'),fw:c('fw'),mag:c('mag'),ua:c('ua'),ol:c('ol'),lab:c('lab-bg'),
+    SP={w:ST.map(t=>c(t)),dng:c('danger'),rk:c('rock'),land:c('land'),coast:c('coast'),dc:c('contour'),dc2:c('contour2'),snd:c('sound'),halo:c('halo'),fw:c('fw'),mag:c('mag'),ua:c('ua'),ol:c('ol'),lab:c('lab-bg'),
       red:'#d8322b',green:'#14914a',yel:'#f4c300',blk:'#161616',wht:'#ffffff',org:'#f08a1c',secW:'#f2b705'}}
   const sPoly=(a,r,o)=>a&&a.length?L.polygon(a.map(p=>p.map(dec)),Object.assign({renderer:r,interactive:false,stroke:false,fillOpacity:1,smoothFactor:.6},o)):null;
   // Ett lager som ritar många punkter (djupsiffror, sjömärken, etiketter) direkt på kartans canvas.
@@ -1516,9 +1520,11 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     _containsPoint(p){return this.options.hit?this.options.hit(this,p):false}});
   const SF='"Source Serif 4",Georgia,serif';
   function sDepth(d){const i=Math.floor(d+1e-6),f=Math.round((d-i)*10);return d<30&&f>0&&f<10?[String(i),String(f)]:[String(Math.round(d)),'']}
-  function drawSnd(ctx,xy,pts,z){if(z<12.5-.01)return;const big=z>=15,f1=big?12.5:11.5,f2=big?9:8.5,F1='italic 400 '+f1+'px '+SF,F2='italic 400 '+f2+'px '+SF;
+  function drawSnd(ctx,xy,pts,z){if(z<12-.01)return;const big=z>=15,f1=big?12.5:11.5,f2=big?9:8.5;
     ctx.textBaseline='middle';ctx.lineJoin='round';ctx.lineWidth=3;ctx.strokeStyle=SP.halo;ctx.fillStyle=SP.snd;
-    for(let i=0;i<pts.length;i++){const p=pts[i];if(p[3]>z+.01)break;const[a,b]=sDepth(p[2]/10),x=xy[i].x,y=xy[i].y;
+    for(let i=0;i<pts.length;i++){const p=pts[i];if(p[3]>z+.01)break;const[a,b]=sDepth(p[2]/10),x=xy[i].x,y=xy[i].y,w8=p[4]?'700 ':'400 ',
+      F1='italic '+w8+(p[4]?f1+1:f1)+'px '+SF,F2='italic '+w8+f2+'px '+SF;
+      ctx.fillStyle=p[4]?SP.dng:SP.snd;
       ctx.font=F1;const wa=ctx.measureText(a).width;let wb=0;if(b){ctx.font=F2;wb=ctx.measureText(b).width+.5}
       const x0=x-(wa+wb)/2;ctx.font=F1;ctx.strokeText(a,x0,y);ctx.fillText(a,x0,y);
       if(b){ctx.font=F2;ctx.strokeText(b,x0+wa+.5,y+3.2);ctx.fillText(b,x0+wa+.5,y+3.2)}}}
@@ -1527,14 +1533,33 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     if(d.U){const u=sPoly(d.U,r,{_k:'u'});if(u){g.addLayer(u);own.push(u)}}
     if(d.C)Object.entries(d.C).forEach(([v,a])=>{const l=L.polyline(a.map(dec),{renderer:r,interactive:false,lineCap:'round',lineJoin:'round',smoothFactor:.8,_v:+v});g.addLayer(l);own.push(l)});
     if(d.K&&d.K.length){const l=L.polyline(d.K.map(dec),{renderer:r,interactive:false,lineCap:'round',lineJoin:'round',smoothFactor:.6,_coast:1});g.addLayer(l);own.push(l)}
-    if(detail&&d.S){const ll=dec(d.S.p),pts=ll.map((p,i)=>[p[0],p[1],d.S.d[i],d.S.z[i]/2]);g.addLayer(new SBatch(pts,drawSnd,{renderer:sNR,interactive:false,pad:30}))}
+    if(d.G&&d.G.length){const l=L.polyline(d.G.map(dec),{renderer:r,interactive:false,lineCap:'round',lineJoin:'round',smoothFactor:.6,_danger:1});g.addLayer(l);own.push(l)}
+    if(detail&&d.S){const ll=dec(d.S.p),pts=ll.map((p,i)=>[p[0],p[1],d.S.d[i],d.S.z[i]/2,d.S.b?d.S.b[i]:0]);g.addLayer(new SBatch(pts,drawSnd,{renderer:sNR,interactive:false,pad:30}))}
     own.forEach(l=>{SALL.push(l);sStyle(l)});g._own=own;return g}
   function sStyle(l,z){const o=l.options;z=z==null?map.getZoom():z;
     if(o._land||o._bg){l.setStyle({fillColor:o._bg?SP.w[4]:SP.land});return}
     if(o._k!=null){l.setStyle(o._k==='u'?{fillColor:SP.ua,fillOpacity:.85}:{fillColor:SP.w[o._k],fillOpacity:1});return}
     if(o._coast){l.setStyle({color:SP.coast,weight:z>=15?1.1:.8,opacity:.9});return}
+    if(o._danger){l.setStyle({color:SP.dng,weight:z>=15?1.5:1.2,opacity:.95,dashArray:'0.5 3.2',lineCap:'round'});return}
     if(o._v){const major=[3,6,10,20].includes(o._v);
       l.setStyle({color:major?SP.dc:SP.dc2,weight:major?(z>=15?1.05:.85):.6,opacity:major?.9:(z>=13?.8:0),dashArray:o._v===3&&false?'3 2':null})}}
+  // ---- grund och stenar ----
+  function drawGrund(ctx,xy,pts,z){if(z<10.75||z>=12)return;const mpp=156543.03*Math.cos(60.2*Math.PI/180)/Math.pow(2,z);
+    ctx.setLineDash([.5,3]);ctx.lineCap='round';
+    for(let i=0;i<pts.length;i++){const p=pts[i],r=Math.max(4.5,p[3]/mpp+2.5),x=xy[i].x,y=xy[i].y;
+      ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.lineWidth=3.2;ctx.strokeStyle=SP.halo;ctx.stroke();ctx.lineWidth=1.4;ctx.strokeStyle=SP.dng;ctx.stroke()}
+    ctx.setLineDash([])}
+  function drawRocks(ctx,xy,pts,z,lay){const vis=[];if(z<13-.01){lay._vis=vis;return}const s=z<14?.85:z<15.5?1:1.2;
+    ctx.lineCap='round';
+    for(let i=0;i<pts.length;i++){const p=pts[i],x=xy[i].x,y=xy[i].y,k=p[2],h=3.6*s;vis.push(i);
+      const lines=k==='a'?[[h,0],[0,h],[h*.72,h*.72],[h*.72,-h*.72]]:k==='u'?[[h,0],[0,h]]:null;
+      if(lines){[[3.2,SP.halo],[1.3,SP.rk]].forEach(([lw,col])=>{ctx.lineWidth=lw;ctx.strokeStyle=col;ctx.beginPath();lines.forEach(([dx,dy])=>{ctx.moveTo(x-dx,y-dy);ctx.lineTo(x+dx,y+dy)});ctx.stroke()})}
+      else if(k==='d'){ctx.beginPath();ctx.arc(x,y,2.3*s,0,7);ctx.lineWidth=2;ctx.strokeStyle=SP.halo;ctx.stroke();ctx.fillStyle=SP.rk;ctx.fill()}
+      else{[[3.2,SP.halo],[1.3,SP.rk]].forEach(([lw,col])=>{ctx.lineWidth=lw;ctx.strokeStyle=col;ctx.beginPath();ctx.moveTo(x-6*s,y);ctx.lineTo(x+6*s,y);
+        [-3,0,3].forEach(o=>{ctx.moveTo(x+o*s,y-3*s);ctx.lineTo(x+o*s,y+3*s)});ctx.stroke()})}}
+    lay._vis=vis}
+  function hitRock(lay,p){let best=-1,bd=12*12;(lay._vis||[]).forEach(i=>{const q=lay._xy[i],dx=q.x-p.x,dy=q.y-p.y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=i}});lay._hit=best;return best>=0}
+  const RK={u:['Sten under vatten','Ligger under vattenytan.'],a:['Sten i vattenytan','Syns ibland, beroende på vattenståndet.'],d:['Sten ovanför vattnet','Syns oftast.'],w:['Vrak','']};
   // ---- sjömärken ----
   const AK={p:'Babordsmärke',s:'Styrbordsmärke',N:'Nordmärke',S:'Sydmärke',E:'Ostmärke',W:'Västmärke',i:'Grundmärke',w:'Mittledsmärke',x:'Specialmärke',
     L:'Ensmärke',K:'Kummel',R:'Radarmärke',F:'Fyr',f:'Fyr',o:'Sjömärke'};
@@ -1597,7 +1622,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     out.lines=L.layerGroup();out.labs=[];
     out.lead=L.layerGroup();n.t.forEach(e=>out.lead.addLayer(L.polyline(dec(e),{renderer:sNR,interactive:false,_lead:1,smoothFactor:.8})));
     n.n.forEach(r=>{const ll=dec(r[0]);const l=L.polyline(ll,{renderer:sNR,interactive:true,smoothFactor:.8,_cls:r[1],_tc:r[5]});l._r=r;
-      l.on('click',e=>{L.DomEvent.stopPropagation(e);L.popup({maxWidth:250,minWidth:250,autoPanPaddingTopLeft:L.point(16,70)}).setLatLng(e.latlng).setContent(fwHtml(r)).openOn(map)});
+      l.on('click',e=>{L.DomEvent.stopPropagation(e);L.popup({maxWidth:250,minWidth:250,autoPanPaddingTopLeft:L.point(16,70),autoPanPaddingBottomRight:L.point(70,30)}).setLatLng(e.latlng).setContent(fwHtml(r)).openOn(map)});
       out.lines.addLayer(l);
       if(r[2]&&ll.length>=2&&r[6]>300){const m=ll[Math.floor((ll.length-1)/2)],m2=ll[Math.ceil((ll.length-1)/2)];out.labs.push([(m[0]+m2[0])/2,(m[1]+m2[1])/2,r[2],r[6]])}});
     out.labs.sort((a,b)=>b[3]-a[3]);
@@ -1606,8 +1631,12 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     (n.v||[]).forEach(([rings,val])=>{const ll=rings.map(dec);out.sp.addLayer(L.polygon(ll,{renderer:sNR,interactive:false,fill:false,_sp:1}));
       const b=L.latLngBounds(ll[0]),c=b.getCenter();spl.push([c.lat,c.lng,val])});
     out.spl=new SBatch(spl,drawSpLab,{renderer:sNR,interactive:false,pad:60});
+    out.gm=new SBatch((n.g||[]).map(g=>g),drawGrund,{renderer:sNR,interactive:false,pad:40});
+    out.rocks=new SBatch(n.r||[],drawRocks,{renderer:sNR,interactive:true,pad:20,hit:hitRock});
+    out.rocks.on('click',e=>{const i=out.rocks._hit;if(i==null||i<0)return;L.DomEvent.stopPropagation(e);const r=n.r[i],t=RK[r[2]]||RK.u;
+      L.popup({maxWidth:250,minWidth:250,autoPanPaddingTopLeft:L.point(16,70),autoPanPaddingBottomRight:L.point(70,30)}).setLatLng([r[0],r[1]]).setContent('<div class="spop"><div class="sp-h"><b>'+t[0]+'</b><small>Grynna · grundare än 3 m</small></div>'+(t[1]?'<p>'+t[1]+'</p>':'')+'<p>Läget kommer från OpenStreetMap och är inritat av frivilliga, oftast från flygfoton. Det är inte kontrollerat mot sjömätning.</p><p class="sp-src">OpenStreetMap · ej för navigering</p></div>').openOn(map)});
     out.aids.on('click',e=>{const i=out.aids._hit;if(i==null||i<0)return;L.DomEvent.stopPropagation(e);const a=n.a[i];
-      L.popup({maxWidth:250,minWidth:250,autoPanPaddingTopLeft:L.point(16,70),offset:L.point(0,-8)}).setLatLng([a[0],a[1]]).setContent(aidHtml(a)).openOn(map)});
+      L.popup({maxWidth:250,minWidth:250,autoPanPaddingTopLeft:L.point(16,70),autoPanPaddingBottomRight:L.point(70,30),offset:L.point(0,-8)}).setLatLng([a[0],a[1]]).setContent(aidHtml(a)).openOn(map)});
     return out}
   const LCOL={v:'vit',p:'röd',vi:'grön',k:'gul'};
   function aidHtml(a){const k=a[2],nm=a[4]||AK[k],tags=[];const ty=a[5]&&a[5]!==AK[k]?a[5]:'';
@@ -1636,12 +1665,12 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     if(SNAV){SNAV.lines.eachLayer(l=>l.setStyle(fwStyle(l)));
       SNAV.lead.eachLayer(l=>l.setStyle({color:SP.fw,weight:.7,opacity:.5}));
       SNAV.sp.eachLayer(l=>l.setStyle({color:SP.mag,weight:1.2,dashArray:'6 4',opacity:.55}));
-      [SNAV.aids,SNAV.sect,SNAV.fwl,SNAV.spl].forEach(b=>b.redraw())}
+      [SNAV.gm,SNAV.rocks,SNAV.aids,SNAV.sect,SNAV.fwl,SNAV.spl].forEach(b=>b.redraw())}
     Object.values(SC).concat(Object.values(SM)).forEach(o=>{if(o.g)o.g.eachLayer(l=>{if(l instanceof SBatch)l.redraw()})})}
   let sZ=null;
   function sOff(){if(!SOV)return;[SOV.base,SOV.ov].forEach(g=>map.hasLayer(g)&&map.removeLayer(g));
     Object.values(SC).concat(Object.values(SM)).forEach(o=>{if(o.g&&map.hasLayer(o.g))map.removeLayer(o.g)});
-    if(SNAV)['aids','sect','lines','lead','fwl','sp','spl'].forEach(k=>map.hasLayer(SNAV[k])&&map.removeLayer(SNAV[k]));
+    if(SNAV)['gm','rocks','aids','sect','lines','lead','fwl','sp','spl'].forEach(k=>map.hasLayer(SNAV[k])&&map.removeLayer(SNAV[k]));
     map.getPane('snav').style.pointerEvents='none'}
   function sLevel(list,store,want,detail,vb,r){let miss=false;
     list.forEach(c=>{const vis=want&&vb.intersects(c.b);let o=store[c.n];
@@ -1656,7 +1685,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   function sUpdate(){
     if(!smode){sOff();return}
     if(!SOV){if(!sLoad){sLoad=true;sPal();
-      Promise.all([fetch('s/ov.json').then(r=>r.json()),fetch('s/nav.json').then(r=>r.json())]).then(([o,n])=>{SOV=sOv(o);SNAV=sNav(n);sLoad=false;sPaint();sUpdate()})
+      Promise.all([fetch('s/ov.json').then(r=>r.json()),fetch('s/nav.json').then(r=>r.json()),fetch('s/grund.json').then(r=>r.json()).catch(()=>({}))]).then(([o,n,g])=>{n.g=g.g;n.r=g.r;SOV=sOv(o);SNAV=sNav(n);sLoad=false;sPaint();sUpdate()})
         .catch(()=>{sLoad=false;hint('Sjökortet kunde inte laddas just nu')})}return}
     map.getPane('snav').style.pointerEvents='';
     const z=map.getZoom(),vb=map.getBounds().pad(.3);
@@ -1668,9 +1697,9 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     const useO=(!wantD&&!wantM)||(useM&&missM);
     if(useO&&!map.hasLayer(SOV.ov))SOV.ov.addTo(map);else if(!useO&&map.hasLayer(SOV.ov))map.removeLayer(SOV.ov);
     ['lines','sp','lead'].forEach(k=>{const on=z>=({sp:12.5,lead:13}[k]||9.5);if(on&&!map.hasLayer(SNAV[k]))SNAV[k].addTo(map);else if(!on&&map.hasLayer(SNAV[k]))map.removeLayer(SNAV[k])});
-    ['sect','fwl','aids','spl'].forEach(k=>{if(!map.hasLayer(SNAV[k]))SNAV[k].addTo(map)});
+    ['gm','rocks','sect','fwl','aids','spl'].forEach(k=>{if(!map.hasLayer(SNAV[k]))SNAV[k].addTo(map)});
     try{if(z>=SZD&&/^Zooma in för djup/.test(ohint.textContent))ohint.classList.add('out')}catch(e){}
-    if(sZ!==z){const zz=sZ;sZ=z;if(zz==null||(zz<13)!==(z<13)||(zz<15)!==(z<15))SALL.forEach(l=>{if(l.options._v||l.options._coast)sStyle(l,z)});
+    if(sZ!==z){const zz=sZ;sZ=z;if(zz==null||(zz<13)!==(z<13)||(zz<15)!==(z<15))SALL.forEach(l=>{if(l.options._v||l.options._coast||l.options._danger)sStyle(l,z)});
       if(zz==null||(zz<12)!==(z<12))SNAV.lines.eachLayer(l=>l.setStyle(fwStyle(l,z)))}
     sEvict(SC,18);sEvict(SM,8)}
   map.on('moveend zoomend',sUpdate);

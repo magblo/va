@@ -1,0 +1,13 @@
+Vandringsleder på Åland – webbapp
+
+Lägg upp hela den här mappen på en webbplats, till exempel GitHub Pages eller Netlify.
+Öppna adressen i Safari på iPhone, tryck Dela och välj "Lägg till på hemskärmen".
+
+Innehåll
+- index.html: själva appen
+- manifest.webmanifest, ikoner: appnamn och ikon på hemskärmen
+- sw.js: sparar appen i telefonen så den fungerar utan täckning efter första besöket
+- foto/, tumme/: foton från Visit Åland (rättigheterna tillhör Visit Åland)
+- o/: terrängdata för O-kartan runt lederna (OpenStreetMap och höjddata)
+
+Källor: Visit Åland, Ålands landskapsregering, OpenStreetMap-bidragsgivare, GSHHG, Mapzen Terrain Tiles på AWS (bl.a. Copernicus EU-DEM).

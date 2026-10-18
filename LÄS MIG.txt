@@ -9,7 +9,9 @@ Innehåll
 - sw.js: sparar appen i telefonen så den fungerar utan täckning efter första besöket
 - foto/, tumme/: foton från Visit Åland (rättigheterna tillhör Visit Åland)
 - o/: terrängdata för O-kartan (OpenStreetMap och höjddata)
-- s/: sjökortsdata (djup från Traficom, farleder och sjömärken från Väylävirasto). Ej för navigering.
+- s/: data för det ritade sjökortet (djup från Traficom, farleder och sjömärken från Väylävirasto, stenar från OpenStreetMap). Ej för navigering.
 - sjokort-licens.txt: källor och licensvillkor för sjökortet
 
-Källor: Visit Åland, Traficom (sjökortsdatabas 10/2026), Väylävirasto (CC BY 4.0), Ålands landskapsregering, OpenStreetMap-bidragsgivare, GSHHG, Mapzen Terrain Tiles på AWS (bl.a. Copernicus EU-DEM).
+Sjökortets läge Kartbild hämtar Traficoms öppna sjökortsbilder direkt från Traficom (CC BY 4.0), så det behövs nät första gången man tittar på ett område.
+
+Källor: Visit Åland, Traficom (sjökortsbilder och sjökortsdatabas 10/2026), Väylävirasto (CC BY 4.0), Ålands landskapsregering, OpenStreetMap-bidragsgivare, GSHHG, Mapzen Terrain Tiles på AWS (bl.a. Copernicus EU-DEM).

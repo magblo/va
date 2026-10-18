@@ -3,7 +3,12 @@ Sjökortet i appen Vandra Åland – källor och licenser
 
 EJ FÖR NAVIGERING. Kartan uppfyller inte kraven för officiella sjökort.
 
-Djupdata (djupområden, djupkurvor, djupsiffror)
+Sjökortsbild (läget Kartbild)
+  Traficoms öppna sjökortsbilder (WMTS-tjänsten Traficom:Merikarttasarjat public), som hämtas direkt från Traficom.
+  Licens: Creative Commons Erkännande 4.0 (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
+  "Källa: Traficom. Får inte användas för navigationsändamål. Uppfyller inte fordringarna för officiella sjökort."
+
+Djupdata i läget Ritad (djupområden, djupkurvor, djupsiffror)
   Innehåller data från Traficoms sjökortsdatabas (Liikenne- ja viestintävirasto Traficom), hämtad 10/2026.
   Traficom stöder eller rekommenderar inte denna användning.
   Licensvillkoren återges nedan.

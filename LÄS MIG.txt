@@ -8,6 +8,8 @@ Innehåll
 - manifest.webmanifest, ikoner: appnamn och ikon på hemskärmen
 - sw.js: sparar appen i telefonen så den fungerar utan täckning efter första besöket
 - foto/, tumme/: foton från Visit Åland (rättigheterna tillhör Visit Åland)
-- o/: terrängdata för O-kartan runt lederna (OpenStreetMap och höjddata)
+- o/: terrängdata för O-kartan (OpenStreetMap och höjddata)
+- s/: sjökortsdata (djup från Traficom, farleder och sjömärken från Väylävirasto). Ej för navigering.
+- sjokort-licens.txt: källor och licensvillkor för sjökortet
 
-Källor: Visit Åland, Ålands landskapsregering, OpenStreetMap-bidragsgivare, GSHHG, Mapzen Terrain Tiles på AWS (bl.a. Copernicus EU-DEM).
+Källor: Visit Åland, Traficom (sjökortsdatabas 10/2026), Väylävirasto (CC BY 4.0), Ålands landskapsregering, OpenStreetMap-bidragsgivare, GSHHG, Mapzen Terrain Tiles på AWS (bl.a. Copernicus EU-DEM).

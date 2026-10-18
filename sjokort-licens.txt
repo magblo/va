@@ -1,0 +1,37 @@
+Sjökortet i appen Vandra Åland – källor och licenser
+=====================================================
+
+EJ FÖR NAVIGERING. Kartan uppfyller inte kraven för officiella sjökort.
+
+Djupdata (djupområden, djupkurvor, djupsiffror)
+  Innehåller data från Traficoms sjökortsdatabas (Liikenne- ja viestintävirasto Traficom), hämtad 10/2026.
+  Traficom stöder eller rekommenderar inte denna användning.
+  Licensvillkoren återges nedan.
+
+Farleder, ledlinjer, sjömärken, fyrar och fartbegränsningar
+  Väylävirasto (Trafikledsverket), öppet WFS-gränssnitt, hämtat 10/2026.
+  Licens: Creative Commons Erkännande 4.0 (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
+
+Land, vägar, sjöar och hus i sjökortsläget: © OpenStreetMap-bidragsgivare (ODbL).
+
+
+The Finnish Transport and Communications Agency's hydrographic data license
+---------------------------------------------------------------------------
+1. General information
+The Finnish Transport and Communications Agency (hereinafter the Licensor) as the holder of the incorporeal rights, has granted a license to use a copy of the data or part of it (hereinafter data) on the terms and conditions mentioned below. A Licensee is a natural or legal person, who uses the data covered by the license. The Licensee accepts the terms and conditions of this licence by receiving the data covered by the licence. This license agreement does not create a cooperation or business relationship between the Licensee and Licensor.
+
+2. Terms and conditions of the licence
+2.1. Right of use
+This licence grants a worldwide and free of charge parallel right of use. According to the terms and conditions of the licence, data received by the Licensor can for other than navigational purposes freely be: copied, distributed and published, modified and utilised non-commercially, combined with other products and, used as part of an application or service. Navigational purposes refer to all maritime operations, such as route planning, positioning, determining the best direction and ensuring the vessel's safe passage.
+
+2.2. Duties and responsibilities of the License
+When distributing the data or an application including the data it, the Licensee should in a reasonable way, in the distribution media or application used, mention: the name of the Licensor, the data and the time of the data transfer (for example: contains information received from the Finnish Transport and Communications Agency’s nautical chart data base 06/2020) present a copy of this licence or a link to it, and omit the name of the Licensor in connection with the product or service, on the request of the Licensor. The Licensee must not in connection with the data that is being used indicate that the Licensor supports or recommends the the data use in question.
+
+2.3 Duties and responsibilities of the Licensor
+The Licensor is responsible for ensuring that the Licensor has the right to transfer the rights to the data covered by this license. The data has been licensed "as is", and the Licensor shall not be held responsible for any errors or omissions in the data, or any inconsistencies or discontinuities between the vertical coordinate reference systems used therein, disclaims any warranty for the validity or up-to-date status of the data and shall be free from liability for direct or consequential damages arising from the use of data provided by the Licensor, and is not obliged to ensure the continuous availability of the data, nor to announce in advance the interruption or cessation of availability, and the licensor shall be free from liability for direct or consequential damages arising from any such interruption or cessation.
+
+3. Jurisdiction
+Finnish law shall apply to this licence.
+
+4. Amendments to this licence
+The Licensor may at any time change the terms and conditions of the license or apply a different license to the material. The terms and conditions in this license shall, however, still apply to such data that has been transferred prior to the amendments to the terms and conditions or the change of the license.

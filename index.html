@@ -772,6 +772,52 @@ h1{font:700 34px/1.02 var(--f-head);letter-spacing:-.01em;margin:0 0 10px;text-w
 .omode .lab span{text-shadow:0 0 2px var(--o-halo),0 0 3px var(--o-halo),0 0 5px var(--o-halo)}
 .omode .lab-sea span{text-shadow:none}
 
+/* ---------- sjökort ---------- */
+:root{
+  --s-0:#a3cdea; --s-3:#bfddf1; --s-6:#d6eaf6; --s-10:#e8f3fa; --s-20:#f8fbfd;
+  --s-land:#f2e8c8; --s-coast:#7a6a46; --s-contour:#5b87a5; --s-contour2:#93b4c8; --s-sound:#2c4352; --s-halo:rgba(255,255,255,.78);
+  --s-fw:#1d2b34; --s-mag:#c0168a; --s-lake:#cfe5f2; --s-road:#ffffff; --s-road-case:#c8bb93; --s-track:#9a8a66; --s-bld:#cdbf9a;
+  --s-ferry:#56707f; --s-ua:#cfd2d3; --s-ol:#1b1b1b; --s-lab-bg:#ffffff;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --s-0:#2d6083; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
+  --s-land:#3a3629; --s-coast:#a8976f; --s-contour:#77a3c0; --s-contour2:#4b7189; --s-sound:#cfdde6; --s-halo:rgba(17,40,54,.82);
+  --s-fw:#e3eaee; --s-mag:#ff6cc8; --s-lake:#26495f; --s-road:#6c6757; --s-road-case:#29271f; --s-track:#a59673; --s-bld:#575240;
+  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836}}
+:root[data-theme="dark"]{
+  --s-0:#2d6083; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
+  --s-land:#3a3629; --s-coast:#a8976f; --s-contour:#77a3c0; --s-contour2:#4b7189; --s-sound:#cfdde6; --s-halo:rgba(17,40,54,.82);
+  --s-fw:#e3eaee; --s-mag:#ff6cc8; --s-lake:#26495f; --s-road:#6c6757; --s-road-case:#29271f; --s-track:#a59673; --s-bld:#575240;
+  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836}
+.mapbox.smode .leg-n,.mapbox:not(.smode) .leg-s{display:none}
+.smode .leaflet-hs-pane{opacity:calc(var(--hs-op) * .3)}
+.smode .leaflet-control-scale{margin-bottom:34px!important}
+.smode .nm span{text-shadow:0 0 2px var(--s-land),0 0 3px var(--s-land),0 0 5px var(--s-land)}
+.smode .nm-lake span,.smode .nm-bay span{color:var(--s-sound);text-shadow:0 0 2px var(--s-10),0 0 4px var(--s-10),0 0 6px var(--s-10)}
+.smode .lab-sea span{color:var(--s-contour);text-shadow:0 0 3px var(--s-20),0 0 5px var(--s-20)}
+.smode .lab span{text-shadow:0 0 2px var(--s-land),0 0 3px var(--s-land),0 0 5px var(--s-land)}
+.snote{position:absolute;z-index:796;top:calc(60px + var(--full,0) * env(safe-area-inset-top,0px));left:calc(12px + env(safe-area-inset-left,0px));
+  padding:5px 10px;border-radius:999px;font:700 11px/1 var(--f-head);letter-spacing:.1em;text-transform:uppercase;color:var(--s-mag);
+  background:color-mix(in srgb,var(--surface) 90%,transparent);border:1px solid var(--line);box-shadow:var(--shadow-sm);pointer-events:none}
+.mapbox.is-full .snote{--full:1}
+.mapbox:not(.smode) .snote{display:none}
+.legend .ln.s-fw{border-top:1.8px solid var(--s-fw)}
+.legend .ln.s-bfw{border-top:1.5px dashed var(--s-fw)}
+.legend .ln.s-dc{border-top:1.2px solid var(--s-contour)}
+.legend .s-snd{font:italic 400 14px/1 var(--f-water);color:var(--s-sound)}
+.legend .s-snd sub{font-size:10px;vertical-align:-2px}
+.legend .s-sym{width:22px;height:20px;display:block;overflow:visible}
+.legend p a{color:inherit}
+.spop{padding:14px 16px 12px}
+.spop .sp-h{padding-right:26px}
+.spop .sp-h b{display:block;font:700 17px/1.15 var(--f-head);letter-spacing:.01em}
+.spop .sp-h small{display:block;margin-top:3px;color:var(--muted);font-size:12.5px}
+.spop .sp-tags{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 0}
+.spop .sp-tags span{padding:3px 8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);font-size:12px;font-weight:600}
+.spop p{margin:9px 0 0;font-size:13px;color:var(--ink)}
+.spop .sp-fw{color:var(--muted)}
+.spop .sp-src{margin-top:8px;font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
+
 .leaflet-container{background:var(--sea0);font:13px/1.4 var(--f-body);-webkit-tap-highlight-color:transparent}
 .leaflet-control-scale{margin-left:calc(12px + env(safe-area-inset-left,0px))!important;margin-bottom:12px!important}
 .leaflet-control-scale-line{background:color-mix(in srgb,var(--surface) 80%,transparent);color:var(--ink);border-color:var(--ink);border-width:0 1.5px 1.5px;font:600 11px/1.4 var(--f-head);letter-spacing:.04em;padding:1px 6px 0}
@@ -978,7 +1024,7 @@ footer p{margin:0 0 8px}
 <header class="top wrap">
   <p class="eyebrow">Fasta Åland och skärgården</p>
   <h1>Vandringsleder på Åland</h1>
-  <p class="lede">Hitta en led som passar dig, se var den går och få vägbeskrivning dit. Nyp med två fingrar för att zooma kartan. Välj O-karta för terräng och höjdkurvor.</p>
+  <p class="lede">Hitta en led som passar dig, se var den går och få vägbeskrivning dit. Nyp med två fingrar för att zooma kartan. Välj O-karta för terräng och höjdkurvor, eller Sjökort för djup, farleder och sjömärken.</p>
   <ul class="stats" aria-label="Översikt">
     <li><b>69</b>leder</li><li><b>6</b>långleder</li><li><b>40</b>med inritad stig</li><li><b>15</b>kommuner</li>
   </ul>
@@ -990,7 +1036,9 @@ footer p{margin:0 0 8px}
     <div class="mapmode" role="group" aria-label="Kartvy">
       <button type="button" id="mnorm" aria-pressed="true">Karta</button>
       <button type="button" id="mo" aria-pressed="false">O-karta</button>
+      <button type="button" id="ms" aria-pressed="false">Sjökort</button>
     </div>
+    <div class="snote">Ej för navigering</div>
     <div class="ohint out" id="ohint" aria-live="polite"></div>
     <div class="ctrls">
       <div class="cgroup">
@@ -1034,6 +1082,29 @@ footer p{margin:0 0 8px}
         <li><span class="sw"><span class="me-sw"></span></span>Din position</li>
       </ul>
       <p class="leg-o">Enligt Svenska Orienteringsförbundets vanliga karttecken. Syns när du zoomar in. Höjdkurvor var 5:e m, nordlinjer mot magnetisk nord (ca 9° öst). Byggd av OpenStreetMap och höjddata – inte en riktig O-karta.</p>
+      <ul class="leg-s">
+        <li><span class="sw"><span class="fill" style="background:var(--s-0)"></span></span>0–3 m</li>
+        <li><span class="sw"><span class="fill" style="background:var(--s-3)"></span></span>3–6 m</li>
+        <li><span class="sw"><span class="fill" style="background:var(--s-6)"></span></span>6–10 m</li>
+        <li><span class="sw"><span class="fill" style="background:var(--s-10)"></span></span>10–20 m</li>
+        <li><span class="sw"><span class="fill" style="background:var(--s-20)"></span></span>Över 20 m</li>
+        <li><span class="sw"><span class="fill" style="background:var(--s-land)"></span></span>Land</li>
+        <li><span class="sw"><span class="ln s-dc"></span></span>Djupkurva</li>
+        <li><span class="sw"><span class="s-snd">4<sub>3</sub></span></span>Djup 4,3 m</li>
+        <li><span class="sw"><span class="ln s-fw"></span></span>Farled</li>
+        <li><span class="sw"><span class="ln s-bfw"></span></span>Båtfarled</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><rect x="8.5" y="7" width="5" height="11" fill="#d8322b" stroke="var(--s-ol)"/><rect x="8.5" y="1" width="5" height="4" fill="#d8322b" stroke="var(--s-ol)"/></svg></span>Babord</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><rect x="8.5" y="7" width="5" height="11" fill="#14914a" stroke="var(--s-ol)"/><path d="M11 .6 13.6 5H8.4z" fill="#14914a" stroke="var(--s-ol)"/></svg></span>Styrbord</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><rect x="8.5" y="8" width="5" height="5.5" fill="#161616" stroke="var(--s-ol)"/><rect x="8.5" y="13.5" width="5" height="5.5" fill="#f4c300" stroke="var(--s-ol)"/><path d="M11 .5l2.3 3.3H8.7zM11 4l2.3 3.3H8.7z" fill="#161616" stroke="var(--s-ol)" stroke-width=".6"/></svg></span>Nordmärke</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><rect x="8.5" y="8" width="5" height="5.5" fill="#f4c300" stroke="var(--s-ol)"/><rect x="8.5" y="13.5" width="5" height="5.5" fill="#161616" stroke="var(--s-ol)"/><path d="M11 3.8 13.3.5H8.7zM11 7.3l2.3-3.3H8.7z" fill="#161616" stroke="var(--s-ol)" stroke-width=".6"/></svg></span>Sydmärke</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M4 17C8 15 14 10 16 4 11 6 6 12 4 17z" fill="var(--s-mag)" opacity=".9"/><path d="M4 9.5 5.6 13.5 9.6 13.7 6.5 16.2 7.6 20 4 17.8.4 20 1.5 16.2-1.6 13.7 2.4 13.5z" transform="translate(1 -3) scale(.9)" fill="#161616" stroke="var(--s-halo)"/></svg></span>Fyr</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M3 16A10 10 0 0 1 9 5" fill="none" stroke="#d8322b" stroke-width="3"/><path d="M9 5A10 10 0 0 1 15 4.5" fill="none" stroke="#f2b705" stroke-width="3"/><path d="M15 4.5A10 10 0 0 1 21 10" fill="none" stroke="#14914a" stroke-width="3"/></svg></span>Ljussektorer</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M11 6 15.6 16H6.4z" fill="#fff" stroke="var(--s-ol)"/></svg></span>Kummel</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M11 19V11" stroke="var(--s-ol)"/><rect x="7.5" y="2" width="7" height="9" fill="#d8322b" stroke="var(--s-ol)"/><rect x="9.8" y="2" width="2.4" height="9" fill="#f4c300"/></svg></span>Ensmärke</li>
+        <li><span class="sw"><span class="fill" style="background:var(--s-ua)"></span></span>Ej sjömätt</li>
+        <li><span class="sw"><span class="me-sw"></span></span>Din position</li>
+      </ul>
+      <p class="leg-s"><b>Ej för navigering.</b> Uppfyller inte kraven för officiella sjökort. Djup i meter (N2000). Grund syns som mörkare blått och djupsiffror, enskilda stenar finns inte med. Tryck på ett sjömärke eller en farled för mer info.<br>Innehåller data från Traficoms sjökortsdatabas 10/2026 (<a href="sjokort-licens.txt" target="_blank" rel="noopener">licens</a>). Farleder och sjömärken: Väylävirasto 10/2026, CC BY 4.0.</p>
       <ul class="leg-n">
         <li><span class="sw"><span class="ln"></span></span>Led</li>
         <li><span class="sw"><span class="ln long"></span></span>Långled</li>
@@ -1234,20 +1305,26 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   [['T',.9,1.9],['S',1.3,2.7],['P',2.2,4]].forEach(([k,w,cw])=>{const ll=(D.roads[k]||[]).map(dec);
     roadL[k]={c:L.polyline(ll,{interactive:false,weight:cw,lineCap:'round',lineJoin:'round',smoothFactor:1}),f:L.polyline(ll,{interactive:false,weight:w,lineCap:'round',lineJoin:'round',smoothFactor:1})}});
   const ferryL=L.polyline((D.ferries||[]).flatMap(f=>f.p.map(dec)),{interactive:false,weight:1.6,dashArray:'4 5',lineCap:'round',smoothFactor:1});
-  let omode=false;try{omode=localStorage.getItem('va-omode')==='1'}catch(e){}
+  let mode='n';try{mode=localStorage.getItem('va-mode')||(localStorage.getItem('va-omode')==='1'?'o':'n')}catch(e){}
+  if(!/^[nos]$/.test(mode))mode='n';
+  let omode=mode==='o',smode=mode==='s';
   function paint(){
-    const O=omode;
-    map.getContainer().style.background=O?css('--o-water'):'';
-    layers.b3.setStyle({stroke:false,fillColor:css(O?'--o-water':'--sea1'),fillOpacity:1});
-    layers.b2.setStyle({stroke:false,fillColor:css(O?'--o-water':'--sea2'),fillOpacity:1});
-    layers.b1.setStyle({stroke:false,fillColor:css(O?'--o-water':'--sea3'),fillOpacity:1});
+    const O=omode,S=smode;
+    map.getContainer().style.background=O?css('--o-water'):S?css('--s-20'):'';
+    const band=k=>({stroke:false,fillColor:css(O?'--o-water':k),fillOpacity:1});
+    const base=['land','b1','b2','b3'];
+    if(S)base.forEach(k=>{if(map.hasLayer(layers[k]))map.removeLayer(layers[k])});
+    else if(!map.hasLayer(layers.land)){base.forEach(k=>layers[k].addTo(map));base.forEach(k=>layers[k].bringToBack())}
+    layers.b3.setStyle(band('--sea1'));layers.b2.setStyle(band('--sea2'));layers.b1.setStyle(band('--sea3'));
     layers.land.setStyle({color:css(O?'--o-wline':'--coast'),opacity:1,fillColor:css(O?'--o-forest':'--land'),fillOpacity:1});
-    ['P','S'].forEach(k=>{roadL[k].c.setStyle({color:css(O?'--o-black':'--road-case'),opacity:1});roadL[k].f.setStyle({color:css(O?'--o-road':'--road'),opacity:1})});
-    roadL.T.c.setStyle({color:css(O?'--o-black':'--road-case'),opacity:O?0:1});roadL.T.f.setStyle({color:css(O?'--o-black':'--road'),opacity:1});
-    ferryL.setStyle({color:css(O?'--o-wline':'--ferry'),opacity:.95});
+    const rc=css(O?'--o-black':S?'--s-road-case':'--road-case'),rf=css(S?'--s-road':'--road');
+    ['P','S'].forEach(k=>{roadL[k].c.setStyle({color:rc,opacity:1});roadL[k].f.setStyle({color:O?css('--o-road'):rf,opacity:1})});
+    roadL.T.c.setStyle({color:rc,opacity:O?0:1});roadL.T.f.setStyle({color:O?css('--o-black'):rf,opacity:1});
+    ferryL.setStyle({color:css(O?'--o-wline':S?'--s-ferry':'--ferry'),opacity:.95});
     Object.values(lineOf||{}).forEach(o=>{o.casing.setStyle({color:css(O?'--o-halo':'--halo')});o.line.setStyle({color:O?css('--o-course'):o.long?css('--longline'):o.c})});
     if(typeof oPaint==='function')oPaint();
     if(typeof meStyle==='function')meStyle();
+    if(typeof sPaint==='function')sPaint();
   }
   let lineOf={};
 
@@ -1303,7 +1380,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   const OB=(D.od||[]).map(([n,s,w,nn,e])=>({n,b:L.latLngBounds([s,w],[nn,e])}));
   const OC={};
   const OSMA='© OpenStreetMap · Mapzen';
-  const OORD=['sea','land','open','rough','orchard','orchardDots','green','settle','sand','rock','marsh','nl','c','ci','shore','stream','fence','power','cliff','road1c','roadc','road','road1','track','path','bld','dots'];
+  const OORD=['sea','land','lake','open','rough','orchard','orchardDots','green','settle','sand','rock','marsh','nl','c','ci','shore','stream','fence','power','cliff','road1c','roadc','road','road1','track','path','bld','dots'];
   function mkPat(kind){const c=document.createElement('canvas'),r=2,sz=kind==='marsh'?4:6;c.width=c.height=sz*r;const x=c.getContext('2d');x.scale(r,r);
     if(kind==='marsh'){x.fillStyle=css('--o-marsh');x.fillRect(0,0,sz,1.15)}
     else{x.fillStyle=css('--o-dot');x.beginPath();x.arc(1.5,1.5,.95,0,7);x.closePath();x.arc(4.5,4.5,.95,0,7);x.fill()}
@@ -1316,6 +1393,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     const b=d.b;
     m.sea=d.sea?P(d.sea):L.rectangle([[b[0],b[1]],[b[2],b[3]]],{renderer:oR,interactive:false,stroke:false,fillOpacity:1});
     m.land=P(d.land);
+    {const holes=(d.land||[]).flatMap(p=>p.slice(1));m.lake=holes.length?L.polygon(holes.map(r=>[dec(r)]),{renderer:oR,interactive:false,stroke:false,fillOpacity:0,smoothFactor:.4}):null}
     ['open','rough','orchard','green','settle','sand','rock'].forEach(k=>{m[k]=P(d.P[k])});
     m.orchardDots=P(d.P.orchard);m.marsh=P(d.P.marsh);
     m.shore=Ln('shore');m.c=Ln('c');m.ci=Ln('ci');m.stream=Ln('stream');
@@ -1332,6 +1410,22 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   // Ett ställe som sätter all stil efter läge (vanlig karta / O-karta) och zoom.
   function oApply(o,z){const m=o.m,O=omode,big=z>=15,full=z>=OZ2;
     const S=(k,st)=>{if(m[k])m[k].setStyle(st)};
+    if(smode){ // sjökort: bara sjöar, vägar, stigar och hus från OSM, vattnet kommer från Traficom
+      ['sea','land','open','rough','orchard','orchardDots','green','settle','sand','rock','marsh'].forEach(k=>S(k,{fillOpacity:0}));
+      ['shore','c','ci','fence','power','cliff','nl','stream'].forEach(k=>S(k,{opacity:0}));
+      S('lake',{fillColor:css('--s-lake'),fillOpacity:1});
+      S('road1c',{color:css('--s-road-case'),opacity:z>=13?1:0,weight:big?4.6:3.4});
+      S('roadc',{color:css('--s-road-case'),opacity:1,weight:big?6:4.6});
+      S('road',{color:css('--s-road'),opacity:1,weight:big?4:2.8});
+      S('road1',{color:css('--s-road'),opacity:1,weight:z>=13?(big?2.8:1.8):1.2});
+      S('track',{color:css('--s-track'),weight:big?1.5:1.1,dashArray:'6 3',opacity:z>=13?1:0});
+      S('path',{color:css('--s-track'),weight:big?1.4:1,dashArray:big?'5 4':'3 3',opacity:z>=13.5?1:0});
+      S('bld',{fillColor:css('--s-bld'),fillOpacity:1});
+      if(m.dots)m.dots.eachLayer(l=>l.setStyle({fillOpacity:0}));
+      if(m.pts&&map.hasLayer(m.pts))map.removeLayer(m.pts);
+      return}
+    ['sea','land','open','rough','orchard','green','settle','sand','rock','bld'].forEach(k=>S(k,{fillOpacity:1}));
+    S('lake',{fillOpacity:0});S('stream',{opacity:1});S('marsh',{fillOpacity:1});
     const tk=n=>css((O?'--o-':'--n-')+n);
     S('sea',{fillColor:O?css('--o-water'):css('--sea3')});
     S('land',{fillColor:O?css('--o-forest'):css('--land')});
@@ -1356,7 +1450,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     S('bld',{fillColor:tk('bld')});
     if(m.dots){const cc={boulder:css('--o-black'),spring:css('--o-wline')};m.dots.eachLayer(l=>l.setStyle({fillColor:cc[l.options._k],fillOpacity:O&&z>=14?1:0}))}
     if(m.pts){const on=O&&z>=14;if(on&&!map.hasLayer(m.pts))m.pts.addTo(map);else if(!on&&map.hasLayer(m.pts))map.removeLayer(m.pts)}}
-  function oPaint(){pats={marsh:mkPat('marsh'),dots:mkPat('dots')};const z=map.getZoom();Object.values(OC).forEach(o=>{if(o.m){oApply(o,z);o.z=z;o.mode=omode}})}
+  function oPaint(){pats={marsh:mkPat('marsh'),dots:mkPat('dots')};const z=map.getZoom();Object.values(OC).forEach(o=>{if(o.m){oApply(o,z);o.z=z;o.mode=mode}})}
   function oUpdate(){const z=map.getZoom(),on=z>=OZ-.01,vb=map.getBounds().pad(.35);
     try{if(omode&&on&&/^Zooma in för/.test(ohint.textContent))ohint.classList.add('out')}catch(e){}
     OB.forEach(c=>{const want=on&&vb.intersects(c.b);let o=OC[c.n];
@@ -1365,7 +1459,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
           o.m=oBuild(d);o.g=L.layerGroup(OORD.map(k=>o.m[k]).filter(Boolean));o.st='ok';if(!pats)pats={marsh:mkPat('marsh'),dots:mkPat('dots')};oApply(o,map.getZoom());oUpdate()})
           .catch(()=>{o.st='err';setTimeout(()=>{if(OC[c.n]===o)delete OC[c.n]},20000)});return}
       if(!o||o.st!=='ok')return;
-      if(want){if(!map.hasLayer(o.g))o.g.addTo(map);if(o.z!==z||o.mode!==omode){oApply(o,z);o.z=z;o.mode=omode}o.t=Date.now()}
+      if(want){if(!map.hasLayer(o.g))o.g.addTo(map);if(o.z!==z||o.mode!==mode){oApply(o,z);o.z=z;o.mode=mode}o.t=Date.now()}
       else{if(map.hasLayer(o.g))map.removeLayer(o.g);if(o.m.pts&&map.hasLayer(o.m.pts))map.removeLayer(o.m.pts)}});
     // håll minnet nere i telefonen: släpp områden som inte syns om fler än 14 är laddade
     const idle=Object.entries(OC).filter(([k,o])=>o.st==='ok'&&!map.hasLayer(o.g)).sort((a,b)=>(a[1].t||0)-(b[1].t||0));
@@ -1396,6 +1490,190 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
       nameL.addLayer(L.marker([r[1],r[2]],{pane:'names',interactive:false,keyboard:false,icon:L.divIcon({className:'nm nm-'+r[3],html:'<span>'+esc(r[0])+'</span>',iconSize:[0,0]})}));
       if(++n>=150)break}}
   map.on('moveend zoomend',drawNames);
+
+  /* ---------- sjökort: djup från Traficom, farleder och sjömärken från Väylävirasto ----------
+     Tre nivåer laddas efter zoom: översikt (s/ov.json), mellannivå (s/mXY.json) och detaljceller (s/sXXYY.json). */
+  const SZM=10,SZD=12,SMAX=17,ST=['0','3','6','10','20'];
+  const STA='Djup: Traficoms sjökortsdatabas 10/2026 · Farleder: Väylävirasto';
+  [['sea0',396],['sea1',397],['sea',398],['snav',420]].forEach(([n,z])=>{map.createPane(n);map.getPane(n).style.zIndex=z;map.getPane(n).style.pointerEvents='none'});
+  const s0R=L.canvas({pane:'sea0',padding:.5,tolerance:0}),s1R=L.canvas({pane:'sea1',padding:.5,tolerance:0}),
+    sR=L.canvas({pane:'sea',padding:.5,tolerance:0}),sNR=L.canvas({pane:'snav',padding:.5,tolerance:7});
+  let SOV=null,SNAV=null,sLoad=false,SP={};const SC={},SM={},SALL=[];
+  function sPal(){const c=n=>css('--s-'+n);
+    SP={w:ST.map(t=>c(t)),land:c('land'),coast:c('coast'),dc:c('contour'),dc2:c('contour2'),snd:c('sound'),halo:c('halo'),fw:c('fw'),mag:c('mag'),ua:c('ua'),ol:c('ol'),lab:c('lab-bg'),
+      red:'#d8322b',green:'#14914a',yel:'#f4c300',blk:'#161616',wht:'#ffffff',org:'#f08a1c',secW:'#f2b705'}}
+  const sPoly=(a,r,o)=>a&&a.length?L.polygon(a.map(p=>p.map(dec)),Object.assign({renderer:r,interactive:false,stroke:false,fillOpacity:1,smoothFactor:.6},o)):null;
+  // Ett lager som ritar många punkter (djupsiffror, sjömärken, etiketter) direkt på kartans canvas.
+  const SBatch=L.Path.extend({
+    initialize(pts,draw,opt){this._pts=pts;this._drawF=draw;L.setOptions(this,opt)},
+    getBounds(){return L.latLngBounds(this._pts.map(p=>[p[0],p[1]]))},
+    _project(){const m=this._map;this._xy=this._pts.map(p=>m.latLngToLayerPoint([p[0],p[1]]));
+      const pad=this.options.pad||30;
+      if(!this._xy.length){this._pxBounds=L.bounds([0,0],[0,0]);return}
+      const b=L.bounds(this._xy);this._pxBounds=L.bounds(b.min.subtract([pad,pad]),b.max.add([pad,pad]))},
+    _update(){},
+    _updatePath(){const r=this._renderer;if(!r._drawing||!this._map)return;const ctx=r._ctx;ctx.save();this._drawF(ctx,this._xy,this._pts,this._map.getZoom(),this);ctx.restore()},
+    _containsPoint(p){return this.options.hit?this.options.hit(this,p):false}});
+  const SF='"Source Serif 4",Georgia,serif';
+  function sDepth(d){const i=Math.floor(d+1e-6),f=Math.round((d-i)*10);return d<30&&f>0&&f<10?[String(i),String(f)]:[String(Math.round(d)),'']}
+  function drawSnd(ctx,xy,pts,z){if(z<12.5-.01)return;const big=z>=15,f1=big?12.5:11.5,f2=big?9:8.5,F1='italic 400 '+f1+'px '+SF,F2='italic 400 '+f2+'px '+SF;
+    ctx.textBaseline='middle';ctx.lineJoin='round';ctx.lineWidth=3;ctx.strokeStyle=SP.halo;ctx.fillStyle=SP.snd;
+    for(let i=0;i<pts.length;i++){const p=pts[i];if(p[3]>z+.01)break;const[a,b]=sDepth(p[2]/10),x=xy[i].x,y=xy[i].y;
+      ctx.font=F1;const wa=ctx.measureText(a).width;let wb=0;if(b){ctx.font=F2;wb=ctx.measureText(b).width+.5}
+      const x0=x-(wa+wb)/2;ctx.font=F1;ctx.strokeText(a,x0,y);ctx.fillText(a,x0,y);
+      if(b){ctx.font=F2;ctx.strokeText(b,x0+wa+.5,y+3.2);ctx.fillText(b,x0+wa+.5,y+3.2)}}}
+  function sCell(d,r,detail){const g=L.layerGroup(),own=[];
+    ST.forEach((t,i)=>{const p=sPoly(d.W[t],r,{_k:i});if(p){g.addLayer(p);own.push(p)}});
+    if(d.U){const u=sPoly(d.U,r,{_k:'u'});if(u){g.addLayer(u);own.push(u)}}
+    if(d.C)Object.entries(d.C).forEach(([v,a])=>{const l=L.polyline(a.map(dec),{renderer:r,interactive:false,lineCap:'round',lineJoin:'round',smoothFactor:.8,_v:+v});g.addLayer(l);own.push(l)});
+    if(d.K&&d.K.length){const l=L.polyline(d.K.map(dec),{renderer:r,interactive:false,lineCap:'round',lineJoin:'round',smoothFactor:.6,_coast:1});g.addLayer(l);own.push(l)}
+    if(detail&&d.S){const ll=dec(d.S.p),pts=ll.map((p,i)=>[p[0],p[1],d.S.d[i],d.S.z[i]/2]);g.addLayer(new SBatch(pts,drawSnd,{renderer:sNR,interactive:false,pad:30}))}
+    own.forEach(l=>{SALL.push(l);sStyle(l)});g._own=own;return g}
+  function sStyle(l,z){const o=l.options;z=z==null?map.getZoom():z;
+    if(o._land||o._bg){l.setStyle({fillColor:o._bg?SP.w[4]:SP.land});return}
+    if(o._k!=null){l.setStyle(o._k==='u'?{fillColor:SP.ua,fillOpacity:.85}:{fillColor:SP.w[o._k],fillOpacity:1});return}
+    if(o._coast){l.setStyle({color:SP.coast,weight:z>=15?1.1:.8,opacity:.9});return}
+    if(o._v){const major=[3,6,10,20].includes(o._v);
+      l.setStyle({color:major?SP.dc:SP.dc2,weight:major?(z>=15?1.05:.85):.6,opacity:major?.9:(z>=13?.8:0),dashArray:o._v===3&&false?'3 2':null})}}
+  // ---- sjömärken ----
+  const AK={p:'Babordsmärke',s:'Styrbordsmärke',N:'Nordmärke',S:'Sydmärke',E:'Ostmärke',W:'Västmärke',i:'Grundmärke',w:'Mittledsmärke',x:'Specialmärke',
+    L:'Ensmärke',K:'Kummel',R:'Radarmärke',F:'Fyr',f:'Fyr',o:'Sjömärke'};
+  const DMC={r:'#d8322b',y:'#f4c300',w:'#ffffff',k:'#161616',g:'#14914a',o:'#f08a1c',a:'#9a9a9a',b:'#2a6fdb'};
+  function tri(ctx,x,y,s,up){ctx.beginPath();if(up){ctx.moveTo(x,y-s);ctx.lineTo(x+s*.75,y+s*.3);ctx.lineTo(x-s*.75,y+s*.3)}else{ctx.moveTo(x,y+s);ctx.lineTo(x+s*.75,y-s*.3);ctx.lineTo(x-s*.75,y-s*.3)}ctx.closePath();ctx.fill();ctx.stroke()}
+  function bands(ctx,x,y,w,h,cols){const n=cols.length;for(let i=0;i<n;i++){ctx.fillStyle=cols[i];ctx.fillRect(x-w/2,y-h+h*i/n,w,h/n+.3)}ctx.strokeRect(x-w/2,y-h,w,h)}
+  function flare(ctx,x,y,s,col){ctx.save();ctx.translate(x,y);ctx.rotate(-Math.PI/4);ctx.beginPath();ctx.moveTo(0,0);
+    ctx.bezierCurveTo(4*s,-1.5*s,13*s,-3.6*s,15*s,0);ctx.bezierCurveTo(13*s,3.6*s,4*s,1.5*s,0,0);ctx.closePath();
+    ctx.globalAlpha=.9;ctx.fillStyle=col;ctx.fill();ctx.globalAlpha=1;ctx.lineWidth=.8;ctx.strokeStyle=SP.halo;ctx.stroke();ctx.restore()}
+  function lightCol(li){const l=SNAV&&SNAV.l[li];if(!l||!l[3]||!l[3].length)return SP.mag;const cs=[...new Set(l[3].map(s=>s[2]))];
+    if(cs.length===1)return cs[0]==='p'?SP.red:cs[0]==='vi'?SP.green:SP.mag;return SP.mag}
+  function drawAid(ctx,x,y,a,s){const k=a[2],lit=a[6]&2;ctx.lineWidth=1;ctx.strokeStyle=SP.ol;ctx.lineJoin='round';
+    if(lit)flare(ctx,x,y,s,lightCol(a[7]));
+    const bw=5*s,bh=12*s;
+    switch(k){
+      case 'p':ctx.fillStyle=SP.red;ctx.fillRect(x-bw/2,y-bh,bw,bh);ctx.strokeRect(x-bw/2,y-bh,bw,bh);ctx.fillRect(x-bw/2,y-bh-6*s,bw,4*s);ctx.strokeRect(x-bw/2,y-bh-6*s,bw,4*s);break;
+      case 's':ctx.fillStyle=SP.green;ctx.fillRect(x-bw/2,y-bh,bw,bh);ctx.strokeRect(x-bw/2,y-bh,bw,bh);tri(ctx,x,y-bh-4*s,3.4*s,true);break;
+      case 'N':bands(ctx,x,y,bw,bh,[SP.blk,SP.yel]);ctx.fillStyle=SP.blk;tri(ctx,x,y-bh-7.5*s,3*s,true);tri(ctx,x,y-bh-3*s,3*s,true);break;
+      case 'S':bands(ctx,x,y,bw,bh,[SP.yel,SP.blk]);ctx.fillStyle=SP.blk;tri(ctx,x,y-bh-8*s,3*s,false);tri(ctx,x,y-bh-3.5*s,3*s,false);break;
+      case 'E':bands(ctx,x,y,bw,bh,[SP.blk,SP.yel,SP.blk]);ctx.fillStyle=SP.blk;tri(ctx,x,y-bh-7.6*s,3*s,true);tri(ctx,x,y-bh-3.2*s,3*s,false);break;
+      case 'W':bands(ctx,x,y,bw,bh,[SP.yel,SP.blk,SP.yel]);ctx.fillStyle=SP.blk;tri(ctx,x,y-bh-8.4*s,3*s,false);tri(ctx,x,y-bh-2.6*s,3*s,true);break;
+      case 'i':bands(ctx,x,y,bw,bh,[SP.blk,SP.red,SP.blk]);ctx.fillStyle=SP.blk;[8.5,3.8].forEach(o=>{ctx.beginPath();ctx.arc(x,y-bh-o*s,2*s,0,7);ctx.fill();ctx.stroke()});break;
+      case 'w':bands(ctx,x,y,bw,bh,[SP.red,SP.wht,SP.red,SP.wht]);ctx.fillStyle=SP.red;ctx.beginPath();ctx.arc(x,y-bh-4*s,2.4*s,0,7);ctx.fill();ctx.stroke();break;
+      case 'x':ctx.fillStyle=SP.yel;ctx.fillRect(x-bw/2,y-bh,bw,bh);ctx.strokeRect(x-bw/2,y-bh,bw,bh);ctx.strokeStyle=SP.yel;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x-3*s,y-bh-7*s);ctx.lineTo(x+3*s,y-bh-1.5*s);ctx.moveTo(x+3*s,y-bh-7*s);ctx.lineTo(x-3*s,y-bh-1.5*s);ctx.stroke();break;
+      case 'L':{const dm=a[8]||'',cols=(dm.replace(/^[vh]/,'')||'w').split('').map(c=>DMC[c]||SP.wht),vert=dm[0]!=='h',w=7*s,h=9*s,top=y-h-4*s;
+        ctx.strokeStyle=SP.ol;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,top+h);ctx.stroke();
+        cols.forEach((c,i)=>{ctx.fillStyle=c;if(vert)ctx.fillRect(x-w/2+w*i/cols.length,top,w/cols.length+.3,h);else ctx.fillRect(x-w/2,top+h*i/cols.length,w,h/cols.length+.3)});
+        ctx.strokeRect(x-w/2,top,w,h);break}
+      case 'K':ctx.fillStyle=SP.wht;ctx.beginPath();ctx.moveTo(x,y-10*s);ctx.lineTo(x+4.6*s,y);ctx.lineTo(x-4.6*s,y);ctx.closePath();ctx.fill();ctx.stroke();break;
+      case 'R':ctx.fillStyle=SP.wht;ctx.beginPath();ctx.moveTo(x,y-9*s);ctx.lineTo(x+3.6*s,y-4.5*s);ctx.lineTo(x,y);ctx.lineTo(x-3.6*s,y-4.5*s);ctx.closePath();ctx.fill();ctx.stroke();break;
+      case 'F':{ctx.fillStyle=SP.blk;ctx.beginPath();for(let i=0;i<10;i++){const r=(i%2?2.6:6.6)*s,an=-Math.PI/2+i*Math.PI/5;ctx.lineTo(x+r*Math.cos(an),y+r*Math.sin(an))}ctx.closePath();ctx.lineWidth=1.4;ctx.strokeStyle=SP.halo;ctx.stroke();ctx.fill();break}
+      default:ctx.fillStyle=SP.blk;ctx.beginPath();ctx.arc(x,y,2.6*s,0,7);ctx.lineWidth=1.2;ctx.strokeStyle=SP.halo;ctx.stroke();ctx.fill()}
+    if('psNSEWiwx'.includes(k)){ctx.fillStyle=SP.ol;ctx.beginPath();ctx.arc(x,y,1.3*s,0,7);ctx.fill()}}
+  function aidOn(a,z){const k=a[2];if(k==='F')return z>=8.5;if(a[6]&2&&!(a[6]&1))return z>=11;if(k==='L'||k==='K'||k==='R')return z>=13;return z>=12.25}
+  function drawAids(ctx,xy,pts,z,lay){const s=z<13?.82:z<14.5?1:1.18,vis=[];
+    for(let i=0;i<pts.length;i++){const a=pts[i];if(!aidOn(a,z))continue;drawAid(ctx,xy[i].x,xy[i].y,a,s);vis.push(i)}lay._vis=vis}
+  function hitAid(lay,p){let best=-1,bd=15*15;(lay._vis||[]).forEach(i=>{const q=lay._xy[i],dx=q.x-p.x,dy=q.y-6-p.y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=i}});lay._hit=best;return best>=0}
+  const SECC={v:'#f2b705',k:'#f08a1c',p:'#d8322b',vi:'#14914a'};
+  function drawSect(ctx,xy,pts,z){if(z<13-.01)return;const r=z<14?24:z<15?32:42;
+    pts.forEach((a,i)=>{const l=SNAV.l[a[7]];if(!l)return;const se=l[3];if(!se||se.length<2)return;const x=xy[i].x,y=xy[i].y;
+      ctx.lineCap='butt';
+      se.forEach(([a1,a2,c])=>{if(a2-a1>=359.9)return;const s1=(a1+90)*Math.PI/180,s2=(a2+90)*Math.PI/180;
+        ctx.beginPath();ctx.arc(x,y,r,s1,s2,false);ctx.lineWidth=5.5;ctx.strokeStyle=SP.halo;ctx.stroke();ctx.lineWidth=3.4;ctx.strokeStyle=SECC[c]||SP.mag;ctx.stroke()});
+      ctx.setLineDash([3,3]);ctx.lineWidth=.8;ctx.strokeStyle=SP.ol;ctx.globalAlpha=.6;
+      se.forEach(([a1])=>{const an=(a1+90)*Math.PI/180;ctx.beginPath();ctx.moveTo(x+Math.cos(an)*6,y+Math.sin(an)*6);ctx.lineTo(x+Math.cos(an)*(r+9),y+Math.sin(an)*(r+9));ctx.stroke()});
+      ctx.setLineDash([]);ctx.globalAlpha=1})}
+  function drawFwLab(ctx,xy,pts,z){if(z<13-.01)return;const placed=[];ctx.font='600 10.5px '+css('--f-head');ctx.textAlign='center';ctx.textBaseline='middle';
+    const mpp=156543.03*Math.cos(60.2*Math.PI/180)/Math.pow(2,z);
+    for(let i=0;i<pts.length;i++){const p=pts[i];if(p[3]/mpp<110)continue;const x=xy[i].x,y=xy[i].y,t=String(p[2]).replace('.',',')+' m',w=ctx.measureText(t).width+8,h=14;
+      const b=[x-w/2-2,y-h/2-2,x+w/2+2,y+h/2+2];if(placed.some(q=>!(b[2]<q[0]||b[0]>q[2]||b[3]<q[1]||b[1]>q[3])))continue;placed.push(b);
+      ctx.fillStyle=SP.lab;ctx.strokeStyle=SP.fw;ctx.lineWidth=1;ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x-w/2,y-h/2,w,h,3);else ctx.rect(x-w/2,y-h/2,w,h);ctx.fill();ctx.stroke();
+      ctx.fillStyle=SP.fw;ctx.fillText(t,x,y+.5)}}
+  function drawSpLab(ctx,xy,pts,z){if(z<13.5)return;ctx.font='700 11px '+css('--f-head');ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineWidth=3;ctx.strokeStyle=SP.halo;ctx.fillStyle=SP.mag;
+    pts.forEach((p,i)=>{const t='max '+p[2]+' km/h';ctx.strokeText(t,xy[i].x,xy[i].y);ctx.fillText(t,xy[i].x,xy[i].y)})}
+  function fwStyle(l,z){const o=l.options,c=o._cls,tc=o._tc,hi=(z==null?map.getZoom():z)>=12,main=c&&c<=2;
+    return {color:SP.fw,opacity:hi?.85:.6,weight:main?(hi?1.5:1.05):(hi?1.1:.8),dashArray:tc===4?'2 4':main?null:c===3?'8 4':'5 4',lineCap:'butt'}}
+  function sNav(n){const out={l:n.l,f:n.f};
+    out.aids=new SBatch(n.a,drawAids,{renderer:sNR,interactive:true,pad:30,hit:hitAid});
+    out.sect=new SBatch(n.a.filter(a=>a[7]>=0&&(n.l[a[7]]||[])[3]&&n.l[a[7]][3].length>1),drawSect,{renderer:sNR,interactive:false,pad:60});
+    out.lines=L.layerGroup();out.labs=[];
+    out.lead=L.layerGroup();n.t.forEach(e=>out.lead.addLayer(L.polyline(dec(e),{renderer:sNR,interactive:false,_lead:1,smoothFactor:.8})));
+    n.n.forEach(r=>{const ll=dec(r[0]);const l=L.polyline(ll,{renderer:sNR,interactive:true,smoothFactor:.8,_cls:r[1],_tc:r[5]});l._r=r;
+      l.on('click',e=>{L.DomEvent.stopPropagation(e);L.popup({maxWidth:250,minWidth:250,autoPanPaddingTopLeft:L.point(16,70)}).setLatLng(e.latlng).setContent(fwHtml(r)).openOn(map)});
+      out.lines.addLayer(l);
+      if(r[2]&&ll.length>=2&&r[6]>300){const m=ll[Math.floor((ll.length-1)/2)],m2=ll[Math.ceil((ll.length-1)/2)];out.labs.push([(m[0]+m2[0])/2,(m[1]+m2[1])/2,r[2],r[6]])}});
+    out.labs.sort((a,b)=>b[3]-a[3]);
+    out.fwl=new SBatch(out.labs,drawFwLab,{renderer:sNR,interactive:false,pad:40});
+    out.sp=L.layerGroup();const spl=[];
+    (n.v||[]).forEach(([rings,val])=>{const ll=rings.map(dec);out.sp.addLayer(L.polygon(ll,{renderer:sNR,interactive:false,fill:false,_sp:1}));
+      const b=L.latLngBounds(ll[0]),c=b.getCenter();spl.push([c.lat,c.lng,val])});
+    out.spl=new SBatch(spl,drawSpLab,{renderer:sNR,interactive:false,pad:60});
+    out.aids.on('click',e=>{const i=out.aids._hit;if(i==null||i<0)return;L.DomEvent.stopPropagation(e);const a=n.a[i];
+      L.popup({maxWidth:250,minWidth:250,autoPanPaddingTopLeft:L.point(16,70),offset:L.point(0,-8)}).setLatLng([a[0],a[1]]).setContent(aidHtml(a)).openOn(map)});
+    return out}
+  const LCOL={v:'vit',p:'röd',vi:'grön',k:'gul'};
+  function aidHtml(a){const k=a[2],nm=a[4]||AK[k],tags=[];const ty=a[5]&&a[5]!==AK[k]?a[5]:'';
+    if(a[6]&1)tags.push('Flytande');else if(!'FfLKR'.includes(k))tags.push('Fast');
+    const l=a[7]>=0?SNAV.l[a[7]]:null;
+    if(l){if(l[0])tags.push('Ljus '+esc(l[0]));const cs=[...new Set((l[3]||[]).map(s=>LCOL[s[2]]).filter(Boolean))];if(cs.length)tags.push(cs.join(', ').replace(/^./,c=>c.toUpperCase())+(l[3].length>1?' sektorer':''));
+      if(l[2])tags.push('Lysvidd '+String(l[2]).replace('.',',')+' M');if(l[1])tags.push('Höjd '+String(l[1]).replace('.',',')+' m')}
+    const fw=a[10]&&SNAV.f[a[10]];
+    return '<div class="spop"><div class="sp-h"><b>'+esc(nm)+'</b><small>'+AK[k]+(ty?' · '+esc(ty.toLowerCase()):'')+' · nr '+esc(a[3])+'</small></div>'+
+      (tags.length?'<div class="sp-tags">'+tags.map(t=>'<span>'+t+'</span>').join('')+'</div>':'')+
+      (a[9]?'<p>'+esc(a[9])+'</p>':'')+(fw&&fw[0]?'<p class="sp-fw">'+esc(fw[0])+'</p>':'')+'<p class="sp-src">Väylävirasto · ej för navigering</p></div>'}
+  function fwHtml(r){const fw=SNAV.f[r[4]]||[],tags=[];
+    if(r[2])tags.push('Djupgående '+String(r[2]).replace('.',',')+' m');if(r[3])tags.push('Ramat djup '+String(r[3]).replace('.',',')+' m');
+    return '<div class="spop"><div class="sp-h"><b>'+esc(fw[0]||'Farled')+'</b><small>'+esc(fw[1]||'Farled')+'</small></div>'+
+      (tags.length?'<div class="sp-tags">'+tags.map(t=>'<span>'+t+'</span>').join('')+'</div>':'')+
+      (r[2]?'<p>Farleden är byggd för båtar och fartyg med djupgående upp till '+String(r[2]).replace('.',',')+' m.'+(r[3]?' Ramat djup är det djup som kontrollerats med ramning.':'')+'</p>':'')+'<p class="sp-src">Väylävirasto · ej för navigering</p></div>'}
+  function sOv(o){const base=L.layerGroup(),ov=L.layerGroup(),own=[];
+    const add=(g,p)=>{if(p){g.addLayer(p);own.push(p)}};
+    // djupt vatten som botten inne i kartlagren, så att terrängskuggningen blandas rätt även utanför sjökortsdatan
+    add(base,L.rectangle([[59.2,17.8],[61.3,22.8]],{renderer:s0R,interactive:false,stroke:false,fillOpacity:1,_bg:1}));
+    add(base,sPoly(o.OL,s0R,{_land:1}));add(base,sPoly(o.F,s0R,{_land:1}));
+    ST.forEach((t,i)=>add(ov,sPoly(o.W[t],s0R,{_k:i})));if(o.U)add(ov,sPoly(o.U,s0R,{_k:'u'}));
+    own.forEach(l=>{SALL.push(l);sStyle(l)});
+    return {base,ov,cells:(o.cells||[]).map(([n,s,w,nn,e])=>({n,b:L.latLngBounds([s,w],[nn,e])})),mids:(o.mids||[]).map(([n,s,w,nn,e])=>({n,b:L.latLngBounds([s,w],[nn,e])}))}}
+  function sPaint(){sPal();if(!SOV)return;SALL.forEach(l=>sStyle(l));
+    if(SNAV){SNAV.lines.eachLayer(l=>l.setStyle(fwStyle(l)));
+      SNAV.lead.eachLayer(l=>l.setStyle({color:SP.fw,weight:.7,opacity:.5}));
+      SNAV.sp.eachLayer(l=>l.setStyle({color:SP.mag,weight:1.2,dashArray:'6 4',opacity:.55}));
+      [SNAV.aids,SNAV.sect,SNAV.fwl,SNAV.spl].forEach(b=>b.redraw())}
+    Object.values(SC).concat(Object.values(SM)).forEach(o=>{if(o.g)o.g.eachLayer(l=>{if(l instanceof SBatch)l.redraw()})})}
+  let sZ=null;
+  function sOff(){if(!SOV)return;[SOV.base,SOV.ov].forEach(g=>map.hasLayer(g)&&map.removeLayer(g));
+    Object.values(SC).concat(Object.values(SM)).forEach(o=>{if(o.g&&map.hasLayer(o.g))map.removeLayer(o.g)});
+    if(SNAV)['aids','sect','lines','lead','fwl','sp','spl'].forEach(k=>map.hasLayer(SNAV[k])&&map.removeLayer(SNAV[k]));
+    map.getPane('snav').style.pointerEvents='none'}
+  function sLevel(list,store,want,detail,vb,r){let miss=false;
+    list.forEach(c=>{const vis=want&&vb.intersects(c.b);let o=store[c.n];
+      if(vis&&!o){o=store[c.n]={st:'load'};
+        fetch('s/'+c.n+'.json').then(x=>{if(!x.ok)throw new Error(x.status);return x.json()}).then(d=>{o.g=sCell(d,r,detail);o.st='ok';sUpdate()})
+          .catch(()=>{o.st='err';setTimeout(()=>{if(store[c.n]===o)delete store[c.n]},20000)})}
+      if(vis&&(!o||o.st!=='ok'))miss=true;
+      if(o&&o.st==='ok'){if(vis){if(!map.hasLayer(o.g))o.g.addTo(map);o.t=Date.now()}else if(map.hasLayer(o.g))map.removeLayer(o.g)}});
+    return miss}
+  function sEvict(store,max){const idle=Object.entries(store).filter(([k,o])=>o.st==='ok'&&!map.hasLayer(o.g)).sort((a,b)=>(a[1].t||0)-(b[1].t||0));
+    let n=Object.keys(store).length;for(const[k,o] of idle){if(n<=max)break;o.g._own.forEach(l=>{const i=SALL.indexOf(l);if(i>=0)SALL.splice(i,1)});delete store[k];n--}}
+  function sUpdate(){
+    if(!smode){sOff();return}
+    if(!SOV){if(!sLoad){sLoad=true;sPal();
+      Promise.all([fetch('s/ov.json').then(r=>r.json()),fetch('s/nav.json').then(r=>r.json())]).then(([o,n])=>{SOV=sOv(o);SNAV=sNav(n);sLoad=false;sPaint();sUpdate()})
+        .catch(()=>{sLoad=false;hint('Sjökortet kunde inte laddas just nu')})}return}
+    map.getPane('snav').style.pointerEvents='';
+    const z=map.getZoom(),vb=map.getBounds().pad(.3);
+    if(!map.hasLayer(SOV.base))SOV.base.addTo(map);
+    const wantD=z>=SZD-.01,wantM=!wantD&&z>=SZM-.01;
+    const missD=sLevel(SOV.cells,SC,wantD,true,vb,sR);
+    const useM=wantM||(wantD&&missD);
+    const missM=sLevel(SOV.mids,SM,useM,false,vb,s1R);
+    const useO=(!wantD&&!wantM)||(useM&&missM);
+    if(useO&&!map.hasLayer(SOV.ov))SOV.ov.addTo(map);else if(!useO&&map.hasLayer(SOV.ov))map.removeLayer(SOV.ov);
+    ['lines','sp','lead'].forEach(k=>{const on=z>=({sp:12.5,lead:13}[k]||9.5);if(on&&!map.hasLayer(SNAV[k]))SNAV[k].addTo(map);else if(!on&&map.hasLayer(SNAV[k]))map.removeLayer(SNAV[k])});
+    ['sect','fwl','aids','spl'].forEach(k=>{if(!map.hasLayer(SNAV[k]))SNAV[k].addTo(map)});
+    try{if(z>=SZD&&/^Zooma in för djup/.test(ohint.textContent))ohint.classList.add('out')}catch(e){}
+    if(sZ!==z){const zz=sZ;sZ=z;if(zz==null||(zz<13)!==(z<13)||(zz<15)!==(z<15))SALL.forEach(l=>{if(l.options._v||l.options._coast)sStyle(l,z)});
+      if(zz==null||(zz<12)!==(z<12))SNAV.lines.eachLayer(l=>l.setStyle(fwStyle(l,z)))}
+    sEvict(SC,18);sEvict(SM,8)}
+  map.on('moveend zoomend',sUpdate);
 
   /* ---------- vald led: tona ner andra, visa mål och gåriktning ---------- */
   // Markeringen ligger kvar när rutan stängs, så att man ser leden. Tryck på kartan för att släppa den.
@@ -1428,17 +1706,22 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
 
   const ohint=$('#ohint');let oht;
   function hint(t){ohint.textContent=t;ohint.classList.remove('out');clearTimeout(oht);oht=setTimeout(()=>ohint.classList.add('out'),3800)}
-  function setMode(on,user){omode=on;try{localStorage.setItem('va-omode',on?'1':'0')}catch(e){}
-    box.classList.toggle('omode',on);$('#mo').setAttribute('aria-pressed',String(on));$('#mnorm').setAttribute('aria-pressed',String(!on));
-    map.setMaxZoom(on?OMAX:NMAX);
-    paint();oUpdate();
-    if(on&&user){const vb=map.getBounds();
+  function setMode(m,user){mode=m;omode=m==='o';smode=m==='s';
+    try{localStorage.setItem('va-mode',m);localStorage.setItem('va-omode',omode?'1':'0')}catch(e){}
+    box.classList.toggle('omode',omode);box.classList.toggle('smode',smode);
+    $('#mnorm').setAttribute('aria-pressed',String(m==='n'));$('#mo').setAttribute('aria-pressed',String(omode));$('#ms').setAttribute('aria-pressed',String(smode));
+    map.setMaxZoom(omode?OMAX:smode?SMAX:NMAX);
+    if(smode)attrC.addAttribution(STA);else attrC.removeAttribution(STA);
+    paint();oUpdate();sUpdate();
+    if(omode&&user){const vb=map.getBounds();
       if(map.getZoom()<OZ)hint('Zooma in för att se terrängen');
       else if(!OB.some(c=>vb.intersects(c.b)))hint('Zooma in över land för att se terrängen')}
-    else if(!on)ohint.classList.add('out')}
-  $('#mo').onclick=()=>{if(!omode)setMode(true,true)};$('#mnorm').onclick=()=>{if(omode)setMode(false,true)};
-  attrC.addAttribution(OSMA);map.setMaxZoom(omode?OMAX:NMAX);
+    else if(smode&&user&&map.getZoom()<SZD)hint('Zooma in för djupsiffror och sjömärken');
+    else ohint.classList.add('out')}
+  $('#mo').onclick=()=>{if(!omode)setMode('o',true)};$('#mnorm').onclick=()=>{if(mode!=='n')setMode('n',true)};$('#ms').onclick=()=>{if(!smode)setMode('s',true)};
+  attrC.addAttribution(OSMA);map.setMaxZoom(omode?OMAX:smode?SMAX:NMAX);
   if(omode){box.classList.add('omode');$('#mo').setAttribute('aria-pressed','true');$('#mnorm').setAttribute('aria-pressed','false')}
+  if(smode){box.classList.add('smode');$('#ms').setAttribute('aria-pressed','true');$('#mnorm').setAttribute('aria-pressed','false');attrC.addAttribution(STA)}
 
   /* ---------- min position (visas bara när man trycker på knappen) ----------
      Följ-läge: kartan håller dig i mitten tills du själv drar i kartan. Tryck igen för att centrera, en gång till för att stänga av. */
@@ -1480,7 +1763,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     firstFix=false;follow=false;setLocBtn(false,true);
     watchId=navigator.geolocation.watchPosition(onPos,onErr,{enableHighAccuracy:true,maximumAge:3000,timeout:20000})};
 
-  paint();oUpdate();drawNames();
+  paint();oUpdate();sUpdate();drawNames();
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change',paint);
   new MutationObserver(paint).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 

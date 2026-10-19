@@ -780,6 +780,7 @@ h1{font:700 34px/1.02 var(--f-head);letter-spacing:-.01em;margin:0 0 10px;text-w
   --s-ferry:#56707f; --s-ua:#cfd2d3; --s-ol:#1b1b1b; --s-lab-bg:#ffffff; --s-danger:#14232c; --s-rock:#141414; --s-rast-filter:none; --o-rast-filter:none; --s-land-r:#f8eec9;
   --k-green:#2f8a55; --k-red:#d0342c; --k-green-ink:#1e6640; --k-red-ink:#b0241d; --k-halo:rgba(255,255,255,.88); --k-dot:#ffffff;
   --c-forn:#8c4a26; --c-vrak:#24333d; --c-krig:#5c6b34; --c-bm:#a0581c;
+  --a-pas:#2563d9; --a-car:#22935a; --a-tan:#cf3a31; --a-hsc:#d4930f; --a-fis:#e06a35; --a-ple:#9a4ec8; --a-ser:#118c95; --a-oth:#6c7783; --a-halo:#ffffff; --a-ink:#1d2329;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --s-0:#3a6f95; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
@@ -787,14 +788,16 @@ h1{font:700 34px/1.02 var(--f-head);letter-spacing:-.01em;margin:0 0 10px;text-w
   --s-fw:#e3eaee; --s-mag:#ff6cc8; --s-lake:#26495f; --s-road:#6c6757; --s-road-case:#29271f; --s-track:#a59673; --s-bld:#575240;
   --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7; --s-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --o-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --s-land-r:#2f280e;
   --k-green:#62c48c; --k-red:#ff6a60; --k-green-ink:#8fdcb0; --k-red-ink:#ff9c95; --k-halo:rgba(15,20,18,.88); --k-dot:#171d1a;
-  --c-forn:#e6a57e; --c-vrak:#d6e2ea; --c-krig:#bccb8f; --c-bm:#eab27a;}}
+  --c-forn:#e6a57e; --c-vrak:#d6e2ea; --c-krig:#bccb8f; --c-bm:#eab27a;
+  --a-pas:#6fa3ff; --a-car:#5fd08f; --a-tan:#ff7b70; --a-hsc:#f3c24f; --a-fis:#ff9b6a; --a-ple:#cf9bf3; --a-ser:#4fd2d8; --a-oth:#aab5c0; --a-halo:#10181d; --a-ink:#e8edf0;}}
 :root[data-theme="dark"]{
   --s-0:#3a6f95; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
   --s-land:#3a3629; --s-coast:#a8976f; --s-contour:#77a3c0; --s-contour2:#4b7189; --s-sound:#cfdde6; --s-halo:rgba(17,40,54,.82);
   --s-fw:#e3eaee; --s-mag:#ff6cc8; --s-lake:#26495f; --s-road:#6c6757; --s-road-case:#29271f; --s-track:#a59673; --s-bld:#575240;
   --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7; --s-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --o-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --s-land-r:#2f280e;
   --k-green:#62c48c; --k-red:#ff6a60; --k-green-ink:#8fdcb0; --k-red-ink:#ff9c95; --k-halo:rgba(15,20,18,.88); --k-dot:#171d1a;
-  --c-forn:#e6a57e; --c-vrak:#d6e2ea; --c-krig:#bccb8f; --c-bm:#eab27a;}
+  --c-forn:#e6a57e; --c-vrak:#d6e2ea; --c-krig:#bccb8f; --c-bm:#eab27a;
+  --a-pas:#6fa3ff; --a-car:#5fd08f; --a-tan:#ff7b70; --a-hsc:#f3c24f; --a-fis:#ff9b6a; --a-ple:#cf9bf3; --a-ser:#4fd2d8; --a-oth:#aab5c0; --a-halo:#10181d; --a-ink:#e8edf0;}
 .mapbox.smode .leg-n,.mapbox:not(.smode) .leg-s{display:none}
 .smode .leaflet-hs-pane{opacity:calc(var(--hs-op) * .3)}
 .smode .leaflet-control-scale{margin-bottom:34px!important}
@@ -807,8 +810,42 @@ h1{font:700 34px/1.02 var(--f-head);letter-spacing:-.01em;margin:0 0 10px;text-w
   background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);box-shadow:var(--shadow-sm);white-space:nowrap;cursor:pointer}
 .snote .sn-k{color:var(--ink);letter-spacing:.05em;padding-right:6px;border-right:1px solid var(--line)}
 .mapbox.is-full .srow{--full:1}
-.mapbox:not(.smode):not(.omode) .srow{display:none}
-.mapbox.omode #snote,.mapbox:not(.omode) #onote{display:none}
+.mapbox:not(.smode):not(.omode):not(.insp) .srow{display:none}
+.mapbox.omode #snote,.mapbox:not(.smode) #snote,.mapbox:not(.omode) #onote,.mapbox:not(.insp) #inote{display:none}
+.srow{gap:6px}
+.inote{color:var(--accent)}
+.inote .sn-k{border-right:0;padding-right:0}
+.inote .sn-k::after{content:" ✕"}
+/* fartyg (AIS) */
+.mapbox.no-ais .leg-a{display:none}
+.spop.apop .sp-h b{display:flex;align-items:center;gap:7px}
+.apop .a-dot{width:9px;height:9px;border-radius:50%;flex:none}
+.apop .a-rows{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:10px 0 0;font-size:12.5px}
+.apop dt{color:var(--muted)}
+.apop dd{margin:0;font-variant-numeric:tabular-nums}
+.legend .a-sym,.lsw .a-sym{width:22px;height:20px;display:block;overflow:visible}
+/* granskningsläge */
+.mapbox.insp .leaflet-container{cursor:crosshair}
+.ipanel{position:absolute;z-index:802;left:calc(12px + env(safe-area-inset-left,0px));right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(34px + env(safe-area-inset-bottom,0px));max-width:440px;margin:0 auto;max-height:55%;overflow-y:auto;overscroll-behavior:contain;padding:12px 14px 10px;border-radius:14px;background:color-mix(in srgb,var(--surface) 97%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);box-shadow:var(--shadow);font-size:13px;color:var(--ink)}
+.ip-h{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ip-h b{font:700 15px/1.2 var(--f-head)}
+.ip-x{width:30px;height:30px;flex:none;border-radius:50%;border:0;background:var(--surface-2);color:var(--ink);cursor:pointer;font-size:14px}
+.ip-loc{margin:6px 0 8px;font:500 11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}
+.ip-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.ip-list li{padding:8px 0;border-bottom:1px solid var(--line)}
+.ip-list b{display:block;font-weight:600;font-size:13.5px;line-height:1.25}
+.ip-list small{display:block;color:var(--muted);font-size:12px;margin-top:2px;line-height:1.3}
+.ip-list code{display:block;margin-top:3px;font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--faint)}
+.ip-list details{margin-top:4px}
+.ip-list summary{cursor:pointer;color:var(--accent);font-size:12px;font-weight:600}
+.ip-list pre{margin:5px 0 0;padding:7px 9px;border-radius:8px;background:var(--surface-2);font:10.5px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word;max-height:200px;overflow:auto}
+.ip-none{margin:8px 0 2px;color:var(--muted)}
+.ip-act{display:flex;gap:8px;margin-top:10px}
+.ip-act button{flex:1;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);font:600 13px/1 var(--f-head);cursor:pointer}
+.icross i{position:absolute;left:-11px;top:-11px;width:22px;height:22px;border-radius:50%;border:2px solid var(--accent);box-shadow:0 0 0 2px var(--surface)}
+.icross i::before,.icross i::after{content:"";position:absolute;background:var(--accent)}
+.icross i::before{left:8px;top:-8px;width:2px;height:34px}
+.icross i::after{top:8px;left:-8px;height:2px;width:34px}
 .onote .sn-k{border-right:0;padding-right:0}
 .legend{z-index:797}
 /* MapAnt i O-kartan: egen terräng och skuggning göms */
@@ -1110,7 +1147,7 @@ footer p{margin:0 0 8px}
       <button type="button" id="mo" aria-pressed="false">O-karta</button>
       <button type="button" id="ms" aria-pressed="false">Sjökort</button>
     </div>
-    <div class="srow"><button type="button" class="snote onote" id="onote" aria-label="O-karta: välj MapAnt eller ritad karta"><span class="sn-k">MapAnt</span></button><button type="button" class="snote" id="snote" aria-label="Sjökort: välj kartbild eller ritad karta"><span class="sn-k">Kartbild</span>Ej för navigering</button></div>
+    <div class="srow"><button type="button" class="snote inote" id="inote" aria-label="Avsluta granskningsläget"><span class="sn-k">Granskar</span></button><button type="button" class="snote onote" id="onote" aria-label="O-karta: välj MapAnt eller ritad karta"><span class="sn-k">MapAnt</span></button><button type="button" class="snote" id="snote" aria-label="Sjökort: välj kartbild eller ritad karta"><span class="sn-k">Kartbild</span>Ej för navigering</button></div>
     <div class="ohint out" id="ohint" aria-live="polite"></div>
     <div class="ctrls">
       <div class="cgroup">
@@ -1242,12 +1279,26 @@ footer p{margin:0 0 8px}
         <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M11 4.5 16 8.8V15H6V8.8z" fill="var(--c-bm)" stroke="var(--k-halo)" stroke-width="1.4"/></svg></span>Byggnadsminne</li>
       </ul>
       <p class="leg-c">Tryck på en symbol för mer info. Kulturarv: © Ålands landskapsregering. Ortnamn och hus: Lantmäteriverkets terrängdatabas 04/2025 (CC BY 4.0).</p>
+      <ul class="leg-a">
+        <li><span class="sw"><svg class="a-sym" viewBox="0 0 22 20"><g transform="rotate(55 11 10)"><path d="M11.00,1.50C12.22,1.93 14.50,4.90 14.50,8.47L14.50,16.80Q14.50,18.50 13.52,18.50L8.48,18.50Q7.50,18.50 7.50,16.80L7.50,8.47C7.50,4.90 9.78,1.93 11.00,1.50Z" fill="var(--a-pas)" stroke="var(--surface)" stroke-width="1.1"/><circle cx="11" cy="11.5" r="1.25" fill="var(--surface)" opacity=".85"/></g></svg></span>Passagerarfartyg, färja</li>
+        <li><span class="sw"><svg class="a-sym" viewBox="0 0 22 20"><g transform="rotate(55 11 10)"><path d="M11.00,1.50C12.22,1.93 14.50,4.90 14.50,8.47L14.50,16.80Q14.50,18.50 13.52,18.50L8.48,18.50Q7.50,18.50 7.50,16.80L7.50,8.47C7.50,4.90 9.78,1.93 11.00,1.50Z" fill="var(--a-car)" stroke="var(--surface)" stroke-width="1.1"/><circle cx="11" cy="11.5" r="1.25" fill="var(--surface)" opacity=".85"/></g></svg></span>Lastfartyg</li>
+        <li><span class="sw"><svg class="a-sym" viewBox="0 0 22 20"><g transform="rotate(55 11 10)"><path d="M11.00,1.50C12.22,1.93 14.50,4.90 14.50,8.47L14.50,16.80Q14.50,18.50 13.52,18.50L8.48,18.50Q7.50,18.50 7.50,16.80L7.50,8.47C7.50,4.90 9.78,1.93 11.00,1.50Z" fill="var(--a-tan)" stroke="var(--surface)" stroke-width="1.1"/><circle cx="11" cy="11.5" r="1.25" fill="var(--surface)" opacity=".85"/></g></svg></span>Tankfartyg</li>
+        <li><span class="sw"><svg class="a-sym" viewBox="0 0 22 20"><g transform="rotate(55 11 10)"><path d="M11.00,1.50C12.22,1.93 14.50,4.90 14.50,8.47L14.50,16.80Q14.50,18.50 13.52,18.50L8.48,18.50Q7.50,18.50 7.50,16.80L7.50,8.47C7.50,4.90 9.78,1.93 11.00,1.50Z" fill="var(--a-hsc)" stroke="var(--surface)" stroke-width="1.1"/><circle cx="11" cy="11.5" r="1.25" fill="var(--surface)" opacity=".85"/></g></svg></span>Snabbgående</li>
+        <li><span class="sw"><svg class="a-sym" viewBox="0 0 22 20"><g transform="rotate(55 11 10)"><path d="M11.00,1.50C12.22,1.93 14.50,4.90 14.50,8.47L14.50,16.80Q14.50,18.50 13.52,18.50L8.48,18.50Q7.50,18.50 7.50,16.80L7.50,8.47C7.50,4.90 9.78,1.93 11.00,1.50Z" fill="var(--a-fis)" stroke="var(--surface)" stroke-width="1.1"/><circle cx="11" cy="11.5" r="1.25" fill="var(--surface)" opacity=".85"/></g></svg></span>Fiskebåt</li>
+        <li><span class="sw"><svg class="a-sym" viewBox="0 0 22 20"><g transform="rotate(55 11 10)"><path d="M11.00,1.50C12.22,1.93 14.50,4.90 14.50,8.47L14.50,16.80Q14.50,18.50 13.52,18.50L8.48,18.50Q7.50,18.50 7.50,16.80L7.50,8.47C7.50,4.90 9.78,1.93 11.00,1.50Z" fill="var(--a-ple)" stroke="var(--surface)" stroke-width="1.1"/><circle cx="11" cy="11.5" r="1.25" fill="var(--surface)" opacity=".85"/></g></svg></span>Fritids- och segelbåt</li>
+        <li><span class="sw"><svg class="a-sym" viewBox="0 0 22 20"><g transform="rotate(55 11 10)"><path d="M11.00,1.50C12.22,1.93 14.50,4.90 14.50,8.47L14.50,16.80Q14.50,18.50 13.52,18.50L8.48,18.50Q7.50,18.50 7.50,16.80L7.50,8.47C7.50,4.90 9.78,1.93 11.00,1.50Z" fill="var(--a-ser)" stroke="var(--surface)" stroke-width="1.1"/><circle cx="11" cy="11.5" r="1.25" fill="var(--surface)" opacity=".85"/></g></svg></span>Bogserbåt, lots, räddning</li>
+        <li><span class="sw"><svg class="a-sym" viewBox="0 0 22 20"><g transform="rotate(55 11 10)"><path d="M11.00,1.50C12.22,1.93 14.50,4.90 14.50,8.47L14.50,16.80Q14.50,18.50 13.52,18.50L8.48,18.50Q7.50,18.50 7.50,16.80L7.50,8.47C7.50,4.90 9.78,1.93 11.00,1.50Z" fill="var(--a-oth)" stroke="var(--surface)" stroke-width="1.1"/><circle cx="11" cy="11.5" r="1.25" fill="var(--surface)" opacity=".85"/></g></svg></span>Övrigt eller okänt</li>
+        <li><span class="sw"><svg class="a-sym" viewBox="0 0 22 20"><path d="M11.00,1.50C12.22,1.93 14.50,4.90 14.50,8.47L14.50,16.80Q14.50,18.50 13.52,18.50L8.48,18.50Q7.50,18.50 7.50,16.80L7.50,8.47C7.50,4.90 9.78,1.93 11.00,1.50Z" transform="rotate(55 11 10)" fill="color-mix(in srgb,var(--a-pas) 30%,var(--surface))" stroke="var(--a-pas)" stroke-width="1.3"/></svg></span>Förtöjd, ankrad eller stilla</li>
+        <li><span class="sw"><svg class="a-sym" viewBox="0 0 22 20"><path d="M3 15 18 5" stroke="var(--a-pas)" stroke-width="1.4" stroke-linecap="round"/><circle cx="18" cy="5" r="1.8" fill="var(--a-pas)"/></svg></span>Fartvektor, 6 minuter framåt</li>
+      </ul>
+      <p class="leg-a">Fartyg med AIS-sändare: Fintraffic / digitraffic.fi (CC BY 4.0). Läget uppdateras var 30:e sekund och skrivs fram med fart och kurs däremellan. Inzoomat ritas fartygen i verklig storlek. Tryck på ett fartyg för mer info. Båtar utan AIS syns inte. I sjökortsläget säger appen till om ett stort fartyg kommer att passera närmare än ca 500 m inom 10 minuter, om Din position är påslagen. Ej för navigering – håll alltid utkik.</p>
     </div>
     <div class="laypop" id="laypop" hidden role="dialog" aria-label="Lager">
       <h3>Lager</h3>
       <button class="lsw" type="button" data-l="res" aria-pressed="true"><span class="ico"><span class="k-sw"></span></span><span class="lbl">Naturreservat<small>Röd kant när landstigning är förbjuden</small></span><span class="tg" aria-hidden="true"></span></button>
       <button class="lsw" type="button" data-l="kul" aria-pressed="true"><span class="ico"><svg class="s-sym" viewBox="0 0 22 20"><path d="M11 5 16 10 11 15 6 10z" fill="var(--c-forn)" stroke="var(--k-halo)" stroke-width="1.4"/></svg></span><span class="lbl">Kulturarv<small>Fornlämningar, vrak och byggnadsminnen</small></span><span class="tg" aria-hidden="true"></span></button>
       <button class="lsw" type="button" data-l="trl" aria-pressed="true"><span class="ico"><span class="ln"></span></span><span class="lbl">Vandringsleder</span><span class="tg" aria-hidden="true"></span></button>
+      <button class="lsw" type="button" data-l="ais" aria-pressed="true"><span class="ico"><svg class="a-sym" viewBox="0 0 22 20"><g transform="rotate(55 11 10)"><path d="M11.00,1.50C12.22,1.93 14.50,4.90 14.50,8.47L14.50,16.80Q14.50,18.50 13.52,18.50L8.48,18.50Q7.50,18.50 7.50,16.80L7.50,8.47C7.50,4.90 9.78,1.93 11.00,1.50Z" fill="var(--a-pas)" stroke="var(--surface)" stroke-width="1.1"/><circle cx="11" cy="11.5" r="1.25" fill="var(--surface)" opacity=".85"/></g></svg></span><span class="lbl">Fartyg i realtid<small>AIS från Fintraffic, uppdateras var 30:e sekund</small></span><span class="tg" aria-hidden="true"></span></button>
       <div class="lay-o">
         <h4>O-karta</h4>
         <div class="lseg" role="group" aria-label="Typ av O-karta"><button type="button" id="omb" aria-pressed="true">MapAnt</button><button type="button" id="ovb" aria-pressed="false">Ritad</button></div>
@@ -1260,6 +1311,13 @@ footer p{margin:0 0 8px}
         <button class="lsw lay-v" type="button" data-l="snd" aria-pressed="true"><span class="ico"><span class="s-snd">4<sub>3</sub></span></span><span class="lbl">Djupsiffror<small>Djup i meter</small></span><span class="tg" aria-hidden="true"></span></button>
         <button class="lsw lay-v" type="button" data-l="rk" aria-pressed="true"><span class="ico"><svg class="s-sym" viewBox="0 0 22 20"><path d="M7 10h8M11 6v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="lbl">Stenar och grynnor<small>Lantmäteriverket och OpenStreetMap</small></span><span class="tg" aria-hidden="true"></span></button>
       </div>
+      <h4>För utvecklare</h4>
+      <button class="lsw" type="button" id="inspb" aria-pressed="false"><span class="ico"><svg class="s-sym" viewBox="0 0 22 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="10" r="5.5"/><path d="M11 1.5v4M11 14.5v4M2.5 10h4M15.5 10h4"/></svg></span><span class="lbl">Granska kartdata<small>Tryck på kartan och se lager, klass, källa och rådata</small></span><span class="tg" aria-hidden="true"></span></button>
+    </div>
+    <div class="ipanel" id="ipanel" hidden role="dialog" aria-label="Kartdata här">
+      <div class="ip-h"><b>Kartdata här</b><button class="ip-x" id="ipx" type="button" aria-label="Stäng">✕</button></div>
+      <div id="ipbody"></div>
+      <div class="ip-act"><button type="button" id="ipcopy">Kopiera som JSON</button></div>
     </div>
 
   </div>
@@ -1450,7 +1508,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   let srast=true;try{srast=localStorage.getItem('va-srast')!=='0'}catch(e){}
   let omant=true;try{omant=localStorage.getItem('va-omant')!=='0'}catch(e){}
   const MZ=11,mOn=z=>omode&&omant&&(z==null?map.getZoom():z)>=MZ-.01;
-  const LAY={res:1,kul:1,trl:1,snd:1,rk:1};try{Object.assign(LAY,JSON.parse(localStorage.getItem('va-lay')||'{}'))}catch(e){}
+  const LAY={res:1,kul:1,trl:1,snd:1,rk:1,ais:1};try{Object.assign(LAY,JSON.parse(localStorage.getItem('va-lay')||'{}'))}catch(e){}
   function paint(){
     const O=omode,S=smode;
     map.getContainer().style.background=O?css('--o-water'):S?css('--s-20'):'';
@@ -1470,6 +1528,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     if(typeof sPaint==='function')sPaint();
     if(typeof kPaint==='function')kPaint();
     if(typeof mUpdate==='function')mUpdate();
+    if(typeof aPaint==='function')aPaint();
   }
   let lineOf={};
 
@@ -1952,6 +2011,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   // ett tryck på kartan som stänger en öppen ruta ska inte genast öppna nästa
   let kHad=false;map.on('preclick',()=>{kHad=!!(map._popup&&map.hasLayer(map._popup))});
   map.on('click',e=>{if(kHad||!lpop.hidden)return;
+    const a=typeof aHit==='function'?aHit(e.containerPoint):null;if(a!=null){aOpen(a);return}
     const c=LAY.kul?cHit(e.containerPoint):null;if(c){cOpen(c);return}
     if(!SKY||!LAY.res)return;const o=kHit(e.containerPoint,e.latlng);if(o)kOpen(o,e.latlng)});
   function kBuild(d){d.f.forEach(o=>o.k='f');d.m.forEach(o=>o.k='m');SKY=d;kPal();
@@ -2012,10 +2072,10 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   const lpop=$('#laypop'),lbtn=$('#layb');
   function laySave(){try{localStorage.setItem('va-lay',JSON.stringify(LAY))}catch(e){}}
   function layUI(){lpop.querySelectorAll('[data-l]').forEach(b=>b.setAttribute('aria-pressed',String(!!LAY[b.dataset.l])));
-    box.classList.toggle('no-trl',!LAY.trl);box.classList.toggle('no-res',!LAY.res);box.classList.toggle('no-kul',!LAY.kul)}
+    box.classList.toggle('no-trl',!LAY.trl);box.classList.toggle('no-res',!LAY.res);box.classList.toggle('no-kul',!LAY.kul);box.classList.toggle('no-ais',!LAY.ais)}
   function layOpen(on){lpop.hidden=!on;lbtn.setAttribute('aria-pressed',String(on))}
   lpop.addEventListener('click',e=>{const b=e.target.closest('[data-l]');if(!b)return;const k=b.dataset.l;LAY[k]=LAY[k]?0:1;laySave();layUI();
-    if(k==='res')kSync();else if(k==='kul')cSync();else if(k==='snd'||k==='rk')sRedraw()});
+    if(k==='res')kSync();else if(k==='kul')cSync();else if(k==='snd'||k==='rk')sRedraw();else if(k==='ais'&&typeof aSync==='function')aSync()});
   lbtn.onclick=e=>{e.stopPropagation();layOpen(lpop.hidden)};
   $('#snote').onclick=e=>{e.stopPropagation();layOpen(true)};
   document.addEventListener('click',e=>{if(!lpop.hidden&&!lpop.contains(e.target)&&!lbtn.contains(e.target))layOpen(false)});
@@ -2044,6 +2104,232 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   $('#omb').onclick=()=>{if(!omant)setMant(true)};$('#ovb').onclick=()=>{if(omant)setMant(false)};
   $('#onote').onclick=e=>{e.stopPropagation();layOpen(true)};
   oChoice();map.on('zoomend',mUpdate);mUpdate();
+
+  /* ---------- fartyg i realtid: AIS från Fintraffic / digitraffic.fi (CC BY 4.0) ----------
+     Lägen hämtas var 30:e sekund (inom 90 km från Åland), fartygsdata (namn, typ, storlek) var 15:e minut.
+     Mellan hämtningarna skrivs läget fram med fart och kurs, så fartygen rör sig jämnt. */
+  map.createPane('ais');map.getPane('ais').style.zIndex=436;map.getPane('ais').style.pointerEvents='none';
+  const aR=L.canvas({pane:'ais',padding:.4,tolerance:0});
+  const AU='https://meri.digitraffic.fi/api/ais/v1/',AOPT={headers:{'Digitraffic-User':'VandraAland/1.0'},cache:'no-store'};
+  const ABOX=L.latLngBounds([59.5,18.8],[60.85,21.7]);
+  const AV=new Map(),AM=new Map(),aWarned={};
+  // på sidor som inte får hämta data utifrån (t.ex. förhandsvisningar) stoppas hämtningen och appen säger varför
+  let aBlocked=false;document.addEventListener('securitypolicyviolation',e=>{if(/digitraffic/.test(e.blockedURI||''))aBlocked=true});
+  let aG=null,aPollT=null,aAnimT=null,aMetaAt=0,aBusy=false,aSel=null,aPop=null,aOk=false,aErr=0,aOut=[],AP={};
+  const AT={pas:'Passagerarfartyg',car:'Lastfartyg',tan:'Tankfartyg',hsc:'Snabbgående fartyg',fis:'Fiskebåt',ple:'Fritidsbåt',ser:'Arbetsfartyg',oth:'Fartyg'};
+  const ATS={31:'Bogsering',32:'Bogsering',33:'Muddring',34:'Dykarbåt',35:'Militärt fartyg',36:'Segelbåt',37:'Fritidsbåt',50:'Lotsbåt',51:'Sjöräddning',52:'Bogserbåt',53:'Hamnfartyg',54:'Oljeskydd',55:'Myndighetsfartyg',58:'Sjuktransport'};
+  const ANS={0:'Under gång',1:'Ankrad',2:'Ej manöverfärdig',3:'Begränsad manöverförmåga',4:'Begränsad av djupgående',5:'Förtöjd',6:'Grundstött',7:'Fiskar',8:'Seglar',11:'Bogserar',12:'Bogserar',14:'Nödsändare'};
+  const aCat=t=>t>=60&&t<70?'pas':t>=70&&t<80?'car':t>=80&&t<90?'tan':t>=40&&t<50?'hsc':t===30?'fis':t===36||t===37?'ple':(t>=31&&t<=35)||(t>=50&&t<60)?'ser':'oth';
+  const aName=s=>(s||'').trim().toLowerCase().replace(/(^|[\s\-\/(.])(\p{L})/gu,(m,a,b)=>a+b.toUpperCase());
+  const aLen=m=>m?(m.referencePointA||0)+(m.referencePointB||0):0,aBeam=m=>m?(m.referencePointC||0)+(m.referencePointD||0):0;
+  const aMov=v=>v.sog>=.5&&v.sog<102.2,aHd=v=>v.hd<360?v.hd:(aMov(v)&&v.cog<360?v.cog:null);
+  const aF1=x=>x.toFixed(1).replace('.',',');
+  const LOC={FIHEL:'Helsingfors',FIMHQ:'Mariehamn',FITKU:'Åbo',FINLI:'Nådendal',FIUKI:'Nystad',FIRAU:'Raumo',FIPOR:'Björneborg',FIHKO:'Hangö',FIKOK:'Karleby',FIOUL:'Uleåborg',FIVAA:'Vasa',FIKTK:'Kotka',
+    SESTO:'Stockholm',SEKPS:'Kapellskär',SENYN:'Nynäshamn',SEGVX:'Gävle',SEMMA:'Malmö',SEGOT:'Göteborg',SEVST:'Västerås',SESOE:'Södertälje',SEOXE:'Oxelösund',EETLL:'Tallinn',EEMUG:'Muuga',LVRIX:'Riga',DETRV:'Travemünde',DEROS:'Rostock',PLGDN:'Gdańsk',PLGDY:'Gdynia',LTKLJ:'Klaipėda',RULED:'S:t Petersburg',RUULU:'Ust-Luga',
+    LANGNAS:'Långnäs',ECKERO:'Eckerö',FOGLO:'Föglö',DEGERBY:'Degerby',KOKAR:'Kökar',BRANDO:'Brändö',VARDO:'Vårdö',KAPELLSKAR:'Kapellskär',GRISSLEHAMN:'Grisslehamn',ABO:'Åbo',TURKU:'Åbo',HELSINKI:'Helsingfors',NAANTALI:'Nådendal',SVINO:'Svinö',HUMMELVIK:'Hummelvik',TORSHOLMA:'Torsholma',OSNAS:'Osnäs',HASTO:'Hastersboda',ARNAS:'Årnäs',SODERSUNDA:'Södersunda'};
+  const aDest=s=>s.split(/\s*(?:<>|>|<|\/)\s*/).filter(Boolean).map(t=>{const k=t.replace(/\s+/g,'').toUpperCase();return LOC[k]||(/^[A-Z]{2}\s?[A-Z0-9]{3}$/.test(t)?t:aName(t))}).join(' – ');
+  function aPal(){AP={halo:css('--a-halo'),ink:css('--a-ink')};Object.keys(AT).forEach(k=>AP[k]=css('--a-'+k))}
+  // läget just nu: senaste AIS-läget framskrivet med fart och kurs (högst 3 minuter)
+  function aNow(v,now){const dt=Math.min(180,Math.max(0,(now-v.t)/1000));if(!aMov(v)||!(v.cog<360)||!dt)return [v.la,v.lo];
+    const d=v.sog*.514444*dt,c=v.cog*Math.PI/180;return [v.la+d*Math.cos(c)/111320,v.lo+d*Math.sin(c)/(111320*Math.cos(v.la*Math.PI/180))]}
+  // skrovet: spetsig för, raka sidor, rak akter med rundade hörn (fören uppåt, mittpunkt i 0,0)
+  function aHull(ctx,l,b){const h=l/2,w=b/2;ctx.beginPath();ctx.moveTo(0,-h);
+    ctx.bezierCurveTo(w*.35,-h*.95,w,-h*.6,w,-h*.18);ctx.lineTo(w,h*.8);ctx.quadraticCurveTo(w,h,w*.72,h);ctx.lineTo(-w*.72,h);
+    ctx.quadraticCurveTo(-w,h,-w,h*.8);ctx.lineTo(-w,-h*.18);ctx.bezierCurveTo(-w,-h*.6,-w*.35,-h*.95,0,-h);ctx.closePath()}
+  function aDraw(ctx,lay){const m=lay._map,z=m.getZoom(),now=Date.now(),mpp=40075016.7*Math.cos(60.2*Math.PI/180)/Math.pow(2,z+8);
+    const s=z<11?.82:z<13?.92:1,rb=lay._renderer._bounds,F=css('--f-head'),out=[],labs=[],list=[];
+    for(const v of AV.values()){if(v.la==null||now-v.t>6*36e5)continue;const mt=AM.get(v.mmsi);list.push([v,mt,aMov(v)?1:0,v.mmsi===aSel?2:0])}
+    list.sort((a,b)=>(a[3]-b[3])||(a[2]-b[2])||(aLen(a[1])-aLen(b[1])));
+    ctx.lineJoin='round';ctx.lineCap='round';
+    for(const [v,mt,mov,sel] of list){const cat=aCat(mt?mt.shipType:0),col=AP[cat],[la,lo]=aNow(v,now),p=m.latLngToLayerPoint([la,lo]);
+      if(rb&&(p.x<rb.min.x-60||p.y<rb.min.y-60||p.x>rb.max.x+60||p.y>rb.max.y+60))continue;
+      const Lm=aLen(mt),Bm=aBeam(mt),hd=aHd(v),big=Lm>=100||(!Lm&&(cat==='car'||cat==='tan')),mid=Lm>=25||(!Lm&&(cat==='pas'||cat==='ser'));
+      let l=(big?20:mid?16:12)*s,b=(big?8:mid?6.6:5.2)*s,cx=p.x,cy=p.y,real=false;const r=hd==null?null:hd*Math.PI/180;
+      // inzoomat: verklig storlek och läge kring AIS-antennen
+      if(r!=null&&Lm&&Bm&&Lm/mpp>l){real=true;l=Lm/mpp;b=Math.max(Bm/mpp,3);const fa=((mt.referencePointA||0)-(mt.referencePointB||0))/2/mpp,sd=((mt.referencePointD||0)-(mt.referencePointC||0))/2/mpp;
+        cx=p.x+fa*Math.sin(r)+sd*Math.cos(r);cy=p.y-fa*Math.cos(r)+sd*Math.sin(r)}
+      ctx.globalAlpha=now-v.t>20*60e3?.45:1;
+      if(sel&&v.tr.length){ctx.beginPath();v.tr.forEach((q,i)=>{const t=m.latLngToLayerPoint(q);i?ctx.lineTo(t.x,t.y):ctx.moveTo(t.x,t.y)});ctx.lineTo(p.x,p.y);
+        ctx.setLineDash([.5,4.5]);ctx.lineWidth=2.4;ctx.strokeStyle=col;ctx.stroke();ctx.setLineDash([])}
+      // fartvektor: var fartyget är om 6 minuter
+      if(mov&&r!=null&&v.cog<360&&z>=10){const c=v.cog*Math.PI/180,bx=cx+Math.sin(r)*l/2,by=cy-Math.cos(r)*l/2,d=v.sog*.514444*360/mpp,ex=bx+Math.sin(c)*d,ey=by-Math.cos(c)*d;
+        ctx.beginPath();ctx.moveTo(bx,by);ctx.lineTo(ex,ey);ctx.lineWidth=3.2;ctx.strokeStyle=AP.halo;ctx.stroke();ctx.lineWidth=1.3;ctx.strokeStyle=col;ctx.stroke();
+        ctx.beginPath();ctx.arc(ex,ey,1.7,0,7);ctx.fillStyle=col;ctx.fill()}
+      ctx.save();ctx.translate(cx,cy);
+      if(r==null){ctx.beginPath();ctx.arc(0,0,(mid||big?4:3.4)*s,0,7)}else{ctx.rotate(r);aHull(ctx,l,b)}
+      if(mov){ctx.fillStyle=col;ctx.fill();ctx.lineWidth=1.25;ctx.strokeStyle=AP.halo;ctx.stroke();
+        if(r!=null&&!real&&l>=14){ctx.beginPath();ctx.arc(0,l*.18,b*.17,0,7);ctx.fillStyle=AP.halo;ctx.globalAlpha*=.85;ctx.fill();ctx.globalAlpha/=.85}}
+      else{ctx.lineWidth=2.6;ctx.strokeStyle=AP.halo;ctx.stroke();ctx.fillStyle=AP.halo;ctx.fill();ctx.globalAlpha*=.3;ctx.fillStyle=col;ctx.fill();ctx.globalAlpha/=.3;ctx.lineWidth=1.3;ctx.strokeStyle=col;ctx.stroke()}
+      ctx.restore();
+      const hr=Math.max(10,Math.min(l/2,60));
+      if(sel){ctx.beginPath();ctx.arc(cx,cy,hr+5,0,7);ctx.lineWidth=1.6;ctx.strokeStyle=col;ctx.setLineDash([3,3]);ctx.stroke();ctx.setLineDash([])}
+      out.push([v.mmsi,cx,cy,hr]);
+      const nm=mt&&aName(mt.name);if(nm&&(sel||z>=(smode?13:14.5)||(z>=10.5&&(cat==='pas'||Lm>=80))))labs.push([nm,cx,cy,hr,col,ctx.globalAlpha])}
+    // namn sist, utan krockar
+    ctx.font='600 11px '+F;ctx.textBaseline='middle';ctx.textAlign='left';ctx.lineWidth=3;ctx.strokeStyle=AP.halo;const placed=[];
+    for(const [nm,x,y,hr,col,al] of labs.reverse()){const w=ctx.measureText(nm).width,x0=x+Math.min(hr,40)+5,bx=[x0,y-7,x0+w,y+7];
+      if(placed.some(q=>!(bx[2]<q[0]||bx[0]>q[2]||bx[3]<q[1]||bx[1]>q[3])))continue;placed.push(bx);
+      ctx.globalAlpha=al;ctx.strokeText(nm,x0,y);ctx.fillStyle=AP.ink;ctx.fillText(nm,x0,y)}
+    ctx.globalAlpha=1;aOut=out}
+  const ALay=L.Path.extend({initialize(o){L.setOptions(this,o)},_project(){this._pxBounds=L.bounds([-1e7,-1e7],[1e7,1e7])},_update(){},
+    _updatePath(){const r=this._renderer;if(!r._drawing||!this._map)return;const ctx=r._ctx;ctx.save();aDraw(ctx,this);ctx.restore()},_containsPoint(){return false}});
+  // tryck på kartan: närmaste fartyg under fingret
+  function aHit(cp){if(!aG||!LAY.ais)return null;const lp=map.containerPointToLayerPoint(cp);let best=null,bd=1e9;
+    for(const [id,x,y,hr] of aOut){const d=Math.hypot(x-lp.x,y-lp.y);if(d<=Math.max(14,hr+4)&&d<bd){bd=d;best=id}}return best}
+  function aEta(e){if(!e)return '';const mo=(e>>16)&15,d=(e>>11)&31,h=(e>>6)&31,mi=e&63;if(mo<1||mo>12||d<1||h>23||mi>59)return '';
+    const n=new Date();let y=n.getUTCFullYear();if(mo<n.getUTCMonth()+1-6)y++;const t=new Date(Date.UTC(y,mo-1,d,h,mi));
+    return t.getDate()+'/'+(t.getMonth()+1)+' kl '+String(t.getHours()).padStart(2,'0')+':'+String(t.getMinutes()).padStart(2,'0')}
+  const aAgo=ms=>ms<90e3?'nyss':ms<36e5?'för '+Math.round(ms/6e4)+' min sedan':'för '+Math.round(ms/36e5)+' h sedan';
+  function aHtml(v){const mt=AM.get(v.mmsi)||{},t=mt.shipType||0,cat=aCat(t),nm=aName(mt.name)||'Okänt fartyg',Lm=aLen(mt),Bm=aBeam(mt),mov=aMov(v),tags=[],rows=[];
+    let st=ANS[v.ns];if(!mov&&(v.ns===0||v.ns===8||v.ns==null||st==null))st='Ligger still';if(mov&&st==null)st=null;
+    if(st)tags.push(st);if(mov)tags.push(aF1(v.sog)+' knop');if(mov&&v.cog<360)tags.push('Kurs '+Math.round(v.cog)+'°');
+    const dest=(mt.destination||'').trim();if(dest)rows.push(['Destination',aDest(dest)]);const eta=dest&&aEta(mt.eta);if(eta)rows.push(['Beräknad ankomst',eta]);
+    if(Lm)rows.push(['Storlek',Lm+(Bm?' × '+Bm:'')+' m']);if(mt.draught)rows.push(['Djupgående',aF1(mt.draught/10)+' m']);
+    rows.push(['MMSI',v.mmsi]);if(mt.callSign)rows.push(['Anropssignal',mt.callSign]);if(mt.imo)rows.push(['IMO',mt.imo]);rows.push(['Senaste AIS',aAgo(Date.now()-v.t)]);
+    return '<div class="spop apop"><div class="sp-h"><b><span class="a-dot" style="background:'+AP[cat]+'"></span>'+esc(nm)+'</b><small>'+esc(ATS[t]||AT[cat])+'</small></div>'+
+      (tags.length?'<div class="sp-tags">'+tags.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div>':'')+
+      '<dl class="a-rows">'+rows.map(([k,x])=>'<dt>'+k+'</dt><dd>'+esc(String(x))+'</dd>').join('')+'</dl>'+
+      '<p class="sp-src">Fintraffic / digitraffic.fi · AIS · ej för navigering</p></div>'}
+  function aOpen(id){const v=AV.get(id);if(!v)return;aSel=id;const [la,lo]=aNow(v,Date.now());
+    aPop=L.popup({maxWidth:250,minWidth:250,autoPanPaddingTopLeft:L.point(16,70),autoPanPaddingBottomRight:L.point(70,30),offset:L.point(0,-8)}).setLatLng([la,lo]).setContent(aHtml(v)).openOn(map);
+    aPop.on('remove',()=>{if(aSel===id){aSel=null;aPop=null;if(aG)aG.redraw()}});if(aG)aG.redraw()}
+  function aPopUpd(full){if(!aPop||aSel==null||!map.hasLayer(aPop))return;const v=AV.get(aSel);if(!v)return;aPop.setLatLng(aNow(v,Date.now()));if(full)aPop.setContent(aHtml(v))}
+  // ---- hämtning ----
+  async function aMeta(){if(Date.now()-aMetaAt<15*60e3)return;const first=!AM.size,t0=Date.now();aMetaAt=t0;
+    try{const r=await fetch(AU+'vessels'+(first?'':'?from='+(t0-30*60e3)),AOPT);if(!r.ok)throw 0;(await r.json()).forEach(m=>AM.set(m.mmsi,m));if(aG)aG.redraw();aPopUpd(true)}
+    catch(e){if(first)aMetaAt=0}}
+  async function aPoll(){if(aBusy)return;aBusy=true;
+    try{const r=await fetch(AU+'locations?latitude=60.15&longitude=20.25&radius=90',AOPT);if(!r.ok)throw 0;const j=await r.json(),now=Date.now();
+      (j.features||[]).forEach(f=>{const p=f.properties||{},c=f.geometry&&f.geometry.coordinates,id=f.mmsi||p.mmsi;if(!c||!id)return;let v=AV.get(id);
+        if(!v){v={mmsi:id,tr:[]};AV.set(id,v)}
+        else if(v.la!=null&&(Math.abs(v.la-c[1])>8e-5||Math.abs(v.lo-c[0])>16e-5)){v.tr.push([v.la,v.lo]);if(v.tr.length>80)v.tr.shift()}
+        Object.assign(v,{la:c[1],lo:c[0],sog:p.sog,cog:p.cog,hd:p.heading,ns:p.navStat,t:Math.min(now,p.timestampExternal||now)})});
+      aOk=true;aErr=0;aAttr();aMeta();if(aG)aG.redraw();aPopUpd(true);aWarn()}
+    catch(e){const n=++aErr;setTimeout(()=>{
+      if(aBlocked){if(aPollT){clearInterval(aPollT);clearInterval(aAnimT);aPollT=aAnimT=null;hint('Fartygen kan inte visas här, eftersom sidan inte får hämta data från Fintraffic. I appen på magblo.github.io fungerar det.')}}
+      else if(n===3&&aG)hint('Fartygen kunde inte hämtas just nu')},500)}
+    finally{aBusy=false}}
+  // ---- varning: stort fartyg som kommer att passera nära (bara i sjökortsläget, med Din position påslagen) ----
+  function aWarn(){if(!smode||!meLL||!meT||Date.now()-meT>60e3)return;const now=Date.now(),c0=Math.cos(meLL.lat*Math.PI/180);
+    const vo=meV&&meV[0]>.5&&meV[1]!=null&&!isNaN(meV[1])?[meV[0]*Math.sin(meV[1]*Math.PI/180),meV[0]*Math.cos(meV[1]*Math.PI/180)]:[0,0];
+    for(const v of AV.values()){const mt=AM.get(v.mmsi),cat=aCat(mt?mt.shipType:0);
+      if(!(v.sog>=4&&v.sog<60&&v.cog<360)||now-v.t>3*60e3)continue;if(!(cat==='pas'||cat==='car'||cat==='tan'||cat==='hsc'||aLen(mt)>=50))continue;
+      const [la,lo]=aNow(v,now),rx=(lo-meLL.lng)*111320*c0,ry=(la-meLL.lat)*111320;if(rx*rx+ry*ry>9e6*9)continue;
+      const sp=v.sog*.514444,cr=v.cog*Math.PI/180,vx=sp*Math.sin(cr)-vo[0],vy=sp*Math.cos(cr)-vo[1],vv=vx*vx+vy*vy;if(vv<.04)continue;
+      const tc=-(rx*vx+ry*vy)/vv;if(tc<0||tc>600)continue;const d=Math.hypot(rx+vx*tc,ry+vy*tc);if(d>500)continue;
+      if(aWarned[v.mmsi]&&now-aWarned[v.mmsi]<15*60e3)continue;aWarned[v.mmsi]=now;
+      ohint.textContent=(aName(mt&&mt.name)||'Ett stort fartyg')+' närmar sig. Det passerar ca '+Math.max(50,Math.round(d/50)*50)+' m från dig om '+Math.max(1,Math.round(tc/60))+' min. Håll utkik.';
+      ohint.classList.remove('out');clearTimeout(oht);oht=setTimeout(()=>ohint.classList.add('out'),12000);
+      try{navigator.vibrate&&navigator.vibrate([250,120,250])}catch(e){}break}}
+  const AA='Fartyg: <a href="https://www.digitraffic.fi" target="_blank" rel="noopener">Fintraffic</a> (CC BY 4.0)';
+  function aAttr(){attrC.removeAttribution(AA);if(aG&&aOk)attrC.addAttribution(AA)}
+  function aWant(){return !aBlocked&&LAY.ais&&document.visibilityState!=='hidden'&&map.getZoom()>=7-.01&&map.getBounds().intersects(ABOX)}
+  function aSync(){const on=LAY.ais&&map.getZoom()>=7-.01;
+    if(on&&!aG){aPal();aG=new ALay({renderer:aR,interactive:false}).addTo(map)}
+    else if(!on&&aG){map.removeLayer(aG);aG=null;aOut=[];if(aPop)map.closePopup(aPop)}
+    const w=aWant();
+    if(w&&!aPollT){aPoll();aPollT=setInterval(aPoll,30000);aAnimT=setInterval(()=>{if(aG&&!map._animatingZoom){aG.redraw();aPopUpd(false)}},2000)}
+    else if(!w&&aPollT){clearInterval(aPollT);clearInterval(aAnimT);aPollT=aAnimT=null}
+    aAttr()}
+  function aPaint(){aPal();if(aG)aG.redraw()}
+  map.on('zoomend moveend',aSync);document.addEventListener('visibilitychange',aSync);
+  aSync();
+
+  /* ---------- granskningsläge: tryck på kartan och se lager, klass, källa och rådata ---------- */
+  let insp=false,iMark=null,iLast=null;
+  const ipan=$('#ipanel'),ibody=$('#ipbody'),ibtn=$('#inspb');
+  const MTKD='Lantmäteriverkets terrängdatabas 04/2025';
+  const OSRC={sea:['Hav','OpenStreetMap och GSHHG'],land:['Land','OpenStreetMap och GSHHG'],lake:['Sjö','OpenStreetMap'],
+    open:['Öppen mark, åker','OpenStreetMap och '+MTKD+' (32611 åker)'],rough:['Halvöppen mark, äng','OpenStreetMap och '+MTKD+' (32800 äng, 32900 park)'],
+    orchard:['Trädgård','OpenStreetMap och '+MTKD+' (32612)'],green:['Tät skog','OpenStreetMap'],settle:['Tomtmark','OpenStreetMap'],
+    sand:['Sand','OpenStreetMap och '+MTKD+' (34300)'],rock:['Berg i dagen, stenfält',MTKD+' (34100, 34700) och OpenStreetMap'],
+    rocks:['Liten häll (ritas från zoom 13)',MTKD+' (34100, 34700)'],marsh:['Myr, sankmark',MTKD+' (35300, 35411–35422) och OpenStreetMap'],
+    bld:['Byggnad',MTKD+' (422xx) och OpenStreetMap'],c:['Höjdkurva, var 5:e m','höjddata (Mapzen Terrain Tiles, bl.a. Copernicus)'],
+    ci:['Höjdkurva, indexkurva','höjddata (Mapzen Terrain Tiles)'],shore:['Strandlinje','OpenStreetMap'],
+    stream:['Bäck, dike','OpenStreetMap och '+MTKD+' (36311, 36312)'],fence:['Staket','OpenStreetMap'],
+    power:['Kraftledning','OpenStreetMap och '+MTKD+' (22311, 22312)'],cliff:['Brant',MTKD+' (34400) och OpenStreetMap'],
+    road:['Väg','OpenStreetMap'],road1:['Mindre väg','OpenStreetMap'],track:['Traktorväg','OpenStreetMap'],path:['Stig','OpenStreetMap'],
+    nl:['Nordlinje','beräknad mot magnetisk nord (ca 9° öst)']};
+  const IBAND=['0–3 m','3–6 m','6–10 m','10–20 m','över 20 m'],IROCK={u:'Sten under vattnet',a:'Sten i vattenytan',d:'Sten ovanför vattnet',w:'Vrak'};
+  const KF={f:['lat','lon','typ','namn','beskrivning','läge','fornID','by','kommun'],v:['lat','lon','namn','beskrivning','by','kommun','fornID'],
+    k:['lat','lon','lämning','datering','nummer'],b:['lat','lon','benämning','objekt','by','kommun','omfattning','skyddat']};
+  // ETRS-TM35FIN (EPSG:3067), samma koordinater som i Lantmäteriverkets filer
+  function tm35(la,lo){const a=6378137,f=1/298.257222101,k0=.9996,e2=f*(2-f),ep2=e2/(1-e2),r=Math.PI/180,phi=la*r,lam=(lo-27)*r;
+    const sn=Math.sin(phi),cs=Math.cos(phi),N=a/Math.sqrt(1-e2*sn*sn),T=Math.tan(phi)**2,C=ep2*cs*cs,A=lam*cs,e4=e2*e2,e6=e4*e2;
+    const M=a*((1-e2/4-3*e4/64-5*e6/256)*phi-(3*e2/8+3*e4/32+45*e6/1024)*Math.sin(2*phi)+(15*e4/256+45*e6/1024)*Math.sin(4*phi)-(35*e6/3072)*Math.sin(6*phi));
+    return [Math.round(k0*N*(A+(1-T+C)*A**3/6+(5-18*T+T*T+72*C-58*ep2)*A**5/120)+5e5),
+      Math.round(k0*(M+N*Math.tan(phi)*(A*A/2+(5-T+9*C+4*C*C)*A**4/24+(61-58*T+T*T+600*C-330*ep2)*A**6/720)))]}
+  const iTile=(la,lo,z)=>{const n=2**z,r=la*Math.PI/180;return [z,Math.floor((lo+180)/360*n),Math.floor((1-Math.log(Math.tan(r)+1/Math.cos(r))/Math.PI)/2*n)]};
+  const iNear=(l,lp,tol)=>{const ps=l._parts;if(!ps)return false;for(const pr of ps)for(let i=1;i<pr.length;i++)if(L.LineUtil.pointToSegmentDistance(lp,pr[i-1],pr[i])<=tol)return true;return false};
+  const iTol=l=>Math.max(6,((l.options&&l.options.weight)||1)/2+5);
+  const iIn=(l,lp)=>!!(l._parts&&l._pxBounds&&l._pxBounds.contains(lp)&&L.Polygon.prototype._containsPoint.call(l,lp));
+  function iCollect(ll,cp){const lp=map.latLngToLayerPoint(ll),z=map.getZoom(),out=[];
+    const add=(t,src,layer,raw)=>out.push({t,src,layer,raw});
+    // fartyg
+    const a=typeof aHit==='function'?aHit(cp):null;
+    if(a!=null){const v=AV.get(a),m=AM.get(a);add('Fartyg: '+(aName(m&&m.name)||a),'Fintraffic / digitraffic.fi (AIS)','ais',{läge:v,fartygsdata:m||null})}
+    // kulturarv och skyddad natur
+    const c=LAY.kul?cHit(cp):null;
+    if(c){const rec=KUL[c[2]][c[4]],o={};(KF[c[2]]||[]).forEach((k,i)=>{if(rec[i]!==''&&rec[i]!=null)o[k]=rec[i]});
+      add({f:'Fornlämning',v:'Vrak',k:'Krigstida lämning',b:'Byggnadsminne'}[c[2]]+': '+(c[3]||rec[2]||''),'Ålands landskapsregering','kultur.json · '+c[2]+'['+c[4]+']',o)}
+    const k=SKY&&LAY.res?kHit(cp,ll):null;
+    if(k)add({r:'Naturreservat',s:'Sälskyddsområde',f:'Fågelskyddsområde',m:'Naturminne'}[k.k]+': '+k.n,'Ålands landskapsregering','skydd.json',
+      {typ:k.k,ha:k.ha,ägare:k.o,regler:k.r,förbud:k.b,natura:k.nat,beslut:k.u});
+    // vägar och färjor (hela Åland, från OpenStreetMap)
+    [['P','Huvudväg'],['S','Väg'],['T','Mindre väg']].forEach(([k,t])=>{const l=roadL[k]&&roadL[k].f;if(l&&l._map&&iNear(l,lp,iTol(roadL[k].c)))add(t,'OpenStreetMap','D.roads.'+k,null)});
+    if(ferryL._map&&iNear(ferryL,lp,6))add('Färjelinje','Ålands landskapsregering','D.ferries',null);
+    // leder
+    for(const [id,o] of Object.entries(lineOf)){if(o.line._map&&iNear(o.line,lp,8)){const t=byId[id]&&byId[id].t;if(t)add('Led: '+t.plain,'Ålands landskapsregering och Visit Åland','trails['+id+']',{id,längd:t.len,kommun:D.kom[t.k]&&D.kom[t.k].name,nivå:t.lv});if(out.length>8)break}}
+    // sjökortet
+    if(smode){let band=-1;
+      SALL.forEach(l=>{if(!l._map)return;const o=l.options;
+        if(o._k!=null&&o._k!=='u'&&iIn(l,lp))band=Math.max(band,o._k);
+        else if(o._k==='u'&&iIn(l,lp))add('Osjömätt område','Traficoms sjökortsdatabas 10/2026','s · U',null);
+        else if(o._v&&iNear(l,lp,5))add('Djupkurva '+o._v+' m','Traficoms sjökortsdatabas 10/2026','s · C['+o._v+']',null);
+        else if(o._danger&&iNear(l,lp,5))add('Grund, prickad kant','beräknad ur Traficoms djupområden och '+MTKD+' (38600, 38700)','s · G',null)});
+      if(band>=0)add('Djupområde '+IBAND[band],'Traficoms sjökortsdatabas 10/2026','s · W['+ST[band]+']',null);
+      Object.values(SC).forEach(o=>{if(o.g&&map.hasLayer(o.g))o.g.eachLayer(l=>{if(l._drawF===drawRocks&&hitRock(l,lp)){const p=l._pts[l._hit];
+        add(IROCK[p[2]]||'Sten',p[3]==='m'?MTKD+' (3851x)':'© OpenStreetMap-bidragsgivare','s · R',{lat:p[0],lon:p[1],sort:p[2],källa:p[3]})}})});
+      if(SNAV&&map.hasLayer(SNAV.aids)&&hitAid(SNAV.aids,lp)){const p=SNAV.aids._pts[SNAV.aids._hit];add('Sjömärke: '+(p[4]||AK[p[2]]||p[2]),'Väylävirasto 10/2026 (CC BY 4.0)','nav.json · a',p)}
+      if(SNAV&&map.hasLayer(SNAV.lines)){let n=0;SNAV.lines.eachLayer(l=>{if(n<2&&l._r&&iNear(l,lp,6)){n++;add('Farled','Väylävirasto 10/2026 (CC BY 4.0)','nav.json · n',l._r.slice(1))}})}}
+    // terrängceller (vanlig karta och ritad O-karta)
+    for(const [n,o] of Object.entries(OC)){if(o.st!=='ok'||!map.hasLayer(o.g))continue;const cb=OB.find(x=>x.n===n);if(!cb||!cb.b.contains(ll))continue;
+      const got=[];
+      for(const [key,l] of Object.entries(o.m)){const d=OSRC[key],op=l&&l.options;if(!d||!l||!o.g.hasLayer(l))continue;
+        // bara det som syns i det här läget (sjöarna är hål i landet och räknas alltid)
+        if(l instanceof L.Polygon){if((op.fillOpacity>0||key==='lake')&&iIn(l,lp))got.push([key,d,'o/'+n+'.json · '+(['sea','land','lake','bld'].includes(key)?key:'P.'+key)])}
+        else if(l instanceof L.Polyline&&op.opacity>0&&iNear(l,lp,iTol(l)))got.push([key,d,'o/'+n+'.json · L.'+key])}
+      const onLand=got.some(g=>g[0]==='land'||g[0]==='lake');
+      got.filter(g=>!(g[0]==='sea'&&onLand)&&!(g[0]==='land'&&got.some(x=>x[0]==='lake'))).forEach(g=>add(g[1][0],g[1][1],g[2],null));
+      if(o.m.dots)o.m.dots.eachLayer(q=>{if(map.latLngToLayerPoint(q.getLatLng()).distanceTo(lp)<=7)
+        add(q.options._k==='boulder'?'Sten, block':'Källa',q.options._k==='boulder'?MTKD+' (34600, 34200) och OpenStreetMap':'OpenStreetMap','o/'+n+'.json · pt',{lat:q.getLatLng().lat,lon:q.getLatLng().lng})})}
+    // ortnamn
+    let nn=0;for(const r of NM){if(r[4]>z+.01)break;const q=map.latLngToContainerPoint([r[1],r[2]]);
+      if(Math.abs(q.x-cp.x)<r[0].length*3.4+8&&Math.abs(q.y-cp.y)<11){add('Ortnamn: '+r[0],r.length>5?MTKD+' (ortnamn)':'OpenStreetMap',r.length>5?'namn.json':'D.names',{typ:r[3],minzoom:r[4],storlek:r[5]});if(++nn>=3)break}}
+    return out}
+  function iShow(ll,cp){const z=map.getZoom(),[e,n]=tm35(ll.lat,ll.lng),zi=Math.round(z),hits=iCollect(ll,cp),ma=iTile(ll.lat,ll.lng,Math.min(17,zi)),tr=iTile(ll.lat,ll.lng,Math.min(15,zi));
+    iLast={lat:+ll.lat.toFixed(6),lon:+ll.lng.toFixed(6),tm35fin:{e,n},zoom:+z.toFixed(2),läge:mode,rutor:{mapant:ma.join('/'),traficom:tr.join('/')},träffar:hits};
+    const fx=x=>x.toLocaleString('sv-SE');
+    ibody.innerHTML='<div class="ip-loc">'+ll.lat.toFixed(5)+', '+ll.lng.toFixed(5)+'<br>TM35FIN E '+fx(e)+'  N '+fx(n)+'<br>zoom '+z.toFixed(1).replace('.',',')+' · ruta '+ma.join('/')+'</div>'+
+      (hits.length?'<ul class="ip-list">'+hits.map(h=>'<li><b>'+esc(h.t)+'</b><small>'+esc(h.src)+'</small><code>'+esc(h.layer)+'</code>'+
+        (h.raw?'<details><summary>Rådata</summary><pre>'+esc(JSON.stringify(h.raw,null,1))+'</pre></details>':'')+'</li>').join('')+'</ul>'
+        :'<p class="ip-none">Inget ritat här vid den här zoomnivån. Zooma in eller byt läge för fler lager.</p>');
+    ipan.hidden=false;
+    if(!iMark)iMark=L.marker(ll,{pane:'me',interactive:false,keyboard:false,icon:L.divIcon({className:'icross',html:'<i></i>',iconSize:[0,0]})}).addTo(map);else iMark.setLatLng(ll)}
+  function iClose(){ipan.hidden=true;if(iMark){map.removeLayer(iMark);iMark=null}}
+  function setInsp(on){insp=on;box.classList.toggle('insp',on);ibtn.setAttribute('aria-pressed',String(on));
+    if(on){layOpen(false);map.closePopup();hint('Tryck på kartan för att se vad som finns där')}else iClose()}
+  ibtn.onclick=()=>setInsp(!insp);
+  $('#inote').onclick=e=>{e.stopPropagation();setInsp(false)};
+  $('#ipx').onclick=iClose;
+  $('#ipcopy').onclick=async()=>{if(!iLast)return;const t=JSON.stringify(iLast,null,1);
+    try{await navigator.clipboard.writeText(t);hint('Kopierat')}catch(e){hint('Kunde inte kopiera')}};
+  // fångar trycket innan kartans egna rutor öppnas
+  map.getContainer().addEventListener('click',e=>{if(!insp)return;
+    if(e.target.closest('.leaflet-control,.leaflet-popup'))return;
+    if(map.dragging&&map.dragging.moved&&map.dragging.moved())return;
+    e.stopPropagation();e.preventDefault();if(!lpop.hidden){layOpen(false);return}
+    iShow(map.mouseEventToLatLng(e),map.mouseEventToContainerPoint(e))},true);
 
   /* ---------- vald led: tona ner andra, visa mål och gåriktning ---------- */
   // Markeringen ligger kvar när rutan stängs, så att man ser leden. Tryck på kartan för att släppa den.
@@ -2095,7 +2381,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   /* ---------- min position (visas bara när man trycker på knappen) ----------
      Följ-läge: kartan håller dig i mitten tills du själv drar i kartan. Tryck igen för att centrera, en gång till för att stänga av. */
   const locBtn=$('#loc'),LIMIT=L.latLngBounds([59.5,18.6],[60.9,21.9]);
-  let watchId=null,meM=null,meC=null,meLL=null,firstFix=false,follow=false;
+  let watchId=null,meM=null,meC=null,meLL=null,meT=0,meV=null,firstFix=false,follow=false;
   map.createPane('me');map.getPane('me').style.zIndex=455;map.getPane('me').style.pointerEvents='none';
   const meR=L.svg({pane:'me',padding:.3});
   function meStyle(){if(meC)meC.setStyle({color:css('--me'),fillColor:css('--me')})}
@@ -2111,7 +2397,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   map.on('zoomend',()=>{if(follow)centerMe(false)});
   function stopLoc(){if(watchId!=null)navigator.geolocation.clearWatch(watchId);watchId=null;follow=false;setFollow(false);setLocBtn(false,false);
     if(meM){map.removeLayer(meM);map.removeLayer(meC);meM=meC=null}meLL=null}
-  function onPos(p){const ll=L.latLng(p.coords.latitude,p.coords.longitude),acc=Math.min(p.coords.accuracy||50,3000);meLL=ll;
+  function onPos(p){const ll=L.latLng(p.coords.latitude,p.coords.longitude),acc=Math.min(p.coords.accuracy||50,3000);meLL=ll;meT=Date.now();meV=[p.coords.speed,p.coords.heading];
     if(!meM){meC=L.circle(ll,{radius:acc,renderer:meR,interactive:false,weight:1,opacity:.4,fillOpacity:.12}).addTo(map);
       meM=L.marker(ll,{interactive:false,keyboard:false,zIndexOffset:3000,icon:L.divIcon({className:'me',html:'<i></i>',iconSize:[0,0]})}).addTo(map);meStyle()}
     else{meM.setLatLng(ll);meC.setLatLng(ll);meC.setRadius(acc)}

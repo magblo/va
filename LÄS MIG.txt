@@ -18,10 +18,14 @@ Innehåll
 Sjökortets läge Kartbild hämtar Traficoms öppna sjökortsbilder direkt från Traficom (CC BY 4.0), så det behövs nät första gången man tittar på ett område.
 Kartbilden visas från zoomnivå 12 och går att zooma till nivå 16. Utzoomat visas det egna ritade sjökortet.
 
-Lagerknappen (tre lager på varandra) slår av och på naturreservat, kulturarv, vandringsleder, djupsiffror och stenar och väljer Kartbild eller Ritad.
+Lagerknappen (tre lager på varandra) slår av och på naturreservat, kulturarv, vandringsleder, djupsiffror och stenar. Där väljer man också MapAnt eller Ritad för O-kartan och Kartbild eller Ritad för sjökortet.
+
+O-kartan: MapAnt eller Ritad
+MapAnt är en orienteringskarta i vanlig svensk och finsk stil som är framräknad automatiskt ur Lantmäteriverkets laserskanning (2008–2016) och terrängdatabas. Den har grönt för tät skog, gult för öppen mark och höjdkurvor var 2,5 m. Kartrutorna hämtas från mapant.fi (CC BY 4.0) när man tittar, så det behövs nät första gången. Rutor man har tittat på sparas i telefonen (högst 6 000 rutor). MapAnt visas från zoomnivå 11. Stenar och en del detaljer saknas, och skogen kan ha ändrats sedan skanningen.
+Ritad är appens egen O-karta. Den fungerar helt utan nät men saknar grönt för tät skog.
 
 Byggnader och terräng
-Alla byggnader (också bodar, lador, bastur och garage), berg i dagen, stenfält, branter, stenar, blockfält, myrar och sankmark kommer från Lantmäteriverkets terrängdatabas 04/2025 (Maastotietokanta, CC BY 4.0). Den hämtades från Funets kopia av Lantmäteriverkets öppna data. Hus som bara finns i OpenStreetMap är kvar. Hus och små hällar ritas från zoomnivå 13.
+Alla byggnader (också bodar, lador, bastur och garage), åkrar, ängar, trädgårdar, sandområden, berg i dagen, stenfält, branter, stenar, blockfält, myrar, sankmark, kraftledningar, bäckar och diken kommer från Lantmäteriverkets terrängdatabas 04/2025 (Maastotietokanta, CC BY 4.0). Den hämtades från Funets kopia av Lantmäteriverkets öppna data. Det som bara finns i OpenStreetMap är kvar. Hus och små hällar ritas från zoomnivå 13.
 
 Ortnamn
 Omkring 9 000 namn kommer från Lantmäteriverkets terrängdatabas 04/2025 (CC BY 4.0): öar, holmar, skär, uddar, vikar, fjärdar, berg, åkrar, skogar, myrar, grund, byar och gårdar. Namn som redan finns i OpenStreetMap hoppas över. Stora namn syns tidigt, små först när man zoomar in.
@@ -37,4 +41,4 @@ Gränserna kommer från Ålands landskapsregering (CC BY 4.0). Reglerna (t.ex. l
 Fågelskyddsområden enligt jaktlagen 26 § saknar gränser i öppna data. De visas som en symbol på det läge som Lantmäteriverkets ortnamnsregister anger. Hamnholmsgrunden i Brändö saknas eftersom läget inte gick att hitta.
 Storskär-Kalhära naturreservat (2026) finns ännu inte i landskapsregeringens reservatlager. Gränsen är tagen från Natura 2000-området med samma namn.
 
-Källor: Visit Åland, Traficom (sjökortsbilder och sjökortsdatabas 10/2026), Väylävirasto (CC BY 4.0), Ålands landskapsregering (naturreservat och kulturarv, CC BY 4.0), Lantmäteriverket (terrängdatabasen 04/2025 och ortnamnsregistret, CC BY 4.0), OpenStreetMap-bidragsgivare, GSHHG, Mapzen Terrain Tiles på AWS (bl.a. Copernicus EU-DEM).
+Källor: Visit Åland, Traficom (sjökortsbilder och sjökortsdatabas 10/2026), Väylävirasto (CC BY 4.0), Ålands landskapsregering (naturreservat och kulturarv, CC BY 4.0), Lantmäteriverket (terrängdatabasen 04/2025 och ortnamnsregistret, CC BY 4.0), MapAnt.fi (O-karta, CC BY 4.0), OpenStreetMap-bidragsgivare, GSHHG, Mapzen Terrain Tiles på AWS (bl.a. Copernicus EU-DEM).

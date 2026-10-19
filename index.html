@@ -635,7 +635,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* orienteringskarta (ISOM-inspirerade färger) */
 :root{
   --o-forest:#ffffff; --o-open:#f2ad45; --o-rough:#f9d79e; --o-orchard:#f9d79e; --o-green:#95c58a; --o-settle:#ad9d35; --o-sand:#f7dfa5;
-  --o-rock:#cfcfcf; --o-water:#2a8cc4; --o-wline:#2a8cc4; --o-marsh:#2a8cc4; --o-shore:#1b1b1b; --o-contour:#c0661a; --o-black:#1b1b1b; --o-bld:#1b1b1b;
+  --o-rock:#d9d9d9; --o-water:#2a8cc4; --o-wline:#2a8cc4; --o-marsh:#2a8cc4; --o-shore:#1b1b1b; --o-contour:#c0661a; --o-black:#1b1b1b; --o-bld:#1b1b1b;
   --o-course:#c8008c; --o-dot:#2f8f2a; --o-road:#cf7a33; --o-nline:#2a8cc4; --o-halo:#ffffff; --me:#1a73e8;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -777,7 +777,7 @@ h1{font:700 34px/1.02 var(--f-head);letter-spacing:-.01em;margin:0 0 10px;text-w
   --s-0:#90c2e7; --s-3:#bfddf1; --s-6:#d6eaf6; --s-10:#e8f3fa; --s-20:#f8fbfd;
   --s-land:#f2e8c8; --s-coast:#7a6a46; --s-contour:#5b87a5; --s-contour2:#93b4c8; --s-sound:#2c4352; --s-halo:rgba(255,255,255,.78);
   --s-fw:#1d2b34; --s-mag:#c0168a; --s-lake:#cfe5f2; --s-road:#ffffff; --s-road-case:#c8bb93; --s-track:#9a8a66; --s-bld:#cdbf9a;
-  --s-ferry:#56707f; --s-ua:#cfd2d3; --s-ol:#1b1b1b; --s-lab-bg:#ffffff; --s-danger:#14232c; --s-rock:#141414; --s-rast-filter:none; --s-land-r:#f8eec9;
+  --s-ferry:#56707f; --s-ua:#cfd2d3; --s-ol:#1b1b1b; --s-lab-bg:#ffffff; --s-danger:#14232c; --s-rock:#141414; --s-rast-filter:none; --o-rast-filter:none; --s-land-r:#f8eec9;
   --k-green:#2f8a55; --k-red:#d0342c; --k-green-ink:#1e6640; --k-red-ink:#b0241d; --k-halo:rgba(255,255,255,.88); --k-dot:#ffffff;
   --c-forn:#8c4a26; --c-vrak:#24333d; --c-krig:#5c6b34; --c-bm:#a0581c;
 }
@@ -785,14 +785,14 @@ h1{font:700 34px/1.02 var(--f-head);letter-spacing:-.01em;margin:0 0 10px;text-w
   --s-0:#3a6f95; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
   --s-land:#3a3629; --s-coast:#a8976f; --s-contour:#77a3c0; --s-contour2:#4b7189; --s-sound:#cfdde6; --s-halo:rgba(17,40,54,.82);
   --s-fw:#e3eaee; --s-mag:#ff6cc8; --s-lake:#26495f; --s-road:#6c6757; --s-road-case:#29271f; --s-track:#a59673; --s-bld:#575240;
-  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7; --s-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --s-land-r:#2f280e;
+  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7; --s-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --o-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --s-land-r:#2f280e;
   --k-green:#62c48c; --k-red:#ff6a60; --k-green-ink:#8fdcb0; --k-red-ink:#ff9c95; --k-halo:rgba(15,20,18,.88); --k-dot:#171d1a;
   --c-forn:#e6a57e; --c-vrak:#d6e2ea; --c-krig:#bccb8f; --c-bm:#eab27a;}}
 :root[data-theme="dark"]{
   --s-0:#3a6f95; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
   --s-land:#3a3629; --s-coast:#a8976f; --s-contour:#77a3c0; --s-contour2:#4b7189; --s-sound:#cfdde6; --s-halo:rgba(17,40,54,.82);
   --s-fw:#e3eaee; --s-mag:#ff6cc8; --s-lake:#26495f; --s-road:#6c6757; --s-road-case:#29271f; --s-track:#a59673; --s-bld:#575240;
-  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7; --s-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --s-land-r:#2f280e;
+  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7; --s-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --o-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --s-land-r:#2f280e;
   --k-green:#62c48c; --k-red:#ff6a60; --k-green-ink:#8fdcb0; --k-red-ink:#ff9c95; --k-halo:rgba(15,20,18,.88); --k-dot:#171d1a;
   --c-forn:#e6a57e; --c-vrak:#d6e2ea; --c-krig:#bccb8f; --c-bm:#eab27a;}
 .mapbox.smode .leg-n,.mapbox:not(.smode) .leg-s{display:none}
@@ -807,7 +807,16 @@ h1{font:700 34px/1.02 var(--f-head);letter-spacing:-.01em;margin:0 0 10px;text-w
   background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);box-shadow:var(--shadow-sm);white-space:nowrap;cursor:pointer}
 .snote .sn-k{color:var(--ink);letter-spacing:.05em;padding-right:6px;border-right:1px solid var(--line)}
 .mapbox.is-full .srow{--full:1}
-.mapbox:not(.smode) .srow{display:none}
+.mapbox:not(.smode):not(.omode) .srow{display:none}
+.mapbox.omode #snote,.mapbox:not(.omode) #onote{display:none}
+.onote .sn-k{border-right:0;padding-right:0}
+.legend{z-index:797}
+/* MapAnt i O-kartan: egen terräng och skuggning göms */
+.leaflet-orast-pane{filter:var(--o-rast-filter)}
+.mapbox.omode.mant .leaflet-hs-pane{display:none}
+.mapbox.mant .leg-o,.mapbox:not(.mant) .leg-m{display:none}
+.legend .leg-m .sw .fill{filter:var(--o-rast-filter)}
+.mapbox:not(.omode) .lay-o{display:none}
 /* kartbildsläget: Traficoms sjökort har egna namn, skuggning och vägar */
 .leaflet-srast-pane{filter:var(--s-rast-filter)}
 .mapbox.smode.rast .nm,.mapbox.smode.rast .lab{display:none}
@@ -1101,7 +1110,7 @@ footer p{margin:0 0 8px}
       <button type="button" id="mo" aria-pressed="false">O-karta</button>
       <button type="button" id="ms" aria-pressed="false">Sjökort</button>
     </div>
-    <div class="srow"><button type="button" class="snote" id="snote" aria-label="Sjökort: välj kartbild eller ritad karta"><span class="sn-k">Kartbild</span>Ej för navigering</button></div>
+    <div class="srow"><button type="button" class="snote onote" id="onote" aria-label="O-karta: välj MapAnt eller ritad karta"><span class="sn-k">MapAnt</span></button><button type="button" class="snote" id="snote" aria-label="Sjökort: välj kartbild eller ritad karta"><span class="sn-k">Kartbild</span>Ej för navigering</button></div>
     <div class="ohint out" id="ohint" aria-live="polite"></div>
     <div class="ctrls">
       <div class="cgroup">
@@ -1145,7 +1154,25 @@ footer p{margin:0 0 8px}
         <li><span class="sw"><span class="ln o-nline"></span></span>Nordlinje</li>
         <li><span class="sw"><span class="me-sw"></span></span>Din position</li>
       </ul>
-      <p class="leg-o">Enligt Svenska Orienteringsförbundets vanliga karttecken. Syns när du zoomar in. Höjdkurvor var 5:e m, nordlinjer mot magnetisk nord (ca 9° öst). Byggd av OpenStreetMap, Lantmäteriverkets terrängdatabas 04/2025 (CC BY 4.0) och höjddata – inte en riktig O-karta.</p>
+      <p class="leg-o">Enligt Svenska Orienteringsförbundets vanliga karttecken. Syns när du zoomar in. Höjdkurvor var 5:e m, nordlinjer mot magnetisk nord (ca 9° öst). Byggd av OpenStreetMap, Lantmäteriverkets terrängdatabas 04/2025 (CC BY 4.0) och höjddata – inte en riktig O-karta. Tät skog (grönt) finns bara i MapAnt.</p>
+      <ul class="leg-m">
+        <li><span class="sw"><span class="ln o-course"></span></span>Led</li>
+        <li><span class="sw"><span class="pin" style="position:static;transform:none;width:16px;height:16px;font-size:0"></span></span>Ledstart</li>
+        <li><span class="sw"><span class="fill" style="background:#ffffff;box-shadow:inset 0 0 0 1px #d0d0d0"></span></span>Skog, lätt att ta sig fram</li>
+        <li><span class="sw"><span class="fill" style="background:linear-gradient(90deg,#c8f5c0 0 33%,#8ee07c 33% 66%,#4cc23b 66%)"></span></span>Tät skog och sly – mörkare är tätare</li>
+        <li><span class="sw"><span class="fill" style="background:#fcaa48"></span></span>Öppen mark, åker</li>
+        <li><span class="sw"><span class="fill" style="background:#fcd29a"></span></span>Halvöppen mark</li>
+        <li><span class="sw"><span class="fill" style="background:repeating-linear-gradient(180deg,#3d5fd8 0 1.5px,#ffffff 1.5px 4px)"></span></span>Sankmark</li>
+        <li><span class="sw"><span class="fill" style="background:#1ea1e6"></span></span>Sjö, hav</li>
+        <li><span class="sw"><span class="ln o-contour"></span></span>Höjdkurva, var 2,5 m</li>
+        <li><span class="sw"><span class="ln o-road2"></span></span>Väg</li>
+        <li><span class="sw"><span class="ln o-path"></span></span>Stig</li>
+        <li><span class="sw"><span class="ln o-cliff"></span></span>Brant, stup</li>
+        <li><span class="sw"><span class="ln" style="border-top:1px solid var(--o-black)"></span></span>Kraftledning</li>
+        <li><span class="sw"><span class="fill" style="background:#1b1b1b;width:12px;height:9px"></span></span>Byggnad</li>
+        <li><span class="sw"><span class="me-sw"></span></span>Din position</li>
+      </ul>
+      <p class="leg-m">MapAnt är räknad automatiskt ur Lantmäteriverkets laserskanning (2008–2016) och terrängdatabas, i samma stil som en vanlig orienteringskarta. Stenar och en del detaljer saknas, och skogen kan ha ändrats sedan skanningen. Karta: <a href="https://www.mapant.fi" target="_blank" rel="noopener">MapAnt.fi</a> (CC BY 4.0), Lantmäteriverket. Välj Ritad i lagermenyn för appens egen karta, som fungerar utan nät.</p>
       <ul class="leg-s rast">
         <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M7 10h8M11 6v8" stroke="#141414" stroke-width="1.4" stroke-linecap="round"/></svg></span>Sten under vatten</li>
         <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M7.4 10h7.2M11 6.4v7.2M8.4 7.4l5.2 5.2M13.6 7.4l-5.2 5.2" stroke="#141414" stroke-width="1.3" stroke-linecap="round"/></svg></span>Sten i vattenytan</li>
@@ -1221,6 +1248,11 @@ footer p{margin:0 0 8px}
       <button class="lsw" type="button" data-l="res" aria-pressed="true"><span class="ico"><span class="k-sw"></span></span><span class="lbl">Naturreservat<small>Röd kant när landstigning är förbjuden</small></span><span class="tg" aria-hidden="true"></span></button>
       <button class="lsw" type="button" data-l="kul" aria-pressed="true"><span class="ico"><svg class="s-sym" viewBox="0 0 22 20"><path d="M11 5 16 10 11 15 6 10z" fill="var(--c-forn)" stroke="var(--k-halo)" stroke-width="1.4"/></svg></span><span class="lbl">Kulturarv<small>Fornlämningar, vrak och byggnadsminnen</small></span><span class="tg" aria-hidden="true"></span></button>
       <button class="lsw" type="button" data-l="trl" aria-pressed="true"><span class="ico"><span class="ln"></span></span><span class="lbl">Vandringsleder</span><span class="tg" aria-hidden="true"></span></button>
+      <div class="lay-o">
+        <h4>O-karta</h4>
+        <div class="lseg" role="group" aria-label="Typ av O-karta"><button type="button" id="omb" aria-pressed="true">MapAnt</button><button type="button" id="ovb" aria-pressed="false">Ritad</button></div>
+        <p class="lnote">MapAnt är en orienteringskarta i vanlig stil, med grönt för tät skog. Den är framräknad automatiskt ur Lantmäteriverkets laserskanning. Den hämtas från mapant.fi och behöver nät första gången du tittar på ett område. Ritad är appens egen karta och fungerar helt utan nät.</p>
+      </div>
       <div class="lay-s">
         <h4>Sjökort</h4>
         <div class="lseg" role="group" aria-label="Typ av sjökort"><button type="button" id="srb" aria-pressed="true">Kartbild</button><button type="button" id="svb" aria-pressed="false">Ritad</button></div>
@@ -1416,6 +1448,8 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   if(!/^[nos]$/.test(mode))mode='n';
   let omode=mode==='o',smode=mode==='s';
   let srast=true;try{srast=localStorage.getItem('va-srast')!=='0'}catch(e){}
+  let omant=true;try{omant=localStorage.getItem('va-omant')!=='0'}catch(e){}
+  const MZ=11,mOn=z=>omode&&omant&&(z==null?map.getZoom():z)>=MZ-.01;
   const LAY={res:1,kul:1,trl:1,snd:1,rk:1};try{Object.assign(LAY,JSON.parse(localStorage.getItem('va-lay')||'{}'))}catch(e){}
   function paint(){
     const O=omode,S=smode;
@@ -1435,6 +1469,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     if(typeof meStyle==='function')meStyle();
     if(typeof sPaint==='function')sPaint();
     if(typeof kPaint==='function')kPaint();
+    if(typeof mUpdate==='function')mUpdate();
   }
   let lineOf={};
 
@@ -1520,8 +1555,8 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   // Ett ställe som sätter all stil efter läge (vanlig karta / O-karta) och zoom.
   function oApply(o,z){const m=o.m,O=omode,big=z>=15,full=z>=OZ2;
     const S=(k,st)=>{if(m[k])m[k].setStyle(st)};
-    // hus och små hällar (många efter terrängdatabasen) ritas först från zoom 13, där de syns
-    ['bld','rocks'].forEach(k=>{const l=m[k],on=z>=13-.01;if(l&&o.g){if(on&&!o.g.hasLayer(l))o.g.addLayer(l);else if(!on&&o.g.hasLayer(l))o.g.removeLayer(l)}});
+    // hus, små hällar och bäckar/diken (många efter terrängdatabasen) ritas först när de syns
+    [['bld',13],['rocks',13],['stream',12.5]].forEach(([k,zz])=>{const l=m[k],on=z>=zz-.01;if(l&&o.g){if(on&&!o.g.hasLayer(l))o.g.addLayer(l);else if(!on&&o.g.hasLayer(l))o.g.removeLayer(l)}});
     if(smode){ // sjökort: bara sjöar, vägar, stigar och hus från OSM, vattnet kommer från Traficom
       ['sea','land','open','rough','orchard','orchardDots','green','settle','sand','rock','rocks','marsh'].forEach(k=>S(k,{fillOpacity:0}));
       ['shore','c','ci','fence','power','cliff','nl','stream'].forEach(k=>S(k,{opacity:0}));
@@ -1563,8 +1598,8 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     if(m.dots){const cc={boulder:css('--o-black'),spring:css('--o-wline')};m.dots.eachLayer(l=>l.setStyle({fillColor:cc[l.options._k],fillOpacity:O&&z>=14?1:0}))}
     if(m.pts){const on=O&&z>=14;if(on&&!map.hasLayer(m.pts))m.pts.addTo(map);else if(!on&&map.hasLayer(m.pts))map.removeLayer(m.pts)}}
   function oPaint(){pats={marsh:mkPat('marsh'),dots:mkPat('dots')};const z=map.getZoom();Object.values(OC).forEach(o=>{if(o.m){oApply(o,z);o.z=z;o.mode=mode}})}
-  function oUpdate(){const z=map.getZoom(),on=z>=OZ-.01&&!(smode&&srast),vb=map.getBounds().pad(.35);
-    try{if(omode&&on&&/^Zooma in för/.test(ohint.textContent))ohint.classList.add('out')}catch(e){}
+  function oUpdate(){const z=map.getZoom(),on=z>=OZ-.01&&!(smode&&srast)&&!mOn(z),vb=map.getBounds().pad(.35);
+    try{if(omode&&(on||mOn(z))&&/^Zooma in för/.test(ohint.textContent))ohint.classList.add('out')}catch(e){}
     OB.forEach(c=>{const want=on&&vb.intersects(c.b);let o=OC[c.n];
       if(want&&!o){o=OC[c.n]={st:'load'};
         fetch('o/'+c.n+'.json').then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(d=>{
@@ -1987,6 +2022,29 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lpop.hidden){layOpen(false);e.stopImmediatePropagation()}});
   layUI();kSync();cSync();
 
+  /* ---------- MapAnt: orienteringskarta framräknad ur Lantmäteriverkets laserskanning (mapant.fi, CC BY 4.0) ---------- */
+  map.createPane('orast');map.getPane('orast').style.zIndex=404;map.getPane('orast').style.pointerEvents='none';
+  // bara rutor nära land (terrängcellerna): långt ute till havs är MapAnt vit, där syns appens eget vatten
+  const MTL=L.TileLayer.extend({createTile(c,done){const tb=this._tileCoordsToBounds(c);
+    if(!OB.some(o=>o.b.intersects(tb))){const d=document.createElement('div');setTimeout(()=>done(null,d),0);return d}
+    return L.TileLayer.prototype.createTile.call(this,c,done)}});
+  const MANT=new MTL('https://www.mapant.fi/wmts/wmts_EPSG3857.php?z={z}&y={y}&x={x}',
+    {pane:'orast',minZoom:MZ,maxZoom:18,maxNativeZoom:17,crossOrigin:'anonymous',keepBuffer:2,bounds:[[59.6,19.0],[60.75,21.5]],className:'orast-tile'});
+  const MA='O-karta: <a href="https://www.mapant.fi" target="_blank" rel="noopener">MapAnt.fi</a> (CC BY 4.0), <a href="https://www.maanmittauslaitos.fi/sv" target="_blank" rel="noopener">Lantmäteriverket</a>';
+  let mErr=0;MANT.on('tileerror',()=>{if(++mErr===6&&mOn())hint('MapAnt-kartan kunde inte hämtas. Välj Ritad i lagermenyn om du saknar nät.')});
+  MANT.on('tileload',()=>{mErr=0});
+  let mR0=null;
+  function mUpdate(){const R=mOn();
+    if(R&&!map.hasLayer(MANT))MANT.addTo(map);else if(!R&&map.hasLayer(MANT))map.removeLayer(MANT);
+    if(mR0!==R){mR0=R;box.classList.toggle('mant',R);attrC.removeAttribution(MA);if(R)attrC.addAttribution(MA)}}
+  function oChoice(){box.classList.toggle('omant',omant);$('#omb').setAttribute('aria-pressed',String(omant));$('#ovb').setAttribute('aria-pressed',String(!omant));
+    $('#onote .sn-k').textContent=omant?'MapAnt':'Ritad'}
+  function setMant(on){omant=on;try{localStorage.setItem('va-omant',on?'1':'0')}catch(e){}
+    oChoice();mUpdate();oUpdate()}
+  $('#omb').onclick=()=>{if(!omant)setMant(true)};$('#ovb').onclick=()=>{if(omant)setMant(false)};
+  $('#onote').onclick=e=>{e.stopPropagation();layOpen(true)};
+  oChoice();map.on('zoomend',mUpdate);mUpdate();
+
   /* ---------- vald led: tona ner andra, visa mål och gåriktning ---------- */
   // Markeringen ligger kvar när rutan stängs, så att man ser leden. Tryck på kartan för att släppa den.
   let focusL=null,focusId=null;
@@ -2025,8 +2083,8 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     map.setMaxZoom(omode?OMAX:smode?(srast?RMAX:SMAX):NMAX);
     paint();oUpdate();sUpdate();sAttr();
     if(omode&&user){const vb=map.getBounds();
-      if(map.getZoom()<OZ)hint('Zooma in för att se terrängen');
-      else if(!OB.some(c=>vb.intersects(c.b)))hint('Zooma in över land för att se terrängen')}
+      if(map.getZoom()<(omant?MZ:OZ)-.01)hint('Zooma in för att se terrängen');
+      else if(!omant&&!OB.some(c=>vb.intersects(c.b)))hint('Zooma in över land för att se terrängen')}
     else if(smode&&user&&map.getZoom()<SZD)hint('Zooma in för djupsiffror och sjömärken');
     else ohint.classList.add('out')}
   $('#mo').onclick=()=>{if(!omode)setMode('o',true)};$('#mnorm').onclick=()=>{if(mode!=='n')setMode('n',true)};$('#ms').onclick=()=>{if(!smode)setMode('s',true)};

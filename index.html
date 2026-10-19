@@ -778,17 +778,20 @@ h1{font:700 34px/1.02 var(--f-head);letter-spacing:-.01em;margin:0 0 10px;text-w
   --s-land:#f2e8c8; --s-coast:#7a6a46; --s-contour:#5b87a5; --s-contour2:#93b4c8; --s-sound:#2c4352; --s-halo:rgba(255,255,255,.78);
   --s-fw:#1d2b34; --s-mag:#c0168a; --s-lake:#cfe5f2; --s-road:#ffffff; --s-road-case:#c8bb93; --s-track:#9a8a66; --s-bld:#cdbf9a;
   --s-ferry:#56707f; --s-ua:#cfd2d3; --s-ol:#1b1b1b; --s-lab-bg:#ffffff; --s-danger:#14232c; --s-rock:#141414; --s-rast-filter:none; --s-land-r:#f8eec9;
+  --k-green:#2f8a55; --k-red:#d0342c; --k-green-ink:#1e6640; --k-red-ink:#b0241d; --k-halo:rgba(255,255,255,.88); --k-dot:#ffffff;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --s-0:#3a6f95; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
   --s-land:#3a3629; --s-coast:#a8976f; --s-contour:#77a3c0; --s-contour2:#4b7189; --s-sound:#cfdde6; --s-halo:rgba(17,40,54,.82);
   --s-fw:#e3eaee; --s-mag:#ff6cc8; --s-lake:#26495f; --s-road:#6c6757; --s-road-case:#29271f; --s-track:#a59673; --s-bld:#575240;
-  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7; --s-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --s-land-r:#2f280e}}
+  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7; --s-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --s-land-r:#2f280e;
+  --k-green:#62c48c; --k-red:#ff6a60; --k-green-ink:#8fdcb0; --k-red-ink:#ff9c95; --k-halo:rgba(15,20,18,.88); --k-dot:#171d1a;}}
 :root[data-theme="dark"]{
   --s-0:#3a6f95; --s-3:#244e68; --s-6:#1d4055; --s-10:#173446; --s-20:#112836;
   --s-land:#3a3629; --s-coast:#a8976f; --s-contour:#77a3c0; --s-contour2:#4b7189; --s-sound:#cfdde6; --s-halo:rgba(17,40,54,.82);
   --s-fw:#e3eaee; --s-mag:#ff6cc8; --s-lake:#26495f; --s-road:#6c6757; --s-road-case:#29271f; --s-track:#a59673; --s-bld:#575240;
-  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7; --s-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --s-land-r:#2f280e}
+  --s-ferry:#8db3c8; --s-ua:#4b5053; --s-ol:#e9e9e9; --s-lab-bg:#112836; --s-danger:#f2f5f7; --s-rock:#f2f5f7; --s-rast-filter:invert(.9) hue-rotate(180deg) saturate(.85) brightness(1.05); --s-land-r:#2f280e;
+  --k-green:#62c48c; --k-red:#ff6a60; --k-green-ink:#8fdcb0; --k-red-ink:#ff9c95; --k-halo:rgba(15,20,18,.88); --k-dot:#171d1a;}
 .mapbox.smode .leg-n,.mapbox:not(.smode) .leg-s{display:none}
 .smode .leaflet-hs-pane{opacity:calc(var(--hs-op) * .3)}
 .smode .leaflet-control-scale{margin-bottom:34px!important}
@@ -796,20 +799,54 @@ h1{font:700 34px/1.02 var(--f-head);letter-spacing:-.01em;margin:0 0 10px;text-w
 .smode .nm-lake span,.smode .nm-bay span{color:var(--s-sound);text-shadow:0 0 2px var(--s-10),0 0 4px var(--s-10),0 0 6px var(--s-10)}
 .smode .lab-sea span{color:var(--s-contour);text-shadow:0 0 3px var(--s-20),0 0 5px var(--s-20)}
 .smode .lab span{text-shadow:0 0 2px var(--s-land),0 0 3px var(--s-land),0 0 5px var(--s-land)}
-.srow{position:absolute;z-index:796;top:calc(60px + var(--full,0) * env(safe-area-inset-top,0px));left:calc(12px + env(safe-area-inset-left,0px));
-  display:flex;align-items:center;gap:6px;max-width:calc(100% - 90px);flex-wrap:wrap}
-.snote{padding:6px 10px;border-radius:999px;font:700 11px/1 var(--f-head);letter-spacing:.1em;text-transform:uppercase;color:var(--s-mag);
-  background:color-mix(in srgb,var(--surface) 90%,transparent);border:1px solid var(--line);box-shadow:var(--shadow-sm);pointer-events:none;white-space:nowrap}
-.schoice{display:flex;gap:2px;padding:2px;border-radius:999px;background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
-.schoice button{height:26px;padding:0 10px;border:0;border-radius:999px;background:transparent;color:var(--muted);font:600 12.5px/1 var(--f-head);letter-spacing:.02em;cursor:pointer}
-.schoice button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.srow{position:absolute;z-index:796;top:calc(60px + var(--full,0) * env(safe-area-inset-top,0px));left:calc(12px + env(safe-area-inset-left,0px));display:flex;max-width:calc(100% - 90px)}
+.snote{display:flex;align-items:center;gap:6px;height:24px;padding:0 9px 0 8px;border-radius:999px;font:700 10px/1 var(--f-head);letter-spacing:.09em;text-transform:uppercase;color:var(--s-mag);
+  background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);box-shadow:var(--shadow-sm);white-space:nowrap;cursor:pointer}
+.snote .sn-k{color:var(--ink);letter-spacing:.05em;padding-right:6px;border-right:1px solid var(--line)}
 .mapbox.is-full .srow{--full:1}
 .mapbox:not(.smode) .srow{display:none}
 /* kartbildsläget: Traficoms sjökort har egna namn, skuggning och vägar */
 .leaflet-srast-pane{filter:var(--s-rast-filter)}
-.mapbox.smode.srast .nm,.mapbox.smode.srast .lab{display:none}
-.mapbox.smode.srast .leaflet-hs-pane,.mapbox.smode.srast .leaflet-odet-pane{display:none}
-.mapbox.srast .leg-s.vec,.mapbox:not(.srast) .leg-s.rast{display:none}
+.mapbox.smode.rast .nm,.mapbox.smode.rast .lab{display:none}
+.mapbox.smode.rast .leaflet-hs-pane,.mapbox.smode.rast .leaflet-odet-pane{display:none}
+.mapbox.rast .leg-s.vec,.mapbox:not(.rast) .leg-s.rast{display:none}
+/* lager av/på */
+.mapbox.no-trl .leaflet-trails-pane,.mapbox.no-trl .pinwrap{display:none}
+.mapbox.no-res .leg-k{display:none}
+/* lagermenyn */
+.laypop{position:absolute;z-index:801;top:calc(12px + var(--full,0) * env(safe-area-inset-top,0px));right:calc(66px + env(safe-area-inset-right,0px));width:min(268px,calc(100% - 90px));
+  max-height:calc(100% - 64px);overflow-y:auto;overscroll-behavior:contain;padding:12px 14px 8px;border-radius:14px;
+  background:color-mix(in srgb,var(--surface) 96%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);box-shadow:var(--shadow);font-size:13px}
+.mapbox.is-full .laypop{--full:1}
+.laypop h3,.laypop h4{margin:0 0 4px;font:600 12px/1 var(--f-head);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.laypop h4{margin:10px 0 8px;padding-top:12px;border-top:1px solid var(--line)}
+.lsw{display:flex;align-items:center;gap:10px;width:100%;padding:7px 0;border:0;background:none;cursor:pointer;text-align:left;color:var(--ink);font:inherit}
+.lsw .ico{width:24px;height:18px;flex:none;display:grid;place-items:center}
+.lsw .lbl{flex:1;min-width:0;font-weight:600;font-size:14px;line-height:1.2}
+.lsw .lbl small{display:block;font-weight:400;font-size:12px;color:var(--muted);margin-top:2px}
+.lsw .tg{flex:none;width:38px;height:23px;border-radius:12px;background:var(--line);position:relative;transition:background .2s}
+.lsw .tg::after{content:"";position:absolute;left:2px;top:2px;width:19px;height:19px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .2s}
+.lsw[aria-pressed="true"] .tg{background:var(--accent)}
+.lsw[aria-pressed="true"] .tg::after{transform:translateX(15px)}
+.lseg{display:flex;gap:2px;padding:2px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line)}
+.lseg button{flex:1;height:30px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:600 13.5px/1 var(--f-head);letter-spacing:.02em;cursor:pointer}
+.lseg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lnote{margin:6px 0 4px;color:var(--muted);font-size:12px;line-height:1.35}
+.mapbox:not(.smode) .lay-s{display:none}
+.mapbox.srast .lay-v .lbl small::after{content:" · bara i ritad karta"}
+.mapbox.srast .lay-v{opacity:.55}
+.k-sw{width:22px;height:14px;border-radius:2px;box-shadow:inset 0 0 0 1.3px var(--k-green),inset 0 0 0 5px color-mix(in srgb,var(--k-green) 30%,transparent)}
+.k-sw.red{box-shadow:inset 0 0 0 1.3px var(--k-red),inset 0 0 0 5px color-mix(in srgb,var(--k-red) 34%,transparent)}
+.lsw .ln{width:22px;height:0;border-top:3.5px solid var(--accent);border-radius:2px}
+.lsw .s-snd{font:italic 400 14px/1 var(--f-water);color:var(--ink)}
+.lsw .s-snd sub{font-size:10px;vertical-align:-2px}
+/* skyddad natur i rutan */
+.kpop .k-ban{display:flex;gap:8px;margin:10px 0 0;font-size:13px;line-height:1.35}
+.kpop .k-ban .k-per{flex:none;min-width:66px;font-weight:700;font-variant-numeric:tabular-nums}
+.kpop .k-ban.on{color:var(--k-red-ink)}
+.kpop .k-x{color:var(--muted)}
+.kpop .k-lnk a{color:var(--accent);font-weight:600}
+.spop .sp-tags span.warn{background:var(--k-red);border-color:transparent;color:#fff}
 .legend .ln.s-fw{border-top:1.8px solid var(--s-fw)}
 .legend .ln.s-bfw{border-top:1.5px dashed var(--s-fw)}
 .legend .ln.s-dc{border-top:1.2px solid var(--s-contour)}
@@ -1047,7 +1084,7 @@ footer p{margin:0 0 8px}
       <button type="button" id="mo" aria-pressed="false">O-karta</button>
       <button type="button" id="ms" aria-pressed="false">Sjökort</button>
     </div>
-    <div class="srow"><div class="snote">Ej för navigering</div><div class="schoice" role="group" aria-label="Typ av sjökort"><button type="button" id="srb" aria-pressed="true">Kartbild</button><button type="button" id="svb" aria-pressed="false">Ritad</button></div></div>
+    <div class="srow"><button type="button" class="snote" id="snote" aria-label="Sjökort: välj kartbild eller ritad karta"><span class="sn-k">Kartbild</span>Ej för navigering</button></div>
     <div class="ohint out" id="ohint" aria-live="polite"></div>
     <div class="ctrls">
       <div class="cgroup">
@@ -1063,6 +1100,7 @@ footer p{margin:0 0 8px}
           <svg class="ic ic-shrink" viewBox="0 0 24 24"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
         </button>
         <button class="cbtn" id="home" type="button" aria-label="Visa hela Åland"><svg class="ic" viewBox="0 0 24 24"><path d="M9 4.5 3.5 6.5v13l5.5-2 6 2 5.5-2v-13l-5.5 2-6-2zM9 4.5v13M15 6.5v13"/></svg></button>
+        <button class="cbtn" id="layb" type="button" aria-label="Välj vad kartan visar" aria-pressed="false" aria-controls="laypop"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5 3 8.2l9 4.7 9-4.7z"/><path d="m3 12.2 9 4.7 9-4.7"/><path d="m3 16.1 9 4.7 9-4.7"/></svg></button>
         <button class="cbtn" id="legbtn" type="button" aria-label="Visa teckenförklaring" aria-pressed="false" aria-controls="legend"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg></button>
       </div>
     </div>
@@ -1090,7 +1128,7 @@ footer p{margin:0 0 8px}
         <li><span class="sw"><span class="ln o-nline"></span></span>Nordlinje</li>
         <li><span class="sw"><span class="me-sw"></span></span>Din position</li>
       </ul>
-      <p class="leg-o">Enligt Svenska Orienteringsförbundets vanliga karttecken. Syns när du zoomar in. Höjdkurvor var 5:e m, nordlinjer mot magnetisk nord (ca 9° öst). Byggd av OpenStreetMap och höjddata – inte en riktig O-karta.</p>
+      <p class="leg-o">Enligt Svenska Orienteringsförbundets vanliga karttecken. Syns när du zoomar in. Höjdkurvor var 5:e m, nordlinjer mot magnetisk nord (ca 9° öst). Byggd av OpenStreetMap, Lantmäteriverkets terrängdatabas 04/2025 (CC BY 4.0) och höjddata – inte en riktig O-karta.</p>
       <ul class="leg-s rast">
         <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M7 10h8M11 6v8" stroke="#141414" stroke-width="1.4" stroke-linecap="round"/></svg></span>Sten under vatten</li>
         <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M7.4 10h7.2M11 6.4v7.2M8.4 7.4l5.2 5.2M13.6 7.4l-5.2 5.2" stroke="#141414" stroke-width="1.3" stroke-linecap="round"/></svg></span>Sten i vattenytan</li>
@@ -1100,7 +1138,7 @@ footer p{margin:0 0 8px}
         <li><span class="sw"><span class="ln s-bfw"></span></span>Båtled</li>
         <li><span class="sw"><span class="me-sw"></span></span>Din position</li>
       </ul>
-      <p class="leg-s rast"><b>Ej för navigering.</b> Kartbilden är Traficoms sjökort (källa: Traficom, CC BY 4.0) och uppfyller inte kraven för officiella sjökort. Den hämtas från Traficom när du tittar, så den kräver nät första gången. Kartbilder du har tittat på sparas i telefonen. Tryck på ett sjömärke för info om det. Välj Ritad för en egen ritad karta som fungerar helt utan nät.</p>
+      <p class="leg-s rast"><b>Ej för navigering.</b> Kartbilden är Traficoms sjökort (källa: Traficom, CC BY 4.0) och uppfyller inte kraven för officiella sjökort. Den visas från zoomnivå 12 och hämtas från Traficom när du tittar, så den kräver nät första gången. Kartbilder du har tittat på sparas i telefonen. Tryck på ett sjömärke för info om det. Välj Ritad för en egen ritad karta som fungerar helt utan nät.</p>
       <ul class="leg-s vec">
         <li><span class="sw"><span class="fill" style="background:var(--s-0)"></span></span>0–3 m</li>
         <li><span class="sw"><span class="fill" style="background:var(--s-3)"></span></span>3–6 m</li>
@@ -1144,8 +1182,28 @@ footer p{margin:0 0 8px}
         <li><span class="sw"><span class="ring"></span></span>Osäkert läge</li>
         <li><span class="sw"><span class="me-sw"></span></span>Din position</li>
       </ul>
-      <p class="leg-n">Detaljer, ortnamn och höjdkurvor visas när du zoomar in. Leder och färjelinjer: Ålands landskapsregering. Terräng: OpenStreetMap och höjddata.</p>
+      <p class="leg-n">Detaljer, ortnamn och höjdkurvor visas när du zoomar in. Leder och färjelinjer: Ålands landskapsregering. Terräng: OpenStreetMap, Lantmäteriverkets terrängdatabas 04/2025 (CC BY 4.0) och höjddata.</p>
+      <ul class="leg-k">
+        <li><span class="sw"><span class="k-sw"></span></span>Naturreservat</li>
+        <li><span class="sw"><span class="k-sw red"></span></span>Förbjudet att landstiga nu</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><circle cx="11" cy="10" r="7.5" fill="var(--k-dot)" stroke="var(--k-green)" stroke-width="1.8"/><path d="M6.6 10.4Q8.8 6.7 11 10.7Q13.2 6.7 15.4 10.4" fill="none" stroke="var(--k-green)" stroke-width="1.6" stroke-linecap="round"/></svg></span>Fågelskydd</li>
+        <li><span class="sw"><svg class="s-sym" viewBox="0 0 22 20"><path d="M11 4.6 12.5 8.5 16.4 10 12.5 11.5 11 15.4 9.5 11.5 5.6 10 9.5 8.5z" fill="var(--k-green)"/></svg></span>Naturminne</li>
+      </ul>
+      <p class="leg-k">Tryck i ett reservat för reglerna. Naturreservat och skyddsområden: Ålands landskapsregering (CC BY 4.0). Fågelskyddens lägen: Lantmäteriverkets ortnamnsregister. Reglerna är sammanfattade ur besluten – läs beslutet för detaljer.</p>
     </div>
+    <div class="laypop" id="laypop" hidden role="dialog" aria-label="Lager">
+      <h3>Lager</h3>
+      <button class="lsw" type="button" data-l="res" aria-pressed="true"><span class="ico"><span class="k-sw"></span></span><span class="lbl">Naturreservat<small>Röd kant när landstigning är förbjuden</small></span><span class="tg" aria-hidden="true"></span></button>
+      <button class="lsw" type="button" data-l="trl" aria-pressed="true"><span class="ico"><span class="ln"></span></span><span class="lbl">Vandringsleder</span><span class="tg" aria-hidden="true"></span></button>
+      <div class="lay-s">
+        <h4>Sjökort</h4>
+        <div class="lseg" role="group" aria-label="Typ av sjökort"><button type="button" id="srb" aria-pressed="true">Kartbild</button><button type="button" id="svb" aria-pressed="false">Ritad</button></div>
+        <p class="lnote">Kartbild är Traficoms sjökort och visas från zoomnivå 12. Utzoomat och i Ritad visas den egna ritade kartan, som fungerar utan nät.</p>
+        <button class="lsw lay-v" type="button" data-l="snd" aria-pressed="true"><span class="ico"><span class="s-snd">4<sub>3</sub></span></span><span class="lbl">Djupsiffror<small>Djup i meter</small></span><span class="tg" aria-hidden="true"></span></button>
+        <button class="lsw lay-v" type="button" data-l="rk" aria-pressed="true"><span class="ico"><svg class="s-sym" viewBox="0 0 22 20"><path d="M7 10h8M11 6v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="lbl">Stenar<small>Från OpenStreetMap</small></span><span class="tg" aria-hidden="true"></span></button>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1332,6 +1390,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   if(!/^[nos]$/.test(mode))mode='n';
   let omode=mode==='o',smode=mode==='s';
   let srast=true;try{srast=localStorage.getItem('va-srast')!=='0'}catch(e){}
+  const LAY={res:1,trl:1,snd:1,rk:1};try{Object.assign(LAY,JSON.parse(localStorage.getItem('va-lay')||'{}'))}catch(e){}
   function paint(){
     const O=omode,S=smode;
     map.getContainer().style.background=O?css('--o-water'):S?css('--s-20'):'';
@@ -1349,6 +1408,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     if(typeof oPaint==='function')oPaint();
     if(typeof meStyle==='function')meStyle();
     if(typeof sPaint==='function')sPaint();
+    if(typeof kPaint==='function')kPaint();
   }
   let lineOf={};
 
@@ -1383,7 +1443,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
       const ll=D.lines[t.arc].map(dec);
       const casing=L.polyline(ll,{renderer:trailR,color:css('--halo'),weight:6,opacity:.9,interactive:false,lineCap:'round',lineJoin:'round'});
       const line=L.polyline(ll,{renderer:trailR,color:t.long?css('--longline'):t.c,weight:t.long?2.2:3,opacity:1,dashArray:t.long?'7 6':null,lineCap:'round',lineJoin:'round'});
-      line.on('click',()=>m.openPopup());
+      line.on('click',e=>{L.DomEvent.stopPropagation(e);m.openPopup()});
       g.addLayer(casing);g.addLayer(line);lineOf[t.id]={line,casing,long:t.long,c:t.c};
     }
     m.on('popupopen',()=>focusTrail(t.id));
@@ -1403,8 +1463,8 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   const oR=L.canvas({pane:'odet',padding:.5,tolerance:0});
   const OB=(D.od||[]).map(([n,s,w,nn,e])=>({n,b:L.latLngBounds([s,w],[nn,e])}));
   const OC={};
-  const OSMA='© OpenStreetMap · Mapzen';
-  const OORD=['sea','land','lake','open','rough','orchard','orchardDots','green','settle','sand','rock','marsh','nl','c','ci','shore','stream','fence','power','cliff','road1c','roadc','road','road1','track','path','bld','dots'];
+  const OSMA='© OpenStreetMap · Lantmäteriverket · Mapzen';
+  const OORD=['sea','land','lake','open','rough','orchard','orchardDots','green','settle','sand','rock','rocks','marsh','nl','c','ci','shore','stream','fence','power','cliff','road1c','roadc','road','road1','track','path','bld','dots'];
   function mkPat(kind){const c=document.createElement('canvas'),r=2,sz=kind==='marsh'?4:6;c.width=c.height=sz*r;const x=c.getContext('2d');x.scale(r,r);
     if(kind==='marsh'){x.fillStyle=css('--o-marsh');x.fillRect(0,0,sz,1.15)}
     else{x.fillStyle=css('--o-dot');x.beginPath();x.arc(1.5,1.5,.95,0,7);x.closePath();x.arc(4.5,4.5,.95,0,7);x.fill()}
@@ -1418,7 +1478,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     m.sea=d.sea?P(d.sea):L.rectangle([[b[0],b[1]],[b[2],b[3]]],{renderer:oR,interactive:false,stroke:false,fillOpacity:1});
     m.land=P(d.land);
     {const holes=(d.land||[]).flatMap(p=>p.slice(1));m.lake=holes.length?L.polygon(holes.map(r=>[dec(r)]),{renderer:oR,interactive:false,stroke:false,fillOpacity:0,smoothFactor:.4}):null}
-    ['open','rough','orchard','green','settle','sand','rock'].forEach(k=>{m[k]=P(d.P[k])});
+    ['open','rough','orchard','green','settle','sand','rock','rocks'].forEach(k=>{m[k]=P(d.P[k])});
     m.orchardDots=P(d.P.orchard);m.marsh=P(d.P.marsh);
     m.shore=Ln('shore');m.c=Ln('c');m.ci=Ln('ci');m.stream=Ln('stream');
     m.fence=Ln('fence');m.power=Ln('power');m.cliff=Ln('cliff',{lineCap:'round'});
@@ -1434,8 +1494,10 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
   // Ett ställe som sätter all stil efter läge (vanlig karta / O-karta) och zoom.
   function oApply(o,z){const m=o.m,O=omode,big=z>=15,full=z>=OZ2;
     const S=(k,st)=>{if(m[k])m[k].setStyle(st)};
+    // hus och små hällar (många efter terrängdatabasen) ritas först från zoom 13, där de syns
+    ['bld','rocks'].forEach(k=>{const l=m[k],on=z>=13-.01;if(l&&o.g){if(on&&!o.g.hasLayer(l))o.g.addLayer(l);else if(!on&&o.g.hasLayer(l))o.g.removeLayer(l)}});
     if(smode){ // sjökort: bara sjöar, vägar, stigar och hus från OSM, vattnet kommer från Traficom
-      ['sea','land','open','rough','orchard','orchardDots','green','settle','sand','rock','marsh'].forEach(k=>S(k,{fillOpacity:0}));
+      ['sea','land','open','rough','orchard','orchardDots','green','settle','sand','rock','rocks','marsh'].forEach(k=>S(k,{fillOpacity:0}));
       ['shore','c','ci','fence','power','cliff','nl','stream'].forEach(k=>S(k,{opacity:0}));
       S('lake',{fillColor:css('--s-lake'),fillOpacity:1});
       S('road1c',{color:css('--s-road-case'),opacity:z>=13?1:0,weight:big?4.6:3.4});
@@ -1448,12 +1510,12 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
       if(m.dots)m.dots.eachLayer(l=>l.setStyle({fillOpacity:0}));
       if(m.pts&&map.hasLayer(m.pts))map.removeLayer(m.pts);
       return}
-    ['sea','land','open','rough','orchard','green','settle','sand','rock','bld'].forEach(k=>S(k,{fillOpacity:1}));
+    ['sea','land','open','rough','orchard','green','settle','sand','rock','rocks','bld'].forEach(k=>S(k,{fillOpacity:1}));
     S('lake',{fillOpacity:0});S('stream',{opacity:1});S('marsh',{fillOpacity:1});
     const tk=n=>css((O?'--o-':'--n-')+n);
     S('sea',{fillColor:O?css('--o-water'):css('--sea3')});
     S('land',{fillColor:O?css('--o-forest'):css('--land')});
-    ['open','rough','orchard','green','settle','sand','rock'].forEach(k=>S(k,{fillColor:tk(k)}));
+    ['open','rough','orchard','green','settle','sand','rock'].forEach(k=>S(k,{fillColor:tk(k)}));S('rocks',{fillColor:tk('rock')});
     S('orchardDots',{fillColor:pats.dots,fillOpacity:O?1:0});
     S('marsh',{fillColor:O?pats.marsh:css('--n-marsh')});
     const bl=O?css('--o-black'):null;
@@ -1517,7 +1579,9 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
 
   /* ---------- sjökort: djup från Traficom, farleder och sjömärken från Väylävirasto ----------
      Tre nivåer laddas efter zoom: översikt (s/ov.json), mellannivå (s/mXY.json) och detaljceller (s/sXXYY.json). */
-  const SZM=10,SZD=12,SMAX=17,ST=['0','3','6','10','20'];
+  const SZM=10,SZD=12,SMAX=17,RMAX=16,RZ=12,ST=['0','3','6','10','20'];
+  // Kartbild: Traficoms sjökortsbild från zoom 12, under det den egna ritade kartan (bilden är plottrig med ramar och inzoomningar där)
+  const rOn=z=>srast&&(z==null?map.getZoom():z)>=RZ-.01;
   const STA='Djup: Traficoms sjökortsdatabas 10/2026 · Farleder: Väylävirasto';
   const STR='Sjökortsbild: Traficom (CC BY 4.0) – får inte användas för navigering';
   // Traficoms öppna sjökortsbilder (WMTS, CC BY 4.0). Telefonen hämtar rutorna direkt från Traficom.
@@ -1526,7 +1590,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     sR=L.canvas({pane:'sea',padding:.5,tolerance:0}),sNR=L.canvas({pane:'snav',padding:.5,tolerance:7});
   let SOV=null,SNAV=null,sLoad=false,SP={};const SC={},SM={},SALL=[];
   const RAST=L.tileLayer('https://julkinen.traficom.fi/rasteripalvelu/wmts/rest/Traficom:Merikarttasarjat%20public/default/WGS84_Pseudo-Mercator/WGS84_Pseudo-Mercator:{z}/{y}/{x}?format=image/png',
-    {pane:'srast',minZoom:9.5,maxZoom:18,maxNativeZoom:15,crossOrigin:'anonymous',keepBuffer:2,bounds:[[59.35,18.6],[60.95,22.2]],className:'srast-tile'});
+    {pane:'srast',minZoom:11,maxZoom:18,maxNativeZoom:15,crossOrigin:'anonymous',keepBuffer:2,bounds:[[59.35,18.6],[60.95,22.2]],className:'srast-tile'});
   let rastErr=0;RAST.on('tileerror',()=>{if(++rastErr===6&&smode&&srast)hint('Sjökortsbilden kunde inte hämtas. Välj Ritad om du saknar nät.')});
   RAST.on('tileload',()=>{rastErr=0});
   function sPal(){const c=n=>css('--s-'+n);
@@ -1546,7 +1610,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     _containsPoint(p){return this.options.hit?this.options.hit(this,p):false}});
   const SF='"Source Serif 4",Georgia,serif';
   function sDepth(d){const i=Math.floor(d+1e-6),f=Math.round((d-i)*10);return d<30&&f>0&&f<10?[String(i),String(f)]:[String(Math.round(d)),'']}
-  function drawSnd(ctx,xy,pts,z){if(z<12-.01)return;const big=z>=15,f1=big?12.5:11.5,f2=big?9:8.5;
+  function drawSnd(ctx,xy,pts,z){if(z<12-.01||!LAY.snd)return;const big=z>=15,f1=big?12.5:11.5,f2=big?9:8.5;
     ctx.textBaseline='middle';ctx.lineJoin='round';ctx.lineWidth=3;ctx.strokeStyle=SP.halo;ctx.fillStyle=SP.snd;
     for(let i=0;i<pts.length;i++){const p=pts[i];if(p[3]>z+.01)break;const[a,b]=sDepth(p[2]/10),x=xy[i].x,y=xy[i].y,w8=p[4]?'700 ':'400 ',
       F1='italic '+w8+(p[4]?f1+1:f1)+'px '+SF,F2='italic '+w8+f2+'px '+SF;
@@ -1563,7 +1627,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     if(detail&&d.S){const ll=dec(d.S.p),pts=ll.map((p,i)=>[p[0],p[1],d.S.d[i],d.S.z[i]/2,d.S.b?d.S.b[i]:0]);g.addLayer(new SBatch(pts,drawSnd,{renderer:sNR,interactive:false,pad:30}))}
     own.forEach(l=>{SALL.push(l);sStyle(l)});g._own=own;return g}
   function sStyle(l,z){const o=l.options;z=z==null?map.getZoom():z;
-    if(o._land||o._bg){l.setStyle({fillColor:o._bg?SP.w[4]:srast?SP.landR:SP.land});return}
+    if(o._land||o._bg){l.setStyle({fillColor:o._bg?SP.w[4]:rOn(z)?SP.landR:SP.land});return}
     if(o._k!=null){l.setStyle(o._k==='u'?{fillColor:SP.ua,fillOpacity:.85}:{fillColor:SP.w[o._k],fillOpacity:1});return}
     if(o._coast){l.setStyle({color:SP.coast,weight:z>=15?1.1:.8,opacity:.9});return}
     if(o._danger){l.setStyle({color:SP.dng,weight:z>=15?1.5:1.2,opacity:.95,dashArray:'0.5 3.2',lineCap:'round'});return}
@@ -1621,8 +1685,8 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     if('psNSEWiwx'.includes(k)){ctx.fillStyle=SP.ol;ctx.beginPath();ctx.arc(x,y,1.3*s,0,7);ctx.fill()}}
   function aidOn(a,z){const k=a[2];if(k==='F')return z>=8.5;if(a[6]&2&&!(a[6]&1))return z>=11;if(k==='L'||k==='K'||k==='R')return z>=13;return z>=12.25}
   function drawAids(ctx,xy,pts,z,lay){const s=z<13?.82:z<14.5?1:1.18,vis=[];
-    for(let i=0;i<pts.length;i++){const a=pts[i];if(!aidOn(a,z))continue;if(!srast||z<9.5)drawAid(ctx,xy[i].x,xy[i].y,a,s);vis.push(i)}lay._vis=vis}
-  function hitAid(lay,p){let best=-1,bd=15*15;(lay._vis||[]).forEach(i=>{const q=lay._xy[i],dx=q.x-p.x,dy=q.y-(srast&&map.getZoom()>=9.5?0:6)-p.y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=i}});lay._hit=best;return best>=0}
+    for(let i=0;i<pts.length;i++){const a=pts[i];if(!aidOn(a,z))continue;if(!rOn(z))drawAid(ctx,xy[i].x,xy[i].y,a,s);vis.push(i)}lay._vis=vis}
+  function hitAid(lay,p){let best=-1,bd=15*15;(lay._vis||[]).forEach(i=>{const q=lay._xy[i],dx=q.x-p.x,dy=q.y-(rOn()?0:6)-p.y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=i}});lay._hit=best;return best>=0}
   const SECC={v:'#f2b705',k:'#f08a1c',p:'#d8322b',vi:'#14914a'};
   function drawSect(ctx,xy,pts,z){if(z<13-.01)return;const r=z<14?24:z<15?32:42;
     pts.forEach((a,i)=>{const l=SNAV.l[a[7]];if(!l)return;const se=l[3];if(!se||se.length<2)return;const x=xy[i].x,y=xy[i].y;
@@ -1640,8 +1704,8 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
       ctx.fillStyle=SP.fw;ctx.fillText(t,x,y+.5)}}
   function drawSpLab(ctx,xy,pts,z){if(z<13.5)return;ctx.font='700 11px '+css('--f-head');ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineWidth=3;ctx.strokeStyle=SP.halo;ctx.fillStyle=SP.mag;
     pts.forEach((p,i)=>{const t='max '+p[2]+' km/h';ctx.strokeText(t,xy[i].x,xy[i].y);ctx.fillText(t,xy[i].x,xy[i].y)})}
-  function fwStyle(l,z){const o=l.options,c=o._cls,tc=o._tc,hi=(z==null?map.getZoom():z)>=12,main=c&&c<=2;
-    return {color:SP.fw,opacity:srast?0:(hi?.85:.6),weight:main?(hi?1.5:1.05):(hi?1.1:.8),dashArray:tc===4?'2 4':main?null:c===3?'8 4':'5 4',lineCap:'butt'}}
+  function fwStyle(l,z){if(z==null)z=map.getZoom();const o=l.options,c=o._cls,tc=o._tc,hi=z>=12,main=c&&c<=2;
+    return {color:SP.fw,opacity:rOn(z)?0:(hi?.85:.6),weight:main?(hi?1.5:1.05):(hi?1.1:.8),dashArray:tc===4?'2 4':main?null:c===3?'8 4':'5 4',lineCap:'butt'}}
   function sNav(n){const out={l:n.l,f:n.f};
     out.aids=new SBatch(n.a,drawAids,{renderer:sNR,interactive:true,pad:30,hit:hitAid});
     out.sect=new SBatch(n.a.filter(a=>a[7]>=0&&(n.l[a[7]]||[])[3]&&n.l[a[7]][3].length>1),drawSect,{renderer:sNR,interactive:false,pad:60});
@@ -1693,8 +1757,10 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
       SNAV.sp.eachLayer(l=>l.setStyle({color:SP.mag,weight:1.2,dashArray:'6 4',opacity:.55}));
       [SNAV.gm,SNAV.rocks,SNAV.aids,SNAV.sect,SNAV.fwl,SNAV.spl].forEach(b=>b.redraw())}
     Object.values(SC).concat(Object.values(SM)).forEach(o=>{if(o.g)o.g.eachLayer(l=>{if(l instanceof SBatch)l.redraw()})})}
-  let sZ=null;
-  function sOff(){if(map.hasLayer(RAST))map.removeLayer(RAST);if(!SOV)return;[SOV.base,SOV.ov].forEach(g=>map.hasLayer(g)&&map.removeLayer(g));
+  let sZ=null,sR0=null;
+  function sAttr(){attrC.removeAttribution(STA);attrC.removeAttribution(STR);if(smode)attrC.addAttribution(rOn()?STR:STA)}
+  function sRedraw(){Object.values(SC).forEach(o=>{if(o.g)o.g.eachLayer(l=>{if(l instanceof SBatch)l.redraw()})})}
+  function sOff(){sR0=null;box.classList.remove('rast');if(map.hasLayer(RAST))map.removeLayer(RAST);if(!SOV)return;[SOV.base,SOV.ov].forEach(g=>map.hasLayer(g)&&map.removeLayer(g));
     Object.values(SC).concat(Object.values(SM)).forEach(o=>{if(o.g&&map.hasLayer(o.g))map.removeLayer(o.g)});
     if(SNAV)['gm','rocks','aids','sect','lines','lead','fwl','sp','spl'].forEach(k=>map.hasLayer(SNAV[k])&&map.removeLayer(SNAV[k]));
     map.getPane('snav').style.pointerEvents='none'}
@@ -1716,27 +1782,131 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     map.getPane('snav').style.pointerEvents='';
     const z=map.getZoom(),vb=map.getBounds().pad(.3);
     if(!map.hasLayer(SOV.base))SOV.base.addTo(map);
-    if(srast&&!map.hasLayer(RAST))RAST.addTo(map);else if(!srast&&map.hasLayer(RAST))map.removeLayer(RAST);
-    // med kartbilden räcker översikten som botten (om en ruta saknas eller inte hunnit laddas)
-    const wantD=!srast&&z>=SZD-.01,wantM=!srast&&!wantD&&z>=SZM-.01;
+    const R=rOn(z);
+    if(R&&!map.hasLayer(RAST))RAST.addTo(map);else if(!R&&map.hasLayer(RAST))map.removeLayer(RAST);
+    if(sR0!==R){sR0=R;box.classList.toggle('rast',R);sAttr();
+      SALL.forEach(l=>{if(l.options._land)sStyle(l,z)});SNAV.lines.eachLayer(l=>l.setStyle(fwStyle(l,z)));SNAV.aids.redraw()}
+    // under kartbilden räcker översikten som botten (om en ruta saknas eller inte hunnit laddas)
+    const wantD=!srast&&z>=SZD-.01,wantM=!R&&!wantD&&z>=SZM-.01;
     const missD=sLevel(SOV.cells,SC,wantD,true,vb,sR);
     const useM=wantM||(wantD&&missD);
     const missM=sLevel(SOV.mids,SM,useM,false,vb,s1R);
     const useO=(!wantD&&!wantM)||(useM&&missM);
     if(useO&&!map.hasLayer(SOV.ov))SOV.ov.addTo(map);else if(!useO&&map.hasLayer(SOV.ov))map.removeLayer(SOV.ov);
-    ['lines','sp','lead'].forEach(k=>{const on=(!srast||k==='lines')&&z>=({sp:12.5,lead:13}[k]||9.5);if(on&&!map.hasLayer(SNAV[k]))SNAV[k].addTo(map);else if(!on&&map.hasLayer(SNAV[k]))map.removeLayer(SNAV[k])});
-    ['gm','rocks','sect','fwl','aids','spl'].forEach(k=>{const on=k==='aids'||!srast;if(on&&!map.hasLayer(SNAV[k]))SNAV[k].addTo(map);else if(!on&&map.hasLayer(SNAV[k]))map.removeLayer(SNAV[k])});
+    ['lines','sp','lead'].forEach(k=>{const on=(!R||k==='lines')&&z>=({sp:12.5,lead:13}[k]||9.5);if(on&&!map.hasLayer(SNAV[k]))SNAV[k].addTo(map);else if(!on&&map.hasLayer(SNAV[k]))map.removeLayer(SNAV[k])});
+    ['gm','rocks','sect','fwl','aids','spl'].forEach(k=>{const on=k==='aids'||(!R&&(k!=='rocks'||LAY.rk));if(on&&!map.hasLayer(SNAV[k]))SNAV[k].addTo(map);else if(!on&&map.hasLayer(SNAV[k]))map.removeLayer(SNAV[k])});
     try{if(z>=SZD&&/^Zooma in för djup/.test(ohint.textContent))ohint.classList.add('out')}catch(e){}
     if(sZ!==z){const zz=sZ;sZ=z;if(zz==null||(zz<13)!==(z<13)||(zz<15)!==(z<15))SALL.forEach(l=>{if(l.options._v||l.options._coast||l.options._danger)sStyle(l,z)});
       if(zz==null||(zz<12)!==(z<12))SNAV.lines.eachLayer(l=>l.setStyle(fwStyle(l,z)))}
     sEvict(SC,18);sEvict(SM,8)}
   map.on('moveend zoomend',sUpdate);
+  function sChoice(){box.classList.toggle('srast',srast);$('#srb').setAttribute('aria-pressed',String(srast));$('#svb').setAttribute('aria-pressed',String(!srast));
+    $('#snote .sn-k').textContent=srast?'Kartbild':'Ritad'}
   function setRast(on){srast=on;try{localStorage.setItem('va-srast',on?'1':'0')}catch(e){}
-    box.classList.toggle('srast',on);$('#srb').setAttribute('aria-pressed',String(on));$('#svb').setAttribute('aria-pressed',String(!on));
-    if(smode){attrC.removeAttribution(STA);attrC.removeAttribution(STR);attrC.addAttribution(on?STR:STA)}
-    sPaint();oUpdate();sUpdate()}
+    sChoice();if(smode)map.setMaxZoom(on?RMAX:SMAX);sR0=null;
+    sPaint();oUpdate();sUpdate();sAttr();
+    if(on&&smode&&map.getZoom()<RZ-.01)hint('Kartbilden visas när du zoomar in')}
   $('#srb').onclick=()=>{if(!srast)setRast(true)};$('#svb').onclick=()=>{if(srast)setRast(false)};
-  box.classList.toggle('srast',srast);$('#srb').setAttribute('aria-pressed',String(srast));$('#svb').setAttribute('aria-pressed',String(!srast));
+  sChoice();
+
+  /* ---------- skyddad natur: naturreservat, säl- och fågelskyddsområden, naturminnen ----------
+     Gränser: Ålands landskapsregering (CC BY 4.0). Reglerna är sammanfattade ur fredningsbesluten (skydd.json).
+     Kanten blir röd när landstigning eller vistelse är förbjuden just nu. */
+  map.createPane('skydd');map.getPane('skydd').style.zIndex=415;map.getPane('skydd').style.pointerEvents='none';
+  const kR=L.canvas({pane:'skydd',padding:.5,tolerance:0});
+  const KP={};function kPal(){const c=n=>css('--k-'+n);KP.g=c('green');KP.r=c('red');KP.gi=c('green-ink');KP.ri=c('red-ink');KP.halo=c('halo');KP.bg=c('dot')}
+  let SKY=null,kLoad=false;const kG=L.layerGroup();
+  const KRULE={T:'tälta',T2:'tälta utom på anvisad plats',E:'göra upp eld',E2:'elda utom på anvisad plats',H:'ha hunden okopplad',H2:'ta med hund i land',
+    V:'plocka eller skada växter',D:'störa djur eller ta ägg och bon',S:'skräpa ner',F:'köra fordon eller snöskoter',A:'ankra eller förtöja länge',
+    K:'köra fortare än 7 knop',X:'sportdyka med luftflaska',P:'parkera utanför anvisad plats'};
+  function kNow(b,d){d=d||new Date();const m=(d.getMonth()+1)*100+d.getDate(),f=+b[0],t=+b[1];return f<=t?m>=f&&m<=t:m>=f||m<=t}
+  const kDate=s=>(+s.slice(2))+'.'+(+s.slice(0,2));
+  const kYear=b=>b[0]==='0101'&&b[1]==='1231';
+  function kRed(o){return (o.b||[]).some(b=>b[2]&&b[4]!=='f'&&kNow(b))}
+  // reservatets kant: tunn linje och ett band på insidan, lika brett i pixlar på alla zoomnivåer
+  const KPoly=L.Polygon.extend({_updatePath(){const r=this._renderer;if(!r._drawing||!this._parts.length)return;
+    const ctx=r._ctx,z=this._map.getZoom(),red=kRed(this._o),col=red?KP.r:KP.g,bw=z<10?2.5:z<12?4.5:z<14?6:7.5;
+    ctx.beginPath();this._parts.forEach(p=>{p.forEach((q,j)=>j?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.closePath()});
+    ctx.save();ctx.clip('evenodd');ctx.globalAlpha=red?.36:.28;ctx.lineJoin='round';ctx.lineWidth=bw*2;ctx.strokeStyle=col;ctx.stroke();ctx.restore();
+    ctx.globalAlpha=.95;ctx.lineJoin='round';ctx.lineWidth=z<12?1:1.4;ctx.strokeStyle=col;ctx.stroke();ctx.globalAlpha=1}});
+  function kText(ctx,t,x,y,font,col){ctx.font=font;ctx.lineWidth=3.2;ctx.strokeStyle=KP.halo;ctx.strokeText(t,x,y);ctx.fillStyle=col;ctx.fillText(t,x,y)}
+  function kLab(ctx,xy,pts,z){if(z<10.5)return;const placed=[],F=css('--f-head'),sc=256*Math.pow(2,z)/360;ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineJoin='round';
+    for(let i=0;i<pts.length;i++){const o=pts[i][2],x=xy[i].x,y=xy[i].y,wpx=(o.bb[3]-o.bb[1])*sc*.5;
+      if(z<12.5&&wpx<46)continue;
+      const red=kRed(o),t=o.sh,sub=red?(o.k==='s'||(o.b||[]).some(b=>/vistas/.test(b[3])&&kNow(b))?'Vistelseförbud':'Landstigningsförbud'):'';
+      ctx.font='600 12px '+F;const w=Math.max(ctx.measureText(t).width,sub?ctx.measureText(sub).width*.9:0)+6,h=sub?28:15;
+      const bx=[x-w/2,y-h-2,x+w/2,y];if(placed.some(q=>!(bx[2]<q[0]||bx[0]>q[2]||bx[3]<q[1]||bx[1]>q[3])))continue;placed.push(bx);
+      kText(ctx,t,x,sub?y-21:y-9,'600 12px '+F,red?KP.ri:KP.gi);
+      if(sub)kText(ctx,sub.toUpperCase(),x,y-8,'700 9.5px '+F,KP.ri)}}
+  function kBird(ctx,xy,pts,z){if(z<9.75)return;const s=z<12?.9:1.1,F=css('--f-head');
+    for(let i=0;i<pts.length;i++){const o=pts[i][2],x=xy[i].x,y=xy[i].y,col=kRed(o)?KP.r:KP.g;
+      ctx.beginPath();ctx.arc(x,y,8*s,0,7);ctx.fillStyle=KP.bg;ctx.fill();ctx.lineWidth=2;ctx.strokeStyle=col;ctx.stroke();
+      ctx.beginPath();ctx.moveTo(x-5*s,y+.4*s);ctx.quadraticCurveTo(x-2.6*s,y-3.6*s,x,y+.8*s);ctx.quadraticCurveTo(x+2.6*s,y-3.6*s,x+5*s,y+.4*s);
+      ctx.lineWidth=1.7;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=col;ctx.stroke();
+      if(z>=12){ctx.textAlign='left';ctx.textBaseline='middle';kText(ctx,o.n,x+12*s,y,'600 11.5px '+F,col===KP.r?KP.ri:KP.gi)}}}
+  function kMin(ctx,xy,pts,z){if(z<12.5)return;const F=css('--f-head');
+    for(let i=0;i<pts.length;i++){const o=pts[i][2],x=xy[i].x,y=xy[i].y;
+      ctx.beginPath();for(let k=0;k<8;k++){const r=k%2?2.2:5.4,a=-Math.PI/2+k*Math.PI/4;ctx.lineTo(x+r*Math.cos(a),y+r*Math.sin(a))}ctx.closePath();
+      ctx.lineWidth=2.4;ctx.strokeStyle=KP.halo;ctx.stroke();ctx.fillStyle=KP.g;ctx.fill();
+      if(z>=14.5){ctx.textAlign='left';ctx.textBaseline='middle';kText(ctx,o.n,x+9,y,'600 11px '+F,KP.gi)}}}
+  function kIn(o,ll){let c=false;const x=ll.lng,y=ll.lat;
+    (o._r||(o._r=o.p.flatMap(pg=>pg.map(dec)))).forEach(r=>{for(let i=0,j=r.length-1;i<r.length;j=i++){const a=r[i],b=r[j];
+      if((a[0]>y)!==(b[0]>y)&&x<(b[1]-a[1])*(y-a[0])/(b[0]-a[0])+a[1])c=!c}});return c}
+  function kHit(cp,ll){if(!SKY)return null;const z=map.getZoom();let best=null,bd=18*18;
+    const near=(arr,minz)=>{if(z<minz)return;arr.forEach(o=>{const p=map.latLngToContainerPoint(o.l),dx=p.x-cp.x,dy=p.y-cp.y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=o}})};
+    near(SKY.f,9.75);near(SKY.m,12.5);if(best)return best;
+    SKY.r.forEach(o=>{if(ll.lat<o.bb[0]||ll.lat>o.bb[2]||ll.lng<o.bb[1]||ll.lng>o.bb[3])return;if(kIn(o,ll)&&(!best||o.ha<best.ha))best=o});return best}
+  const kList=a=>a.length<2?a.join(''):a.slice(0,-1).join(', ')+' och '+a[a.length-1];
+  function kHtml(o){const tags=[],rows=[];let sub;
+    const bans=(o.b||[]).map(b=>({b,on:kNow(b)}));
+    if(o.k==='f')sub='Fågelskyddsområde · '+esc(o.m);
+    else if(o.k==='m')sub='Naturminne · '+esc(o.m)+(o.y?' · fredat '+o.y:'');
+    else if(o.k==='s')sub='Sälskyddsområde · '+o.ha+' ha';
+    else sub='Naturreservat'+(o.o==='l'?' · landskapets mark':o.o==='p'?' · privat mark':'')+(o.ha?' · '+(o.ha<1?'under 1':o.ha.toLocaleString('sv-SE'))+' ha':'');
+    const onL=bans.filter(x=>x.on&&x.b[4]!=='f'),onF=bans.filter(x=>x.on&&x.b[4]==='f');
+    if(onL.length)tags.push('<span class="warn">'+(onL.some(x=>/vistas/.test(x.b[3]))?'Vistelseförbud':onL.some(x=>/beträda/.test(x.b[3]))?'Tillträdesförbud':'Landstigningsförbud')+(onL.some(x=>x.b[2])?' nu':' i delar nu')+'</span>');
+    if(onF.length)tags.push('<span class="warn">Fartgräns nu</span>');
+    if(o.nat&&o.nat.length)tags.push('<span title="'+esc(o.nat.map(n=>n[0]+' '+n[1]).join(', '))+'">Natura 2000</span>');
+    bans.forEach(({b,on})=>rows.push('<div class="k-ban'+(on?' on':'')+'"><span class="k-per">'+(kYear(b)?'Hela året':kDate(b[0])+'–'+kDate(b[1]))+'</span><span>'+esc(b[3])+(on&&!kYear(b)?' <b>Gäller nu.</b>':'')+'</span></div>'));
+    let body=rows.join('');
+    if(o.r&&o.r.length)body+='<p><b>Förbjudet att</b> '+kList(o.r.map(k=>KRULE[k]||k))+'.</p>';
+    if(o.k==='m')body+='<p>Fredat naturföremål. Det får inte skadas eller tas bort.</p>';
+    if(o.x)body+='<p class="k-x">'+esc(o.x)+'</p>';
+    if(o.k==='f')body+='<p class="k-x">Exakt gräns finns inte i öppna kartdata. Symbolen visar läget enligt ortnamnsregistret.</p>';
+    if(o.nb)body+='<p class="k-x">Nytt reservat 2026. Gränsen på kartan är Natura 2000-områdets.</p>';
+    if(o.u)body+='<p class="k-lnk"><a href="'+esc(o.u)+'" target="_blank" rel="noopener">'+(/\.pdf$/i.test(o.u)?'Läs beslutet (pdf)':'Läs mer hos landskapsregeringen')+'</a></p>';
+    return '<div class="spop kpop"><div class="sp-h"><b>'+esc(o.n)+'</b><small>'+sub+'</small></div>'+(tags.length?'<div class="sp-tags">'+tags.join('')+'</div>':'')+body+
+      '<p class="sp-src">Ålands landskapsregering · sammanfattning av beslutet</p></div>'}
+  function kOpen(o,ll){const pt=o.k==='f'||o.k==='m';
+    L.popup({maxWidth:250,minWidth:250,maxHeight:Math.max(220,map.getSize().y-150),autoPanPaddingTopLeft:L.point(16,70),autoPanPaddingBottomRight:L.point(70,30),offset:L.point(0,pt?-6:0)}).setLatLng(pt?o.l:ll).setContent(kHtml(o)).openOn(map)}
+  // ett tryck på kartan som stänger en öppen ruta ska inte genast öppna nästa
+  let kHad=false;map.on('preclick',()=>{kHad=!!(map._popup&&map.hasLayer(map._popup))});
+  map.on('click',e=>{if(!SKY||!LAY.res||kHad||!lpop.hidden)return;const o=kHit(e.containerPoint,e.latlng);if(o)kOpen(o,e.latlng)});
+  function kBuild(d){d.f.forEach(o=>o.k='f');d.m.forEach(o=>o.k='m');SKY=d;kPal();
+    d.r.forEach(o=>{const p=new KPoly(o.p.map(pg=>pg.map(dec)),{renderer:kR,interactive:false,smoothFactor:.5});p._o=o;kG.addLayer(p)});
+    kG.addLayer(new SBatch(d.r.map(o=>[o.l[0],o.l[1],o]),kLab,{renderer:kR,interactive:false,pad:90}));
+    kG.addLayer(new SBatch(d.m.map(o=>[o.l[0],o.l[1],o]),kMin,{renderer:kR,interactive:false,pad:120}));
+    kG.addLayer(new SBatch(d.f.map(o=>[o.l[0],o.l[1],o]),kBird,{renderer:kR,interactive:false,pad:160}));
+    kSync()}
+  function kSync(){if(!LAY.res){if(map.hasLayer(kG))map.removeLayer(kG);return}
+    if(!SKY){if(!kLoad){kLoad=true;fetch('skydd.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(kBuild).catch(()=>{kLoad=false})}return}
+    if(!map.hasLayer(kG))kG.addTo(map)}
+  function kPaint(){kPal();if(SKY)kG.eachLayer(l=>l.redraw())}
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)kPaint()});
+
+  /* ---------- lagermenyn ---------- */
+  const lpop=$('#laypop'),lbtn=$('#layb');
+  function laySave(){try{localStorage.setItem('va-lay',JSON.stringify(LAY))}catch(e){}}
+  function layUI(){lpop.querySelectorAll('[data-l]').forEach(b=>b.setAttribute('aria-pressed',String(!!LAY[b.dataset.l])));
+    box.classList.toggle('no-trl',!LAY.trl);box.classList.toggle('no-res',!LAY.res)}
+  function layOpen(on){lpop.hidden=!on;lbtn.setAttribute('aria-pressed',String(on))}
+  lpop.addEventListener('click',e=>{const b=e.target.closest('[data-l]');if(!b)return;const k=b.dataset.l;LAY[k]=LAY[k]?0:1;laySave();layUI();
+    if(k==='res')kSync();else if(k==='snd')sRedraw();else if(k==='rk')sUpdate()});
+  lbtn.onclick=e=>{e.stopPropagation();layOpen(lpop.hidden)};
+  $('#snote').onclick=e=>{e.stopPropagation();layOpen(true)};
+  document.addEventListener('click',e=>{if(!lpop.hidden&&!lpop.contains(e.target)&&!lbtn.contains(e.target))layOpen(false)});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lpop.hidden){layOpen(false);e.stopImmediatePropagation()}});
+  layUI();kSync();
 
   /* ---------- vald led: tona ner andra, visa mål och gåriktning ---------- */
   // Markeringen ligger kvar när rutan stängs, så att man ser leden. Tryck på kartan för att släppa den.
@@ -1773,18 +1943,17 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     try{localStorage.setItem('va-mode',m);localStorage.setItem('va-omode',omode?'1':'0')}catch(e){}
     box.classList.toggle('omode',omode);box.classList.toggle('smode',smode);
     $('#mnorm').setAttribute('aria-pressed',String(m==='n'));$('#mo').setAttribute('aria-pressed',String(omode));$('#ms').setAttribute('aria-pressed',String(smode));
-    map.setMaxZoom(omode?OMAX:smode?SMAX:NMAX);
-    attrC.removeAttribution(STA);attrC.removeAttribution(STR);if(smode)attrC.addAttribution(srast?STR:STA);
-    paint();oUpdate();sUpdate();
+    map.setMaxZoom(omode?OMAX:smode?(srast?RMAX:SMAX):NMAX);
+    paint();oUpdate();sUpdate();sAttr();
     if(omode&&user){const vb=map.getBounds();
       if(map.getZoom()<OZ)hint('Zooma in för att se terrängen');
       else if(!OB.some(c=>vb.intersects(c.b)))hint('Zooma in över land för att se terrängen')}
     else if(smode&&user&&map.getZoom()<SZD)hint('Zooma in för djupsiffror och sjömärken');
     else ohint.classList.add('out')}
   $('#mo').onclick=()=>{if(!omode)setMode('o',true)};$('#mnorm').onclick=()=>{if(mode!=='n')setMode('n',true)};$('#ms').onclick=()=>{if(!smode)setMode('s',true)};
-  attrC.addAttribution(OSMA);map.setMaxZoom(omode?OMAX:smode?SMAX:NMAX);
+  attrC.addAttribution(OSMA);map.setMaxZoom(omode?OMAX:smode?(srast?RMAX:SMAX):NMAX);
   if(omode){box.classList.add('omode');$('#mo').setAttribute('aria-pressed','true');$('#mnorm').setAttribute('aria-pressed','false')}
-  if(smode){box.classList.add('smode');$('#ms').setAttribute('aria-pressed','true');$('#mnorm').setAttribute('aria-pressed','false');attrC.addAttribution(srast?STR:STA)}
+  if(smode){box.classList.add('smode');$('#ms').setAttribute('aria-pressed','true');$('#mnorm').setAttribute('aria-pressed','false');sAttr()}
 
   /* ---------- min position (visas bara när man trycker på knappen) ----------
      Följ-läge: kartan håller dig i mitten tills du själv drar i kartan. Tryck igen för att centrera, en gång till för att stänga av. */

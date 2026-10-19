@@ -9,21 +9,32 @@ Innehåll
 - sw.js: sparar appen i telefonen så den fungerar utan täckning efter första besöket
 - foto/, tumme/: foton från Visit Åland (rättigheterna tillhör Visit Åland)
 - o/: terrängdata för kartan och O-kartan (OpenStreetMap, Lantmäteriverkets terrängdatabas och höjddata)
-- s/: data för det ritade sjökortet (djup från Traficom, farleder och sjömärken från Väylävirasto, stenar från OpenStreetMap). Ej för navigering.
+- s/: data för det ritade sjökortet (djup från Traficom, farleder och sjömärken från Väylävirasto, stenar och grund från Lantmäteriverkets terrängdatabas och OpenStreetMap). Ej för navigering.
 - sjokort-licens.txt: källor och licensvillkor för sjökortet
 - skydd.json: naturreservat, säl- och fågelskyddsområden och naturminnen (visas i alla kartlägen)
+- namn.json: ortnamn från Lantmäteriverkets terrängdatabas (öar, uddar, vikar, berg, gårdar m.m.)
+- kultur.json: kulturarv från Ålands landskapsregering (fornlämningar, vrak, krigstida lämningar, byggnadsminnen)
 
 Sjökortets läge Kartbild hämtar Traficoms öppna sjökortsbilder direkt från Traficom (CC BY 4.0), så det behövs nät första gången man tittar på ett område.
 Kartbilden visas från zoomnivå 12 och går att zooma till nivå 16. Utzoomat visas det egna ritade sjökortet.
 
-Lagerknappen (tre lager på varandra) slår av och på naturreservat, vandringsleder, djupsiffror och stenar och väljer Kartbild eller Ritad.
+Lagerknappen (tre lager på varandra) slår av och på naturreservat, kulturarv, vandringsleder, djupsiffror och stenar och väljer Kartbild eller Ritad.
 
 Byggnader och terräng
 Alla byggnader (också bodar, lador, bastur och garage), berg i dagen, stenfält, branter, stenar, blockfält, myrar och sankmark kommer från Lantmäteriverkets terrängdatabas 04/2025 (Maastotietokanta, CC BY 4.0). Den hämtades från Funets kopia av Lantmäteriverkets öppna data. Hus som bara finns i OpenStreetMap är kvar. Hus och små hällar ritas från zoomnivå 13.
+
+Ortnamn
+Omkring 9 000 namn kommer från Lantmäteriverkets terrängdatabas 04/2025 (CC BY 4.0): öar, holmar, skär, uddar, vikar, fjärdar, berg, åkrar, skogar, myrar, grund, byar och gårdar. Namn som redan finns i OpenStreetMap hoppas över. Stora namn syns tidigt, små först när man zoomar in.
+
+Stenar och grund i sjökortet
+Stenar under, i och ovanför vattenytan och områden med grunt vatten eller stenar kommer från Lantmäteriverkets terrängdatabas 04/2025 (CC BY 4.0). Stenar som bara finns i OpenStreetMap är kvar. De är inritade från flygbilder och inte sjömätta. Ej för navigering. Stenarna ritas från zoomnivå 13 och går att slå av i lagermenyn.
+
+Kulturarv
+Fornlämningar, vrak, krigstida lämningar och byggnadsminnen kommer från Ålands landskapsregering (CC BY 4.0). Tryck på en symbol för mer info. Fornlämningar är skyddade enligt lag. Lämna dem orörda.
 
 Naturreservat och skyddsområden
 Gränserna kommer från Ålands landskapsregering (CC BY 4.0). Reglerna (t.ex. landstigningsförbud) är sammanfattade ur fredningsbesluten i Ålands författningssamling. Kanten blir röd när landstigning eller vistelse är förbjuden just nu. Läs alltid beslutet för detaljer.
 Fågelskyddsområden enligt jaktlagen 26 § saknar gränser i öppna data. De visas som en symbol på det läge som Lantmäteriverkets ortnamnsregister anger. Hamnholmsgrunden i Brändö saknas eftersom läget inte gick att hitta.
 Storskär-Kalhära naturreservat (2026) finns ännu inte i landskapsregeringens reservatlager. Gränsen är tagen från Natura 2000-området med samma namn.
 
-Källor: Visit Åland, Traficom (sjökortsbilder och sjökortsdatabas 10/2026), Väylävirasto (CC BY 4.0), Ålands landskapsregering (bl.a. naturreservat, CC BY 4.0), Lantmäteriverket (terrängdatabasen 04/2025 och ortnamnsregistret, CC BY 4.0), OpenStreetMap-bidragsgivare, GSHHG, Mapzen Terrain Tiles på AWS (bl.a. Copernicus EU-DEM).
+Källor: Visit Åland, Traficom (sjökortsbilder och sjökortsdatabas 10/2026), Väylävirasto (CC BY 4.0), Ålands landskapsregering (naturreservat och kulturarv, CC BY 4.0), Lantmäteriverket (terrängdatabasen 04/2025 och ortnamnsregistret, CC BY 4.0), OpenStreetMap-bidragsgivare, GSHHG, Mapzen Terrain Tiles på AWS (bl.a. Copernicus EU-DEM).

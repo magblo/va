@@ -859,6 +859,25 @@ h1{font:700 34px/1.02 var(--f-head);letter-spacing:-.01em;margin:0 0 10px;text-w
 .mapbox.smode.rast .nm,.mapbox.smode.rast .lab{display:none}
 .mapbox.smode.rast .leaflet-hs-pane,.mapbox.smode.rast .leaflet-odet-pane{display:none}
 .mapbox.rast .leg-s.vec,.mapbox:not(.rast) .leg-s.rast{display:none}
+/* läget Karta: grön skog, ljusa åkrar, gula huvudvägar, klarare vatten; skuggningen tonas ner inzoomat */
+:root{
+  --land:#d6e4c9; --coast:#6c98a3; --sea0:#76b6d5; --sea1:#93c8e0; --sea2:#a9d5e8; --sea3:#c2e2f0;
+  --label:#283530; --sea-ink:#2b6b88; --halo:#edf3e6; --road:#ffffff; --road-case:#b8c0b1; --ferry:#3a7ca1; --road-main:#fbe6a0; --road-main-case:#d4b866;
+  --n-open:#f7f1d9; --n-rough:#e8efd2; --n-orchard:#e2ebcd; --n-green:#bed7ae; --n-settle:#ebe8e0; --n-sand:#f3e9cc; --n-rock:#e4e7d8;
+  --n-marsh:#cbe2da; --n-contour:#9c876a; --n-stream:#56a3c9; --n-bld:#bfb6aa; --n-track:#8f806b; --n-path:#6a5b47; --n-cliff:#8a8275; --hs-op:.5; --peak:#77552f;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --land:#2d3c32; --coast:#5d8994; --sea0:#0d2130; --sea1:#11293a; --sea2:#163145; --sea3:#1c3a50;
+  --label:#d3ddd7; --sea-ink:#86b4c8; --halo:#2d3c32; --road:#6a736b; --road-case:#1d2520; --ferry:#6fa8c4; --road-main:#8f7d45; --road-main-case:#2a2515;
+  --n-open:#4a4834; --n-rough:#3c4735; --n-orchard:#3a4634; --n-green:#24352a; --n-settle:#3d413d; --n-sand:#4a4734; --n-rock:#39433c;
+  --n-marsh:#2c4040; --n-contour:#8c785f; --n-stream:#4b8fb4; --n-bld:#5e645e; --n-track:#857b6c; --n-path:#a59a86; --n-cliff:#6a706a; --hs-op:1; --peak:#d1ab7c;}}
+:root[data-theme="dark"]{
+  --land:#2d3c32; --coast:#5d8994; --sea0:#0d2130; --sea1:#11293a; --sea2:#163145; --sea3:#1c3a50;
+  --label:#d3ddd7; --sea-ink:#86b4c8; --halo:#2d3c32; --road:#6a736b; --road-case:#1d2520; --ferry:#6fa8c4; --road-main:#8f7d45; --road-main-case:#2a2515;
+  --n-open:#4a4834; --n-rough:#3c4735; --n-orchard:#3a4634; --n-green:#24352a; --n-settle:#3d413d; --n-sand:#4a4734; --n-rock:#39433c;
+  --n-marsh:#2c4040; --n-contour:#8c785f; --n-stream:#4b8fb4; --n-bld:#5e645e; --n-track:#857b6c; --n-path:#a59a86; --n-cliff:#6a706a; --hs-op:1; --peak:#d1ab7c;}
+.leaflet-hs-pane{opacity:calc(var(--hs-op) * var(--hs-zf,1))}
+.nm-village span{font-weight:700;letter-spacing:.06em}
+.legend .ln.road-main{border-top:3.5px solid var(--road-main);box-shadow:0 0 0 1px var(--road-main-case)}
 /* lager av/på */
 .mapbox.no-trl .leaflet-trails-pane,.mapbox.no-trl .pinwrap{display:none}
 .mapbox.no-res .leg-k{display:none}
@@ -1251,12 +1270,15 @@ footer p{margin:0 0 8px}
       <ul class="leg-n">
         <li><span class="sw"><span class="ln"></span></span>Led</li>
         <li><span class="sw"><span class="ln long"></span></span>Långled</li>
+        <li><span class="sw"><span class="ln road-main"></span></span>Huvudväg</li>
         <li><span class="sw"><span class="ln road"></span></span>Väg</li>
         <li><span class="sw"><span class="ln ferry"></span></span>Färjelinje</li>
         <li><span class="sw"><span class="ln n-path"></span></span>Stig</li>
         <li><span class="sw"><span class="fill" style="background:var(--land)"></span></span>Skog</li>
         <li><span class="sw"><span class="fill" style="background:var(--n-open)"></span></span>Åker, äng</li>
         <li><span class="sw"><span class="fill" style="background:var(--n-rock)"></span></span>Berg i dagen</li>
+        <li><span class="sw"><span class="fill" style="background:var(--n-marsh)"></span></span>Myr</li>
+        <li><span class="sw"><span class="fill" style="background:var(--sea1)"></span></span>Hav, sjö</li>
         <li><span class="sw"><span class="poi poi-P"><b>P</b></span></span>Parkering</li>
         <li><span class="sw"><span class="poi"><svg viewBox="0 0 16 16"><path d="M5 15 7 5h2l2 10M6 10h4M4.5 5h7L8 1.5z"/></svg></span></span>Utsiktstorn</li>
         <li><span class="sw"><span class="poi"><svg viewBox="0 0 16 16"><path d="M2 6h12M4 6l-2 7M12 6l2 7M5 9.5h6"/></svg></span></span>Rastplats</li>
@@ -1497,6 +1519,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
 
   const layers={};
   ['b3','b2','b1','land'].forEach(k=>{layers[k]=L.polygon(M[k].map(p=>p.map(dec)),{interactive:false,smoothFactor:.8}).addTo(map)});
+  layers.bg=L.rectangle([[57.5,16.5],[62.5,24.5]],{interactive:false,stroke:false,fillOpacity:1}).addTo(map);layers.bg.bringToBack();
   // vägar och färjor
   const roadL={};
   [['T',.9,1.9],['S',1.3,2.7],['P',2.2,4]].forEach(([k,w,cw])=>{const ll=(D.roads[k]||[]).map(dec);
@@ -1513,13 +1536,14 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     const O=omode,S=smode;
     map.getContainer().style.background=O?css('--o-water'):S?css('--s-20'):'';
     const band=k=>({stroke:false,fillColor:css(O?'--o-water':k),fillOpacity:1});
-    const base=['land','b1','b2','b3'];
+    const base=['land','b1','b2','b3','bg'];
     if(S)base.forEach(k=>{if(map.hasLayer(layers[k]))map.removeLayer(layers[k])});
     else if(!map.hasLayer(layers.land)){base.forEach(k=>layers[k].addTo(map));base.forEach(k=>layers[k].bringToBack())}
-    layers.b3.setStyle(band('--sea1'));layers.b2.setStyle(band('--sea2'));layers.b1.setStyle(band('--sea3'));
+    layers.bg.setStyle(band('--sea0'));layers.b3.setStyle(band('--sea1'));layers.b2.setStyle(band('--sea2'));layers.b1.setStyle(band('--sea3'));
     layers.land.setStyle({color:css(O?'--o-wline':'--coast'),opacity:1,fillColor:css(O?'--o-forest':'--land'),fillOpacity:1});
     const rc=css(O?'--o-black':S?'--s-road-case':'--road-case'),rf=css(S?'--s-road':'--road');
     ['P','S'].forEach(k=>{roadL[k].c.setStyle({color:rc,opacity:1});roadL[k].f.setStyle({color:O?css('--o-road'):rf,opacity:1})});
+    if(!O&&!S){roadL.P.c.setStyle({color:css('--road-main-case')});roadL.P.f.setStyle({color:css('--road-main')})}
     roadL.T.c.setStyle({color:rc,opacity:O?0:1});roadL.T.f.setStyle({color:O?css('--o-black'):rf,opacity:1});
     ferryL.setStyle({color:css(O?'--o-wline':S?'--s-ferry':'--ferry'),opacity:.95});
     Object.values(lineOf||{}).forEach(o=>{o.casing.setStyle({color:css(O?'--o-halo':'--halo')});o.line.setStyle({color:O?css('--o-course'):o.long?css('--longline'):o.c})});
@@ -1640,15 +1664,15 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     S('marsh',{fillColor:O?pats.marsh:css('--n-marsh')});
     const bl=O?css('--o-black'):null;
     S('shore',{color:O?css('--o-shore'):css('--coast'),weight:O?1.1:.9,opacity:1});
-    S('c',{color:tk('contour'),opacity:O?(full?1:0):(z>=14.5?.55:0),weight:O?(big?1.05:.85):.7});
+    S('c',{color:tk('contour'),opacity:O?(full?1:0):(z>=14?.6:0),weight:O?(big?1.05:.85):.7});
     S('ci',{color:tk('contour'),opacity:O?(z>=OZ2-.5?1:.75):(z>=13?.6:0),weight:O?(big?2:1.6):1.1});
     S('stream',{color:O?css('--o-wline'):css('--n-stream'),weight:O?1.3:1.1});
     S('fence',{color:bl||css('--n-cliff'),opacity:O?.7:0,weight:.9});
     S('power',{color:bl||css('--n-cliff'),opacity:O?1:(z>=14?.5:0),weight:.8});
     S('cliff',{color:bl||css('--n-cliff'),opacity:O?1:(z>=14?.8:0),weight:O?(big?3:2.2):(big?1.8:1.3)});
     S('road1c',{color:css('--road-case'),opacity:O?0:(z>=13?1:0),weight:big?5:3.6});
-    S('roadc',{color:O?bl:css('--road-case'),opacity:1,weight:O?(big?5.6:4.4):(big?7:5.2)});
-    S('road',{color:O?css('--o-road'):css('--road'),opacity:1,weight:O?(big?3:2.2):(big?5:3.4)});
+    S('roadc',{color:O?bl:css('--road-main-case'),opacity:1,weight:O?(big?5.6:4.4):(big?7:5.2)});
+    S('road',{color:O?css('--o-road'):css('--road-main'),opacity:1,weight:O?(big?3:2.2):(big?5:3.4)});
     S('road1',{color:O?bl:css('--road'),opacity:1,weight:O?(big?2.3:1.8):(z>=13?(big?3.2:2):1.4)});
     S('track',{color:O?bl:css('--n-track'),weight:O?(big?2.2:1.7):(big?1.8:1.3),dashArray:'7 3',opacity:O?1:(z>=13?1:0)});
     S('path',{color:O?bl:css('--n-path'),weight:O?(big?1.8:1.35):(big?1.7:1.2),dashArray:big?'6 4':'4 3',opacity:O?1:(z>=13.5?1:0)});
@@ -1671,6 +1695,7 @@ const M={"land":[["enkrJuifaCq@sFyCwJo@k|Em@}o|@jsBinSvgF{sLb|ImyE|v_@^zsB^nB`Bt
     const idle=Object.entries(OC).filter(([k,o])=>o.st==='ok'&&!map.hasLayer(o.g)).sort((a,b)=>(a[1].t||0)-(b[1].t||0));
     let n=Object.keys(OC).length;for(const [k] of idle){if(n<=14)break;delete OC[k];n--}}
   map.on('moveend zoomend',oUpdate);
+  const hsZ=()=>{const z=map.getZoom();document.documentElement.style.setProperty('--hs-zf',String(z<=11?1:z>=15?.35:+(1-(z-11)*.1625).toFixed(3)))};map.on('zoomend',hsZ);hsZ();
   /* ---------- terrängskuggning (förberäknade rutor, multiply) ---------- */
   const HS=new Set(D.hs||[]);
   const HSL=L.TileLayer.extend({createTile(c,done){const k=(c.z-1)+'/'+c.x+'/'+c.y;

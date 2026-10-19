@@ -1,5 +1,5 @@
 // Sparar appen i telefonen så att den fungerar även utan täckning efter första besöket.
-const V='vandra-aland-v14';
+const V='vandra-aland-v15';
 const TV='va-sjokort-1'; // sjökortsbilder från Traficom sparas separat och överlever appuppdateringar
 const MV='va-mapant-1'; // MapAnt-rutor (O-karta) sparas också separat, högst MMAX stycken
 const MMAX=6000;let mput=0;
